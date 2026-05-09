@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App</title>
+  <script src="https://cdn.jsdelivr.net/npm/updato/dist/updato.js"></script>
+  <script>
+    var CURRENT_VERSION = "__VERSION_INJECTED_AT_BUILD__";
+
+    var updater = Updato.init({
+      repo: "user/my-app",
+      mode: "commit",
+      current: CURRENT_VERSION,
+      workerUrl: "https://updato.neeljaiswal23.workers.dev"
+    });
+
+    async function checkForUpdates() {
+      var result = await updater.checkForUpdate();
+      if (result && result.update) {
+        var banner = document.getElementById("update-banner");
+        banner.style.display = "block";
+        banner.querySelector("span").textContent =
+          "Update: " + result.latest;
+        window.__pendingUpdate = result;
+      }
+    }
+
+    window.applyUpdate = async function () {
+      var result = window.__pendingUpdate;
+      if (!result) return;
+      await updater.downloadUpdate(result);
+      updater.applyUpdate(result.files);
+    };
+
+    checkForUpdates();
+  </script>
+  <style>
+    #update-banner {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1a1a2e;
+      color: #eee;
+      padding: 12px 24px;
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      z-index: 9999;
+    }
+    #update-banner button {
+      margin-left: 12px;
+      padding: 6px 16px;
+      background: #4ecca3;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>My App</h1>
+  <p>Content goes here.</p>
+
+  <div id="update-banner">
+    <span></span>
+    <button onclick="applyUpdate()">Update</button>
+  </div>
+</body>
+</html>

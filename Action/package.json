@@ -1,0 +1,21 @@
+{
+  "name": "updato-action",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Updato GitHub Action",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist",
+    "prebuild": "rm -rf dist"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/exec": "^3.0.0",
+    "@actions/github": "^9.1.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.4",
+    "typescript": "^6.0.3",
+    "@types/node": "^25.6.2"
+  }
+}

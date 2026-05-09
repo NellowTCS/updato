@@ -1,0 +1,29 @@
+name: Publish to CDN (commit mode)
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish to cdn
+        uses: nellowtcs/updato@v1
+        with:
+          mode: commit
+          dist_dir: dist
+          build_script: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

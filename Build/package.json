@@ -1,0 +1,24 @@
+{
+  "name": "updato",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Updato client library",
+  "main": "dist/updato.js",
+  "module": "dist/updato.mjs",
+  "types": "dist/updato.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/updato.mjs",
+      "require": "./dist/updato.js",
+      "types": "./dist/updato.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^8.0.11"
+  }
+}
