@@ -6,7 +6,7 @@ import * as path from "node:path";
 import * as os from "node:os";
 import { randomUUID } from "node:crypto";
 
-interface Manifest {
+export interface Manifest {
   app: string;
   mode: "commit" | "version";
   latest: string;
@@ -15,7 +15,7 @@ interface Manifest {
   timestamp: number;
 }
 
-interface Inputs {
+export interface Inputs {
   mode: "commit" | "version";
   distDir: string;
   buildScript: string;
@@ -25,7 +25,7 @@ interface Inputs {
   userEmail: string;
 }
 
-function getInputs(): Inputs {
+export function getInputs(): Inputs {
   const mode = core.getInput("mode");
   if (mode !== "commit" && mode !== "version") {
     throw new Error(`Invalid mode: "${mode}". Must be "commit" or "version".`);
@@ -41,15 +41,15 @@ function getInputs(): Inputs {
   };
 }
 
-function getRepoOwner(): string {
+export function getRepoOwner(): string {
   return github.context.repo.owner;
 }
 
-function getRepoName(): string {
+export function getRepoName(): string {
   return github.context.repo.repo;
 }
 
-async function getCommitSha(): Promise<string> {
+export async function getCommitSha(): Promise<string> {
   let sha = "";
   const code = await exec.exec("git", ["rev-parse", "HEAD"], {
     silent: true,
@@ -65,7 +65,7 @@ async function getCommitSha(): Promise<string> {
   return sha;
 }
 
-async function getPackageVersion(): Promise<string> {
+export async function getPackageVersion(): Promise<string> {
   const pkgPath = path.join(process.cwd(), "package.json");
   if (!fs.existsSync(pkgPath)) {
     throw new Error(
@@ -83,7 +83,7 @@ async function getPackageVersion(): Promise<string> {
   return pkg.version;
 }
 
-async function runBuild(buildScript: string): Promise<void> {
+export async function runBuild(buildScript: string): Promise<void> {
   core.startGroup("Running build script");
   try {
     const exitCode = await exec.exec(buildScript, [], {
@@ -99,7 +99,7 @@ async function runBuild(buildScript: string): Promise<void> {
 
 const SCRIPT_MODULE_RE = /<script[^>]*?type\s*=\s*["']module["'][^>]*?src\s*=\s*["']([^"']+)["']/gi;
 
-function findModuleScripts(distDir: string): Set<string> {
+export function findModuleScripts(distDir: string): Set<string> {
   const modules = new Set<string>();
   const htmlFiles = listFiles(distDir).filter(
     (f) => f.endsWith(".html") || f.endsWith(".htm"),
@@ -116,7 +116,7 @@ function findModuleScripts(distDir: string): Set<string> {
   return modules;
 }
 
-function listFiles(dir: string): string[] {
+export function listFiles(dir: string): string[] {
   const entries: string[] = [];
   function walk(current: string) {
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
@@ -132,7 +132,7 @@ function listFiles(dir: string): string[] {
   return entries;
 }
 
-function copyDirectoryContents(src: string, dest: string): void {
+export function copyDirectoryContents(src: string, dest: string): void {
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     const srcPath = path.join(src, entry.name);
@@ -145,12 +145,12 @@ function copyDirectoryContents(src: string, dest: string): void {
   }
 }
 
-function cloneUrl(): string {
+export function cloneUrl(): string {
   const token = process.env.GITHUB_TOKEN || "";
   return `https://x-access-token:${token}@github.com/${getRepoOwner()}/${getRepoName()}.git`;
 }
 
-async function deployToCdn(
+export async function deployToCdn(
   inputs: Inputs,
   version: string
 ): Promise<void> {
@@ -273,7 +273,7 @@ async function deployToCdn(
   }
 }
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     const inputs = getInputs();
 

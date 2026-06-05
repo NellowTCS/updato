@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test Action
+        working-directory: Action
+        run: npx jest --silent
+
+      - name: Test Worker
+        working-directory: Worker
+        run: npx jest --silent
+
+      - name: Test Client
+        working-directory: Build
+        run: npx jest --silent
+
+      - name: Build Client
+        working-directory: Build
+        run: npm run build
+
+      - name: Build Worker
+        working-directory: Worker
+        run: npx tsc --noEmit
+
+      - name: Build Action
+        working-directory: Action
+        run: npm run build

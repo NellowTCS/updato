@@ -8,5 +8,6 @@
     "rootDir": "src",
     "lib": ["ES2022"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/__tests__", "src/__mocks__"]
 }

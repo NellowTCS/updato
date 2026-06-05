@@ -9,5 +9,6 @@
     "declarationMap": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/__tests__", "src/__mocks__"]
 }

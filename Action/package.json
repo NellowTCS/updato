@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/index.js",
-    "prebuild": "rm -rf dist"
+    "prebuild": "rm -rf dist",
+    "test": "jest"
   },
   "dependencies": {
     "@actions/core": "^3.0.1",
@@ -14,8 +15,11 @@
     "@actions/github": "^9.1.1"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.6.2",
     "esbuild": "^0.27.3",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
   }
 }

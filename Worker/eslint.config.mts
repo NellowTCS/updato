@@ -9,7 +9,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig([
   {
-    ignores: ["dist/**", "node_modules/**"],
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      "src/__tests__/**",
+      "src/__mocks__/**",
+      "jest.config.js",
+    ],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],

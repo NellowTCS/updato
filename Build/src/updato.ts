@@ -72,7 +72,7 @@ export class Updato {
     return instance;
   }
 
-  private async initialize(): Promise<void> {
+  async initialize(): Promise<void> {
     this.initialized = true;
     try {
       this.events.onReady?.();

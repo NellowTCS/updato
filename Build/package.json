@@ -17,14 +17,19 @@
     "build": "vite build",
     "preview": "vite preview",
     "make-pretty": "prettier --write .",
-    "lint": "eslint . --ext .ts,.js --fix"
+    "lint": "eslint . --ext .ts,.js --fix",
+    "test": "jest"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
     "eslint": "^10.4.1",
     "globals": "^17.6.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
     "jiti": "^2.7.0",
     "prettier": "^3.8.3",
+    "ts-jest": "^29.4.11",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.60.1",
     "vite": "^8.0.11"

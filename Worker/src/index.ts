@@ -30,7 +30,7 @@ const CORS_HEADERS = {
 
 const CACHE_CONTROL = "public, max-age=60, s-maxage=300";
 
-function jsonResponse(data: unknown, status = 200): Response {
+export function jsonResponse(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
@@ -41,7 +41,7 @@ function jsonResponse(data: unknown, status = 200): Response {
   });
 }
 
-function errorResponse(message: string, status = 400): Response {
+export function errorResponse(message: string, status = 400): Response {
   return jsonResponse({ error: message }, status);
 }
 
@@ -49,7 +49,7 @@ function manifestCacheKey(repo: string, branch: string): string {
   return `manifest:${branch}:${repo}`;
 }
 
-async function fetchManifest(
+export async function fetchManifest(
   repo: string,
   branch: string,
   kv: KVNamespace,
@@ -96,14 +96,14 @@ async function fetchManifest(
   return result.manifest;
 }
 
-function parseSemver(version: string): number[] {
+export function parseSemver(version: string): number[] {
   return version.split(".").map((part) => {
     const num = parseInt(part, 10);
     return Number.isNaN(num) ? 0 : num;
   });
 }
 
-function isNewerVersion(current: string, latest: string): boolean {
+export function isNewerVersion(current: string, latest: string): boolean {
   if (current === latest) return false;
   const cur = parseSemver(current);
   const lat = parseSemver(latest);
@@ -117,7 +117,7 @@ function isNewerVersion(current: string, latest: string): boolean {
   return false;
 }
 
-async function handleCheck(
+export async function handleCheck(
   repo: string,
   branch: string,
   current: string,
@@ -156,7 +156,7 @@ async function handleCheck(
   return jsonResponse(response);
 }
 
-async function handleManifest(
+export async function handleManifest(
   repo: string,
   branch: string,
   kv: KVNamespace,
@@ -171,7 +171,11 @@ async function handleManifest(
   }
 }
 
-function parseUrl(url: URL): { repo: string; branch: string; current: string } {
+export function parseUrl(url: URL): {
+  repo: string;
+  branch: string;
+  current: string;
+} {
   return {
     repo: url.searchParams.get("repo") || "",
     branch: url.searchParams.get("branch") || "cdn",
@@ -179,11 +183,11 @@ function parseUrl(url: URL): { repo: string; branch: string; current: string } {
   };
 }
 
-function validateRepo(repo: string): boolean {
+export function validateRepo(repo: string): boolean {
   return /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_.-]+$/.test(repo);
 }
 
-function validateBranch(branch: string): boolean {
+export function validateBranch(branch: string): boolean {
   return /^[a-zA-Z0-9_./-]+$/.test(branch) && branch.length <= 100;
 }
 
