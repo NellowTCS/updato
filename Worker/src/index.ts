@@ -10,6 +10,7 @@ interface CheckResponse {
   latest: string;
   current: string;
   files: string[];
+  branch: string;
 }
 
 interface Env {
@@ -43,16 +44,17 @@ function errorResponse(message: string, status = 400): Response {
   return jsonResponse({ error: message }, status);
 }
 
-function manifestCacheKey(repo: string): string {
-  return `manifest:${repo}`;
+function manifestCacheKey(repo: string, branch: string): string {
+  return `manifest:${branch}:${repo}`;
 }
 
 async function fetchManifest(
   repo: string,
+  branch: string,
   kv: KVNamespace,
   cacheTtl: number,
 ): Promise<Manifest> {
-  const cacheKey = manifestCacheKey(repo);
+  const cacheKey = manifestCacheKey(repo, branch);
 
   const cached = await kv.get(cacheKey);
   if (cached) {
@@ -65,7 +67,7 @@ async function fetchManifest(
     }
   }
 
-  const url = `https://raw.githubusercontent.com/${repo}/cdn/manifest.json`;
+  const url = `https://raw.githubusercontent.com/${repo}/${branch}/manifest.json`;
   const response = await fetch(url, {
     headers: { "User-Agent": "updato-worker/1.0" },
   });
@@ -116,6 +118,7 @@ function isNewerVersion(current: string, latest: string): boolean {
 
 async function handleCheck(
   repo: string,
+  branch: string,
   current: string,
   kv: KVNamespace,
   cacheTtl: number,
@@ -126,7 +129,7 @@ async function handleCheck(
 
   let manifest: Manifest;
   try {
-    manifest = await fetchManifest(repo, kv, cacheTtl);
+    manifest = await fetchManifest(repo, branch, kv, cacheTtl);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return errorResponse(message, 502);
@@ -145,6 +148,7 @@ async function handleCheck(
     latest: manifest.latest,
     current,
     files: manifest.files,
+    branch,
   };
 
   return jsonResponse(response);
@@ -152,11 +156,12 @@ async function handleCheck(
 
 async function handleManifest(
   repo: string,
+  branch: string,
   kv: KVNamespace,
   cacheTtl: number,
 ): Promise<Response> {
   try {
-    const manifest = await fetchManifest(repo, kv, cacheTtl);
+    const manifest = await fetchManifest(repo, branch, kv, cacheTtl);
     return jsonResponse(manifest);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -164,15 +169,20 @@ async function handleManifest(
   }
 }
 
-function parseUrl(url: URL): { repo: string; current: string } {
+function parseUrl(url: URL): { repo: string; branch: string; current: string } {
   return {
     repo: url.searchParams.get("repo") || "",
+    branch: url.searchParams.get("branch") || "cdn",
     current: url.searchParams.get("current") || "",
   };
 }
 
 function validateRepo(repo: string): boolean {
   return /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_.-]+$/.test(repo);
+}
+
+function validateBranch(branch: string): boolean {
+  return /^[a-zA-Z0-9_./-]+$/.test(branch) && branch.length <= 100;
 }
 
 export default {
@@ -207,7 +217,7 @@ export default {
       ? parseInt(env.UPDATO_CACHE_TTL, 10) || DEFAULT_CACHE_TTL
       : DEFAULT_CACHE_TTL;
 
-    const { repo, current } = parseUrl(url);
+    const { repo, branch, current } = parseUrl(url);
 
     if (!repo) {
       return errorResponse("Missing 'repo' query parameter.");
@@ -217,13 +227,17 @@ export default {
       return errorResponse("Invalid repo format. Expected 'owner/repo'.", 400);
     }
 
+    if (!validateBranch(branch)) {
+      return errorResponse("Invalid branch name.", 400);
+    }
+
     const path = url.pathname.replace(/\/+$/, "") || "/";
 
     switch (path) {
       case "/manifest":
-        return handleManifest(repo, env.UPDATO_KV, cacheTtl);
+        return handleManifest(repo, branch, env.UPDATO_KV, cacheTtl);
       case "/check":
-        return handleCheck(repo, current, env.UPDATO_KV, cacheTtl);
+        return handleCheck(repo, branch, current, env.UPDATO_KV, cacheTtl);
       default:
         return errorResponse(
           `Unknown endpoint "${path}". Use /manifest or /check.`,

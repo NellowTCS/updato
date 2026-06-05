@@ -24,6 +24,7 @@ export interface CheckResponse {
   latest: string;
   current: string;
   files: string[];
+  branch?: string;
 }
 
 export interface UpdatoEvents {
@@ -75,13 +76,17 @@ export class Updato {
     }
   }
 
+  private get branch(): string {
+    return this.config.branch || "cdn";
+  }
+
   async checkForUpdate(): Promise<CheckResponse | null> {
     if (!this.initialized) {
       throw new Error("Updato not initialized. Create an instance first.");
     }
 
     const current = this.getCurrentVersion();
-    const url = `${this.workerUrl}/check?repo=${encodeURIComponent(this.config.repo)}&current=${encodeURIComponent(current)}`;
+    const url = `${this.workerUrl}/check?repo=${encodeURIComponent(this.config.repo)}&branch=${encodeURIComponent(this.branch)}&current=${encodeURIComponent(current)}`;
 
     let response: Response;
     try {
@@ -123,7 +128,8 @@ export class Updato {
   async downloadUpdate(checkResponse: CheckResponse): Promise<boolean> {
     if (!checkResponse.update) return false;
 
-    const baseUrl = `https://raw.githubusercontent.com/${this.config.repo}/cdn/versions/${checkResponse.latest}`;
+    const branch = checkResponse.branch || this.branch;
+    const baseUrl = `https://raw.githubusercontent.com/${this.config.repo}/${branch}/versions/${checkResponse.latest}`;
     const total = checkResponse.files.length;
     let completed = 0;
 

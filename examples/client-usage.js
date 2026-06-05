@@ -1,15 +1,17 @@
 import { Updato } from "updato";
+import { UpdateNotification } from "updato/update-ui";
 
 const updater = Updato.init(
   {
     repo: "user/my-app",
-    mode: "commit",
-    current: "development",
+    mode: "version",
+    branch: "cdn-staging",
+    current: "1.0.0",
     workerUrl: "https://updato.neeljaiswal23.workers.dev",
   },
   {
     onUpdate(info) {
-      console.log("Update available:", info.latest);
+      console.log("Update available:", info.latest, "on branch", info.branch);
     },
     onProgress(percent, file) {
       console.log(`Downloading ${file}: ${percent}%`);
@@ -20,18 +22,15 @@ const updater = Updato.init(
   }
 );
 
+const notification = new UpdateNotification(updater, {
+  position: "top",
+  dismissable: true,
+});
+
 async function checkAndUpdate() {
   const result = await updater.checkForUpdate();
   if (result && result.update) {
-    const downloaded = await updater.downloadUpdate(result);
-    if (downloaded) {
-      const confirmed = confirm(
-        `Version ${result.latest} is available. Update now?`
-      );
-      if (confirmed) {
-        updater.applyUpdate(result.files);
-      }
-    }
+    notification.show(result);
   }
 }
 

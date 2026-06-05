@@ -15,7 +15,9 @@
         "build:action": "cd Action && npm run build",
         "build:client": "cd Build && npm run build",
         "build:worker": "cd Worker && npm run build",
-        "build": "npm run build:action && npm run build:client && npm run build:worker"
+        "build": "npm run build:action && npm run build:client && npm run build:worker",
+        "lint": "cd Build && npm run lint && cd ../Worker && npm run lint",
+        "make-pretty": "cd Build && npm run make-pretty && cd ../Worker && npm run make-pretty"
     },
     "license": "MIT"
 }

@@ -25,5 +25,6 @@ jobs:
           mode: version
           dist_dir: dist
           build_script: npm run build
+          cdn_branch: cdn
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

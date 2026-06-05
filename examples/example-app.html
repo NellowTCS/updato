@@ -11,63 +11,28 @@
     var updater = Updato.init({
       repo: "user/my-app",
       mode: "commit",
+      branch: "cdn",
       current: CURRENT_VERSION,
       workerUrl: "https://updato.neeljaiswal23.workers.dev"
+    });
+
+    var notification = new UpdateNotification(updater, {
+      position: "bottom",
+      dismissable: true,
     });
 
     async function checkForUpdates() {
       var result = await updater.checkForUpdate();
       if (result && result.update) {
-        var banner = document.getElementById("update-banner");
-        banner.style.display = "block";
-        banner.querySelector("span").textContent =
-          "Update: " + result.latest;
-        window.__pendingUpdate = result;
+        notification.show(result);
       }
     }
 
-    window.applyUpdate = async function () {
-      var result = window.__pendingUpdate;
-      if (!result) return;
-      await updater.downloadUpdate(result);
-      updater.applyUpdate(result.files);
-    };
-
     checkForUpdates();
   </script>
-  <style>
-    #update-banner {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #1a1a2e;
-      color: #eee;
-      padding: 12px 24px;
-      text-align: center;
-      font-family: system-ui, sans-serif;
-      z-index: 9999;
-    }
-    #update-banner button {
-      margin-left: 12px;
-      padding: 6px 16px;
-      background: #4ecca3;
-      color: #1a1a2e;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-  </style>
 </head>
 <body>
   <h1>My App</h1>
   <p>Content goes here.</p>
-
-  <div id="update-banner">
-    <span></span>
-    <button onclick="applyUpdate()">Update</button>
-  </div>
 </body>
 </html>
