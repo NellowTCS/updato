@@ -1,0 +1,9 @@
+name = "updato"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+[env.production]
+name = "updato"
+
+[env.staging]
+name = "updato-staging"
