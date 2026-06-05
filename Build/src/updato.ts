@@ -69,9 +69,7 @@ export class Updato {
     try {
       this.events.onReady?.();
     } catch (error) {
-      this.emitError(
-        error instanceof Error ? error : new Error(String(error))
-      );
+      this.emitError(error instanceof Error ? error : new Error(String(error)));
     }
   }
 
@@ -86,12 +84,10 @@ export class Updato {
     let response: Response;
     try {
       response = await fetch(url, {
-        headers: { "Accept": "application/json" },
+        headers: { Accept: "application/json" },
       });
     } catch (error) {
-      this.emitError(
-        error instanceof Error ? error : new Error(String(error))
-      );
+      this.emitError(error instanceof Error ? error : new Error(String(error)));
       return null;
     }
 
@@ -110,7 +106,7 @@ export class Updato {
     let checkResponse: CheckResponse;
     try {
       checkResponse = (await response.json()) as CheckResponse;
-    } catch (error) {
+    } catch {
       this.emitError(new Error("Failed to parse update check response."));
       return null;
     }
@@ -134,9 +130,7 @@ export class Updato {
         const url = `${baseUrl}/${file}`;
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error(
-            `Failed to download ${file}: ${response.status}`
-          );
+          throw new Error(`Failed to download ${file}: ${response.status}`);
         }
         const text = await response.text();
         this.cacheFile(file, text, checkResponse.latest);
@@ -144,16 +138,13 @@ export class Updato {
         this.emitError(
           error instanceof Error
             ? error
-            : new Error(`Failed to download ${file}`)
+            : new Error(`Failed to download ${file}`),
         );
         return false;
       }
 
       completed++;
-      this.events.onProgress?.(
-        Math.round((completed / total) * 100),
-        file
-      );
+      this.events.onProgress?.(Math.round((completed / total) * 100), file);
     }
 
     this.setCurrentVersion(checkResponse.latest);
@@ -221,14 +212,45 @@ export class Updato {
   }
 
   applyUpdate(files: string[]): void {
-    for (const file of files) {
+    const swapped = files.some((file) => {
       const content = this.getCachedFile(file);
       if (content === null) {
         this.emitError(new Error(`File "${file}" not found in cache.`));
-        return;
+        return false;
+      }
+      return this.hotSwap(file, content);
+    });
+    if (!swapped) {
+      window.location.reload();
+    }
+  }
+
+  private hotSwap(file: string, content: string): boolean {
+    const ext = file.slice(file.lastIndexOf("."));
+    if (ext === ".js") {
+      const scripts = document.querySelectorAll(`script[src*="${file}"]`);
+      if (scripts.length) {
+        const script = scripts[0] as HTMLScriptElement;
+        const newScript = document.createElement("script");
+        newScript.textContent = content;
+        script.parentNode?.replaceChild(newScript, script);
+        return true;
+      }
+    } else if (ext === ".css") {
+      const links = document.querySelectorAll(
+        `link[rel="stylesheet"][href*="${file}"]`,
+      );
+      if (links.length) {
+        const link = links[0] as HTMLLinkElement;
+        const newLink = document.createElement("link");
+        newLink.rel = "stylesheet";
+        newLink.type = "text/css";
+        newLink.href = "data:text/css;base64," + btoa(content);
+        link.parentNode?.replaceChild(newLink, link);
+        return true;
       }
     }
-    window.location.reload();
+    return false;
   }
 
   private emitError(error: Error): void {
