@@ -1,4 +1,5 @@
 import { hotSwap } from "./hot-swap";
+import type { DownloadMetrics } from "./metrics";
 
 export type UpdatoMode = "commit" | "version";
 
@@ -8,6 +9,7 @@ export interface UpdatoConfig {
   mode: UpdatoMode;
   current: string;
   branch?: string;
+  metrics?: DownloadMetrics;
 }
 
 export interface Manifest {
@@ -24,6 +26,7 @@ export interface CheckResponse {
   latest: string;
   current: string;
   files: string[];
+  modules?: string[];
   branch?: string;
 }
 
@@ -54,11 +57,13 @@ export class Updato {
   private workerUrl: string;
   private manifest: Manifest | null = null;
   private initialized = false;
+  readonly metrics: DownloadMetrics | null;
 
   constructor(config: UpdatoConfig, events: UpdatoEvents = {}) {
     this.config = config;
     this.events = events;
     this.workerUrl = config.workerUrl || DEFAULT_WORKER_URL;
+    this.metrics = config.metrics ?? null;
   }
 
   static init(config: UpdatoConfig, events?: UpdatoEvents): Updato {
@@ -136,12 +141,22 @@ export class Updato {
     for (const file of checkResponse.files) {
       try {
         const url = `${baseUrl}/${file}`;
+        const startTime = performance.now();
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`Failed to download ${file}: ${response.status}`);
         }
         const text = await response.text();
+        const endTime = performance.now();
         this.cacheFile(file, text, checkResponse.latest);
+        this.metrics?.addEntry({
+          filename: file,
+          startTime,
+          endTime,
+          duration: endTime - startTime,
+          fileSize: text.length,
+          url,
+        });
       } catch (error) {
         this.emitError(
           error instanceof Error
@@ -219,14 +234,15 @@ export class Updato {
     }
   }
 
-  applyUpdate(files: string[]): void {
+  applyUpdate(files: string[], modules?: string[]): void {
+    const moduleSet = modules ? new Set(modules) : new Set<string>();
     const results = files.map((file) => {
       const content = this.getCachedFile(file);
       if (content === null) {
         this.emitError(new Error(`File "${file}" not found in cache.`));
         return { swapped: false, file };
       }
-      return hotSwap(file, content);
+      return hotSwap(file, content, moduleSet.has(file));
     });
 
     const anySwapped = results.some((r) => r.swapped);

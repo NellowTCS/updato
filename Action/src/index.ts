@@ -11,6 +11,7 @@ interface Manifest {
   mode: "commit" | "version";
   latest: string;
   files: string[];
+  modules?: string[];
   timestamp: number;
 }
 
@@ -94,6 +95,25 @@ async function runBuild(buildScript: string): Promise<void> {
   } finally {
     core.endGroup();
   }
+}
+
+const SCRIPT_MODULE_RE = /<script[^>]*?type\s*=\s*["']module["'][^>]*?src\s*=\s*["']([^"']+)["']/gi;
+
+function findModuleScripts(distDir: string): Set<string> {
+  const modules = new Set<string>();
+  const htmlFiles = listFiles(distDir).filter(
+    (f) => f.endsWith(".html") || f.endsWith(".htm"),
+  );
+  for (const htmlFile of htmlFiles) {
+    const content = fs.readFileSync(htmlFile, "utf-8");
+    SCRIPT_MODULE_RE.lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = SCRIPT_MODULE_RE.exec(content)) !== null) {
+      const resolved = path.resolve(path.dirname(htmlFile), match[1]);
+      modules.add(resolved);
+    }
+  }
+  return modules;
 }
 
 function listFiles(dir: string): string[] {
@@ -188,11 +208,19 @@ async function deployToCdn(
         ) as Manifest)
       : null;
 
+    const relativeFiles = files.map((f) => f.replace(absDistDir + "/", ""));
+    const moduleScripts = findModuleScripts(absDistDir);
+    const modules = relativeFiles.filter((f) => {
+      const abs = path.join(absDistDir, f);
+      return moduleScripts.has(abs);
+    });
+
     const manifest: Manifest = {
       app: getRepoName(),
       mode: inputs.mode,
       latest: version,
-      files: files.map((f) => f.replace(absDistDir + "/", "")),
+      files: relativeFiles,
+      modules: modules.length > 0 ? modules : undefined,
       timestamp: Math.floor(Date.now() / 1000),
     };
     fs.writeFileSync(

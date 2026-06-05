@@ -4,10 +4,8 @@
 - [ ] A demo
 - [ ] Update README with detailed usage examples for the action
 
-- [X] Support multiple CDN branches (branch per environment)
-- [X] Notify users when an update is available (e.g., alert banner, embedded UI)
-- [ ] Add support for `file` vs. `module` types in the Action
-- [ ] Gather performance metrics for update download times (opt in if i ever want to collect ofc i'm not a weirdo, i don't want your data)
+- [X] Add support for `file` vs. `module` types in the Action
+- [X] Gather performance metrics for update download times (opt in if i ever want to collect ofc i'm not a weirdo, i don't want your data)
 
 - [ ] Attach the Cloudflare worker to a custom domain? (routes)
 

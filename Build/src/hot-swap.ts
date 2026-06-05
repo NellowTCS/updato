@@ -49,13 +49,28 @@ function matchAttr(
   return null;
 }
 
-function swapScript(file: string, content: string): HotSwapResult {
-  const el = matchAttr("script[src]", "src", file);
+function swapScript(
+  file: string,
+  content: string,
+  isModule?: boolean,
+): HotSwapResult {
+  const sel = isModule ? "script[type=module][src]" : "script[src]";
+  const attr = "src";
+  const name = basename(file);
+  let el: Element | null = null;
+  for (const candidate of document.querySelectorAll(sel)) {
+    const val = candidate.getAttribute(attr);
+    if (val && basename(val) === name) {
+      el = candidate;
+      break;
+    }
+  }
   if (!el) return { swapped: false, type: "script", file };
 
   const old = el as HTMLScriptElement;
   const news = document.createElement("script");
   news.textContent = content;
+  if (isModule) news.type = "module";
   if (old.integrity) news.integrity = old.integrity;
   if (old.crossOrigin) news.crossOrigin = old.crossOrigin;
   old.parentNode?.replaceChild(news, old);
@@ -92,10 +107,14 @@ function swapImage(file: string, content: string): HotSwapResult {
   return { swapped: true, type: "image", file };
 }
 
-export function hotSwap(file: string, content: string): HotSwapResult {
+export function hotSwap(
+  file: string,
+  content: string,
+  isModule?: boolean,
+): HotSwapResult {
   switch (ext(file)) {
     case ".js":
-      return swapScript(file, content);
+      return swapScript(file, content, isModule);
     case ".css":
       return swapStylesheet(file, content);
     default:

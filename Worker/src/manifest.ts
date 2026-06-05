@@ -5,6 +5,7 @@ export interface Manifest {
   mode: Mode;
   latest: string;
   files: string[];
+  modules?: string[];
   timestamp: number;
 }
 
@@ -53,6 +54,25 @@ export function validateManifest(data: unknown): ValidationResult {
         field: "files",
         message: `All items must be strings, found ${bad.length} non-string item(s).`,
       });
+    }
+  }
+
+  if (obj.modules !== undefined) {
+    if (!Array.isArray(obj.modules)) {
+      errors.push({
+        field: "modules",
+        message: "Must be an array of strings.",
+      });
+    } else {
+      const bad = (obj.modules as unknown[]).filter(
+        (f) => typeof f !== "string",
+      );
+      if (bad.length > 0) {
+        errors.push({
+          field: "modules",
+          message: `All items must be strings, found ${bad.length} non-string item(s).`,
+        });
+      }
     }
   }
 

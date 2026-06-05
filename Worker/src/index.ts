@@ -10,6 +10,7 @@ interface CheckResponse {
   latest: string;
   current: string;
   files: string[];
+  modules?: string[];
   branch: string;
 }
 
@@ -148,6 +149,7 @@ async function handleCheck(
     latest: manifest.latest,
     current,
     files: manifest.files,
+    modules: manifest.modules,
     branch,
   };
 
