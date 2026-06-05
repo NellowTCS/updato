@@ -1,3 +1,5 @@
+import { hotSwap } from "./hot-swap";
+
 export type UpdatoMode = "commit" | "version";
 
 export interface UpdatoConfig {
@@ -212,45 +214,19 @@ export class Updato {
   }
 
   applyUpdate(files: string[]): void {
-    const swapped = files.some((file) => {
+    const results = files.map((file) => {
       const content = this.getCachedFile(file);
       if (content === null) {
         this.emitError(new Error(`File "${file}" not found in cache.`));
-        return false;
+        return { swapped: false, file };
       }
-      return this.hotSwap(file, content);
+      return hotSwap(file, content);
     });
-    if (!swapped) {
+
+    const anySwapped = results.some((r) => r.swapped);
+    if (!anySwapped) {
       window.location.reload();
     }
-  }
-
-  private hotSwap(file: string, content: string): boolean {
-    const ext = file.slice(file.lastIndexOf("."));
-    if (ext === ".js") {
-      const scripts = document.querySelectorAll(`script[src*="${file}"]`);
-      if (scripts.length) {
-        const script = scripts[0] as HTMLScriptElement;
-        const newScript = document.createElement("script");
-        newScript.textContent = content;
-        script.parentNode?.replaceChild(newScript, script);
-        return true;
-      }
-    } else if (ext === ".css") {
-      const links = document.querySelectorAll(
-        `link[rel="stylesheet"][href*="${file}"]`,
-      );
-      if (links.length) {
-        const link = links[0] as HTMLLinkElement;
-        const newLink = document.createElement("link");
-        newLink.rel = "stylesheet";
-        newLink.type = "text/css";
-        newLink.href = "data:text/css;base64," + btoa(content);
-        link.parentNode?.replaceChild(newLink, link);
-        return true;
-      }
-    }
-    return false;
   }
 
   private emitError(error: Error): void {

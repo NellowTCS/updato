@@ -2,6 +2,10 @@ name = "updato"
 main = "src/index.ts"
 compatibility_date = "2024-12-01"
 
+[[kv_namespaces]]
+binding = "UPDATO_KV"
+id = "b262f29d2cdf4a50bfb95444e6926fb7"
+
 [env.production]
 name = "updato"
 

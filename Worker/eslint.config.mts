@@ -19,7 +19,7 @@ export default defineConfig([
       globals: globals.browser,
       parserOptions: {
         projectService: {
-          allowDefaultProject: ["*.mts", "*.mjs"],
+          allowDefaultProject: ["*.mts"],
         },
         tsconfigRootDir: __dirname,
       },

@@ -1,10 +1,8 @@
-interface Manifest {
-  app: string;
-  mode: "commit" | "version";
-  latest: string;
-  files: string[];
-  timestamp: number;
-}
+/// <reference types="@cloudflare/workers-types" />
+
+import { validateManifest } from "./manifest";
+import type { Manifest } from "./manifest";
+import { RateLimiter, getClientIp } from "./rate-limit";
 
 interface CheckResponse {
   mode: "commit" | "version";
@@ -15,8 +13,12 @@ interface CheckResponse {
 }
 
 interface Env {
+  UPDATO_KV: KVNamespace;
   UPDATO_CACHE_TTL?: string;
 }
+
+const rateLimiter = new RateLimiter();
+const DEFAULT_CACHE_TTL = 300;
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -24,13 +26,15 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+const CACHE_CONTROL = "public, max-age=60, s-maxage=300";
+
 function jsonResponse(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       ...CORS_HEADERS,
       "Content-Type": "application/json",
-      "Cache-Control": "public, max-age=60, s-maxage=300",
+      "Cache-Control": CACHE_CONTROL,
     },
   });
 }
@@ -39,33 +43,54 @@ function errorResponse(message: string, status = 400): Response {
   return jsonResponse({ error: message }, status);
 }
 
-async function fetchManifest(repo: string): Promise<Manifest> {
+function manifestCacheKey(repo: string): string {
+  return `manifest:${repo}`;
+}
+
+async function fetchManifest(
+  repo: string,
+  kv: KVNamespace,
+  cacheTtl: number,
+): Promise<Manifest> {
+  const cacheKey = manifestCacheKey(repo);
+
+  const cached = await kv.get(cacheKey);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached) as Manifest;
+      const result = validateManifest(parsed);
+      if (result.valid) return result.manifest;
+    } catch {
+      // corrupted cache entry, fall through to re-fetch
+    }
+  }
+
   const url = `https://raw.githubusercontent.com/${repo}/cdn/manifest.json`;
   const response = await fetch(url, {
-    headers: {
-      "User-Agent": "updato-worker/1.0",
-    },
+    headers: { "User-Agent": "updato-worker/1.0" },
   });
 
   if (!response.ok) {
     throw new Error(
-      `Failed to fetch manifest for "${repo}": ${response.status} ${response.statusText}`
+      `Failed to fetch manifest for "${repo}": ${response.status} ${response.statusText}`,
     );
   }
 
-  const manifest = (await response.json()) as Manifest;
+  const raw = (await response.json()) as unknown;
+  const result = validateManifest(raw);
 
-  if (manifest.mode !== "commit" && manifest.mode !== "version") {
-    throw new Error(
-      `Invalid mode "${manifest.mode}" in manifest for "${repo}".`
-    );
+  if (!result.valid) {
+    const detail = result.errors
+      .map((e) => `${e.field}: ${e.message}`)
+      .join("; ");
+    throw new Error(`Invalid manifest for "${repo}": ${detail}`);
   }
 
-  if (!manifest.latest || !Array.isArray(manifest.files)) {
-    throw new Error(`Invalid manifest structure for "${repo}".`);
-  }
+  await kv.put(cacheKey, JSON.stringify(result.manifest), {
+    expirationTtl: cacheTtl,
+  });
 
-  return manifest;
+  return result.manifest;
 }
 
 function parseSemver(version: string): number[] {
@@ -77,12 +102,12 @@ function parseSemver(version: string): number[] {
 
 function isNewerVersion(current: string, latest: string): boolean {
   if (current === latest) return false;
-  const currentParts = parseSemver(current);
-  const latestParts = parseSemver(latest);
-  const maxLen = Math.max(currentParts.length, latestParts.length);
+  const cur = parseSemver(current);
+  const lat = parseSemver(latest);
+  const maxLen = Math.max(cur.length, lat.length);
   for (let i = 0; i < maxLen; i++) {
-    const a = currentParts[i] ?? 0;
-    const b = latestParts[i] ?? 0;
+    const a = cur[i] ?? 0;
+    const b = lat[i] ?? 0;
     if (a < b) return true;
     if (a > b) return false;
   }
@@ -91,7 +116,9 @@ function isNewerVersion(current: string, latest: string): boolean {
 
 async function handleCheck(
   repo: string,
-  current: string
+  current: string,
+  kv: KVNamespace,
+  cacheTtl: number,
 ): Promise<Response> {
   if (!current) {
     return errorResponse("Missing 'current' query parameter.");
@@ -99,7 +126,7 @@ async function handleCheck(
 
   let manifest: Manifest;
   try {
-    manifest = await fetchManifest(repo);
+    manifest = await fetchManifest(repo, kv, cacheTtl);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return errorResponse(message, 502);
@@ -123,21 +150,25 @@ async function handleCheck(
   return jsonResponse(response);
 }
 
-async function handleManifest(repo: string): Promise<Response> {
-  let manifest: Manifest;
+async function handleManifest(
+  repo: string,
+  kv: KVNamespace,
+  cacheTtl: number,
+): Promise<Response> {
   try {
-    manifest = await fetchManifest(repo);
+    const manifest = await fetchManifest(repo, kv, cacheTtl);
+    return jsonResponse(manifest);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return errorResponse(message, 502);
   }
-  return jsonResponse(manifest);
 }
 
 function parseUrl(url: URL): { repo: string; current: string } {
-  const repo = url.searchParams.get("repo") || "";
-  const current = url.searchParams.get("current") || "";
-  return { repo, current };
+  return {
+    repo: url.searchParams.get("repo") || "",
+    current: url.searchParams.get("current") || "",
+  };
 }
 
 function validateRepo(repo: string): boolean {
@@ -145,19 +176,36 @@ function validateRepo(repo: string): boolean {
 }
 
 export default {
-  async fetch(request: Request, _env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
-      return new Response(null, {
-        status: 204,
-        headers: CORS_HEADERS,
-      });
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
     }
 
     if (request.method !== "GET" && request.method !== "HEAD") {
       return errorResponse("Method not allowed.", 405);
     }
+
+    const ip = getClientIp(request);
+    const { allowed, retryAfter } = await rateLimiter.check(ip, env.UPDATO_KV);
+    if (!allowed) {
+      return new Response(
+        JSON.stringify({ error: "Too many requests. Please slow down." }),
+        {
+          status: 429,
+          headers: {
+            ...CORS_HEADERS,
+            "Content-Type": "application/json",
+            "Retry-After": String(retryAfter),
+          },
+        },
+      );
+    }
+
+    const cacheTtl = env.UPDATO_CACHE_TTL
+      ? parseInt(env.UPDATO_CACHE_TTL, 10) || DEFAULT_CACHE_TTL
+      : DEFAULT_CACHE_TTL;
 
     const { repo, current } = parseUrl(url);
 
@@ -166,27 +214,21 @@ export default {
     }
 
     if (!validateRepo(repo)) {
-      return errorResponse(
-        "Invalid repo format. Expected 'owner/repo'.",
-        400
-      );
+      return errorResponse("Invalid repo format. Expected 'owner/repo'.", 400);
     }
 
     const path = url.pathname.replace(/\/+$/, "") || "/";
 
     switch (path) {
-      case "/manifest": {
-        return handleManifest(repo);
-      }
-      case "/check": {
-        return handleCheck(repo, current);
-      }
-      default: {
+      case "/manifest":
+        return handleManifest(repo, env.UPDATO_KV, cacheTtl);
+      case "/check":
+        return handleCheck(repo, current, env.UPDATO_KV, cacheTtl);
+      default:
         return errorResponse(
           `Unknown endpoint "${path}". Use /manifest or /check.`,
-          404
+          404,
         );
-      }
     }
   },
 };
