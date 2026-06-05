@@ -9,6 +9,9 @@
         "Worker"
     ],
     "scripts": {
+        "install:all": "npm install && cd Action && npm install && cd ../Build && npm install && cd ../Worker && npm install",
+        "bump:version": "node scripts/bump-version.js",
+        "print-cdn-commit": "node scripts/print-cdn-commit.js",
         "build:action": "cd Action && npm run build",
         "build:client": "cd Build && npm run build",
         "build:worker": "cd Worker && npm run build",
