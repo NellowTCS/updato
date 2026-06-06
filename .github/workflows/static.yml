@@ -35,10 +35,9 @@ jobs:
 
       - name: Prepare pages root
         run: |
-          mkdir -p pages-root/demo
-          cp -r Demo/dist/* pages-root/demo/
-          cp -r Docs/site/* pages-root/
-          cp Demo/dist/index.html pages-root/
+          mkdir -p pages-root/docs
+          cp -r Demo/dist/* pages-root/
+          cp -r Docs/site/* pages-root/docs/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3

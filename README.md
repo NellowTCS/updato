@@ -1,80 +1,87 @@
 # Updato
 
-Decentralized update system for browser-based apps.
+Push updates from GitHub, applied live in the browser with no server.
 
-Updato provides:
+**[Live Demo](https://nellowtcs.me/updato)** | **[Documentation](https://nellowtcs.me/updato/docs)**
 
-- A GitHub Action to publish build artifacts to a `cdn` branch
-- A Cloudflare Worker to serve update metadata
-- A JS client library for runtime auto-updates
+Updato is a decentralized update system for web apps. A GitHub Action publishes build artifacts to a CDN branch. A Cloudflare Worker tells clients when a new version exists. The client downloads and hot-swaps files without a page reload.
 
-## Quick Start
+## How it works
 
-### 1. GitHub Action
+```txt
+Git Push  →  GitHub Action  →  CDN branch (manifest.json + assets)
+                                         ↓
+                              Cloudflare Worker (version checks)
+                                         ↓
+                              Client downloads and hot-swaps
+```
 
-Create `.github/workflows/publish.yml`:
+## Features
+
+- **No backend server** - Updates come from GitHub's raw content CDN. The Worker only answers version checks.
+- **Live hot-swap** - Scripts, stylesheets, and images swap in place. No flash, no reload. CSS uses `CSSStyleSheet.replaceSync` for CSP-safe replacement.
+- **Two modes** - Version mode uses semver comparison. Commit mode uses SHA hashes for canary rollouts.
+- **Optional metrics** - localStorage-backed download telemetry. Opt-in, never sent anywhere.
+
+## Quick start
+
+### 1. Add the GitHub Action
 
 ```yaml
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - uses: nellowtcs/updato@v1
-        with:
-          mode: commit
-          dist_dir: dist
-          build_script: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- uses: NellowTCS/updato@v1
+  with:
+    mode: version
+    dist_dir: dist
+    build_script: npm run build
 ```
+
+Requires `permissions: contents: write`. Pushes build output to a `cdn` branch with a manifest.
 
 ### 2. Deploy the Worker
 
 ```bash
 cd Worker
 npm install
-npm run deploy
+npx wrangler deploy
 ```
 
-### 3. Add the Client to Your App
+The Worker needs a KV namespace bound as `UPDATO_KV`. See the [docs](https://nellowtcs.me/updato/docs/guide/worker) for wrangler config.
 
-```html
-<script src="updato.js"></script>
-<script>
-  var updater = Updato.init({
-    repo: "user/my-app",
-    mode: "commit",
-    current: "__VERSION__",
-    workerUrl: "https://updato.neeljaiswal23.workers.dev"
-  });
-  updater.checkForUpdate().then(function(result) {
-    if (result && result.update) {
-      updater.downloadUpdate(result).then(function() {
-        updater.applyUpdate(result.files);
-      });
-    }
-  });
-</script>
+### 3. Wire the client
+
+```typescript
+import { Updato } from "updato";
+
+const updater = Updato.init(
+  {
+    repo: "my-org/my-app",
+    mode: "version",
+    current: "1.0.0",
+  },
+  {
+    onUpdate: (info) => {
+      console.log(`Version ${info.latest} available`);
+    },
+  },
+);
 ```
 
-## Architecture
+For the full flow (check, download, apply) see the [quick start guide](https://nellowtcs.me/updato/docs/getting-started/quickstart).
 
-- **cdn branch** - Each app has a `cdn` branch with `manifest.json`, `latest/`, and `versions/`
-- **Action** - Runs in CI, builds the app, publishes to the `cdn` branch
-- **Worker** - Stateless Cloudflare Worker that reads manifests and compares versions
-- **Client** - JS library embedded in apps to check for and apply updates
+## Project structure
 
-## Publishing Modes
+```txt
+Action/      -- GitHub Action (publishes builds to CDN branch)
+Worker/      -- Cloudflare Worker (version check API)
+Build/       -- Client library (npm package)
+Demo/        -- Live demo app
+Docs/        -- Documentation site (docmd)
+```
 
-- **commit mode** - Each push produces an update. Version is the commit SHA.
-- **version mode** - Version comes from package.json or explicit input. Uses semver comparison.
+## Publishing modes
+
+- **version** - Version from `package.json` or explicit input. Uses semver comparison. Good for tagged releases.
+- **commit** - Uses the Git commit SHA. Any push triggers an update. Good for canary builds.
 
 ## License
 

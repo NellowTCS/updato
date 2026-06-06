@@ -30,6 +30,12 @@ export default {
       icon: "home"
     },
     {
+      title: "Live Demo",
+      path: "https://nellowtcs.me/updato",
+      icon: "external-link",
+      external: true
+    },
+    {
       title: "Getting Started",
       children: [
         { title: "Quick Start", path: "/getting-started/quickstart" },
