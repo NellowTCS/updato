@@ -27,11 +27,11 @@ jobs:
 
       - name: Build demo
         working-directory: Demo
-        run: npm ci && npm run build
+        run: npm install && npm run build
 
       - name: Build docs
         working-directory: Docs
-        run: npm ci && npm run build
+        run: npm install && npm run build
 
       - name: Prepare pages root
         run: |
