@@ -8,7 +8,7 @@ The `DownloadMetrics` class records timing and size data for every file download
 ## Usage
 
 ```typescript
-import { DownloadMetrics } from "updato/metrics";
+import { DownloadMetrics } from "@nellowtcs/updato/metrics";
 
 const metrics = new DownloadMetrics();
 

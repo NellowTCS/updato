@@ -41,13 +41,8 @@ jobs:
         run: |
           cp ../README.md .
           cp ../LICENSE . 2>/dev/null || true
-          node -e "
-            const pkg = require('./package.json');
-            delete pkg.private;
-            delete pkg.scripts;
-            delete pkg.devDependencies;
-            require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-          "
+          jq 'del(.private, .scripts, .devDependencies)' package.json > package.json.tmp \
+            && mv package.json.tmp package.json
 
       - name: Publish to npm
         working-directory: Build

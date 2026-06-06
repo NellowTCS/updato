@@ -80,7 +80,7 @@ npm install updato
 Add to your app's entry point:
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {
@@ -109,7 +109,7 @@ async function handleUpdate(info) {
 If you want the built-in banner UI instead of building your own:
 
 ```typescript
-import { UpdateNotification } from "updato/update-ui";
+import { UpdateNotification } from "@nellowtcs/updato/update-ui";
 // in onUpdate:
 new UpdateNotification(updater).show(info);
 ```

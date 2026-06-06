@@ -1,20 +1,45 @@
 {
-  "name": "updato",
-  "version": "1.0.0",
+  "name": "@nellowtcs/updato",
+  "version": "1.0.1",
+  "type": "module",
   "description": "Updato client library",
-  "main": "dist/updato.js",
+  "main": "dist/updato.cjs",
   "module": "dist/updato.mjs",
-  "types": "dist/updato.d.ts",
+  "types": "dist/updato.d.mts",
   "exports": {
     ".": {
-      "import": "./dist/updato.mjs",
-      "require": "./dist/updato.js",
-      "types": "./dist/updato.d.ts"
+      "import": {
+        "types": "./dist/updato.d.mts",
+        "default": "./dist/updato.mjs"
+      },
+      "require": {
+        "types": "./dist/updato.d.cts",
+        "default": "./dist/updato.cjs"
+      }
+    },
+    "./update-ui": {
+      "import": {
+        "types": "./dist/update-ui.d.mts",
+        "default": "./dist/update-ui.mjs"
+      },
+      "require": {
+        "types": "./dist/update-ui.d.cts",
+        "default": "./dist/update-ui.cjs"
+      }
+    },
+    "./metrics": {
+      "import": {
+        "types": "./dist/metrics.d.mts",
+        "default": "./dist/metrics.mjs"
+      },
+      "require": {
+        "types": "./dist/metrics.d.cts",
+        "default": "./dist/metrics.cjs"
+      }
     }
   },
   "scripts": {
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "tsdown",
     "make-pretty": "prettier --write .",
     "lint": "eslint . --ext .ts,.js --fix",
     "test": "jest"
@@ -29,8 +54,8 @@
     "jiti": "^2.7.0",
     "prettier": "^3.8.3",
     "ts-jest": "^29.4.11",
+    "tsdown": "^0.22.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.60.1",
-    "vite": "^8.0.11"
+    "typescript-eslint": "^8.60.1"
   }
 }

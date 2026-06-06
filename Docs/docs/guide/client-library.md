@@ -18,7 +18,7 @@ npm install updato
 Creates an instance and starts initialization. Returns the instance immediately; initialization runs asynchronously.
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {
@@ -126,7 +126,7 @@ Read-only property. Returns the `DownloadMetrics` instance if one was passed in 
 A built-in banner that handles the update flow without custom UI code.
 
 ```typescript
-import { UpdateNotification } from "updato/update-ui";
+import { UpdateNotification } from "@nellowtcs/updato/update-ui";
 
 const notification = new UpdateNotification(updater, {
   heading: "Update available",
@@ -163,8 +163,8 @@ notification.show(info);
 ## Full Example
 
 ```typescript
-import { Updato } from "updato";
-import { UpdateNotification } from "updato/update-ui";
+import { Updato } from "@nellowtcs/updato";
+import { UpdateNotification } from "@nellowtcs/updato/update-ui";
 
 const updater = Updato.init(
   {

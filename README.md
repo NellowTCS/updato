@@ -50,7 +50,7 @@ The Worker needs a KV namespace bound as `UPDATO_KV`. See the [docs](https://nel
 ### 3. Wire the client
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {

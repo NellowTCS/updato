@@ -40,7 +40,7 @@ CSS hot-swap uses `CSSStyleSheet.replaceSync` and `adoptedStyleSheets` . No inli
 **Client-side:**
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {
