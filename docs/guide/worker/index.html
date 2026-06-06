@@ -84,30 +84,30 @@
       window.DOCMD_DEFAULT_LOCALE = "";
     </script>
     <title>
-      GitHub Action : Updato
+      Worker : Updato
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1rhhjc">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1sf7kq">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1rhhjc" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1rhhjc" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1sf7kq" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1sf7kq" id="hljs-dark" disabled>
     
     
-<meta name="description" content="Action inputs, workflow setup, and deployment reference">
-<link rel="canonical" href="https://nellowtcs.me/updato/docs/guide/github-action/">
-<meta property="og:title" content="GitHub Action - Updato">
-<meta property="og:description" content="Action inputs, workflow setup, and deployment reference">
-<meta property="og:url" content="https://nellowtcs.me/updato/docs/guide/github-action/">
+<meta name="description" content="Deploy and configure the Cloudflare Worker">
+<link rel="canonical" href="https://nellowtcs.me/updato/docs/guide/worker/">
+<meta property="og:title" content="Worker - Updato">
+<meta property="og:description" content="Deploy and configure the Cloudflare Worker">
+<meta property="og:url" content="https://nellowtcs.me/updato/docs/guide/worker/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GitHub Action - Updato">
-<meta name="twitter:description" content="Action inputs, workflow setup, and deployment reference">
+<meta name="twitter:title" content="Worker - Updato">
+<meta name="twitter:description" content="Deploy and configure the Cloudflare Worker">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1rhhjc" >
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1rhhjc" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1rhhjc" >
+<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1sf7kq" >
 
     
     <script>/**
@@ -162,7 +162,7 @@
   <body
     class="sidebar-collapsible"
     data-default-collapsed="false"
-    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/guide/github-action.md">
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/guide/worker.md">
 
     <a href="#main-content" class="skip-link">skipToContent</a>
 
@@ -233,6 +233,58 @@
             Home
             </span>
           
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="https://nellowtcs.me/updato" class=" "
+          target=&quot;_blank&quot; rel=&quot;noopener&quot;>
+           
+<svg class="lucide-icon icon-external-link " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Live Demo
+            </span>
+          
+           
+<svg class="lucide-icon icon-external-link nav-external-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
           
         </a>
         
@@ -354,9 +406,9 @@
         
       </li>
     
-      <li class="active" >
+      <li class="" >
       
-        <a href="../../guide/github-action/" class="active "
+        <a href="../../guide/github-action/" class=" "
           >
           
           <span class="nav-item-title">
@@ -370,9 +422,9 @@
         
       </li>
     
-      <li class="" >
+      <li class="active" >
       
-        <a href="../../guide/worker/" class=" "
+        <a href="../../guide/worker/" class="active "
           >
           
           <span class="nav-item-title">
@@ -527,7 +579,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  GitHub Action
+                  Worker
                 </span>
               </div>
             </div>
@@ -621,7 +673,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22GitHub%20Action%22%0Adescription%3A%20%22Action%20inputs%2C%20workflow%20setup%2C%20and%20deployment%20reference%22%0A---%0A%0AThe%20Updato%20Action%20publishes%20build%20artifacts%20to%20a%20CDN%20branch%20with%20a%20version%20manifest.%0A%0A%23%23%20Usage%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%40v1%0A%20%20with%3A%0A%20%20%20%20mode%3A%20version%0A%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20build_script%3A%20npm%20run%20build%0A%60%60%60%0A%0A%23%23%20Inputs%0A%0A%7C%20Input%20%20%20%20%20%20%20%20%20%20%7C%20Required%20%7C%20Default%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C----------------%7C----------%7C-------------------------------------%7C---------------------------------------------------------%7C%0A%7C%20%60mode%60%20%20%20%20%20%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20%60%22commit%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%60%22version%22%60%20or%20%60%22commit%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60dist_dir%60%20%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20%60%22dist%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Build%20output%20directory%20relative%20to%20repo%20root%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60build_script%60%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Command%20to%20run%20before%20publishing%20(e.g.%20%60npm%20run%20build%60)%20%7C%0A%7C%20%60version%60%20%20%20%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20package.json%20%60version%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Explicit%20version%20for%20%60version%60%20mode%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60cdn_branch%60%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22cdn%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Target%20branch%20for%20CDN%20artifacts%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60user_name%60%20%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22updato%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Git%20user%20name%20for%20the%20commit%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60user_email%60%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22updato%40users.noreply.github.com%22%60%20%7C%20Git%20user%20email%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%0A%23%23%23%20Mode%3A%20%60version%60%0A%0AReads%20the%20version%20from%20%60package.json%60%20or%20the%20explicit%20%60version%60%20input.%20Versions%20are%20compared%20semantically%3A%20%601.2.0%20%3E%201.1.0%60.%20Files%20are%20published%20under%20%60versions%2Fv1.2.0%2F%60.%0A%0A%23%23%23%20Mode%3A%20%60commit%60%0A%0AUses%20the%20current%20Git%20commit%20SHA%20as%20the%20version.%20Any%20SHA%20change%20triggers%20an%20update.%20Files%20are%20published%20under%20%60versions%2F%3Csha%3E%2F%60.%0A%0A%23%23%20Required%20permissions%0A%0AThe%20Action%20needs%20contents%20write%20access%20to%20push%20the%20CDN%20branch%3A%0A%0A%60%60%60yaml%0Apermissions%3A%0A%20%20contents%3A%20write%0A%60%60%60%0A%0A%23%23%20Full%20Workflow%0A%0A%60%60%60yaml%0Aname%3A%20Deploy%0Aon%3A%0A%20%20push%3A%0A%20%20%20%20branches%3A%20%5Bmain%5D%0A%0Apermissions%3A%0A%20%20contents%3A%20write%0A%0Ajobs%3A%0A%20%20deploy%3A%0A%20%20%20%20runs-on%3A%20ubuntu-latest%0A%20%20%20%20steps%3A%0A%20%20%20%20%20%20-%20uses%3A%20actions%2Fcheckout%40v4%0A%20%20%20%20%20%20-%20uses%3A%20actions%2Fsetup-node%40v4%0A%20%20%20%20%20%20%20%20with%3A%0A%20%20%20%20%20%20%20%20%20%20node-version%3A%2020%0A%20%20%20%20%20%20-%20run%3A%20npm%20ci%0A%0A%20%20%20%20%20%20-%20uses%3A%20NellowTCS%2Fupdato%40v1%0A%20%20%20%20%20%20%20%20with%3A%0A%20%20%20%20%20%20%20%20%20%20mode%3A%20version%0A%20%20%20%20%20%20%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20%20%20%20%20%20%20build_script%3A%20npm%20run%20build%0A%20%20%20%20%20%20%20%20%20%20cdn_branch%3A%20cdn%0A%60%60%60%0A%0A%23%23%20What%20gets%20pushed%0A%0AAfter%20the%20Action%20runs%2C%20the%20CDN%20branch%20looks%20like%3A%0A%0A%60%60%60txt%0Acdn%2F%0A%20%20manifest.json%0A%20%20latest%2F%0A%20%20%20%20index.html%0A%20%20%20%20assets%2F%0A%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20main.css%0A%20%20versions%2F%0A%20%20%20%20v1.0.0%2F%0A%20%20%20%20%20%20index.html%0A%20%20%20%20%20%20assets%2F%0A%20%20%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20%20%20main.css%0A%20%20%20%20v1.0.1%2F%0A%20%20%20%20%20%20index.html%0A%20%20%20%20%20%20assets%2F%0A%20%20%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20%20%20main.css%0A%60%60%60%0A%0A%23%23%23%20manifest.json%0A%0A%60%60%60json%0A%7B%0A%20%20%22app%22%3A%20%22my-app%22%2C%0A%20%20%22mode%22%3A%20%22version%22%2C%0A%20%20%22latest%22%3A%20%221.0.1%22%2C%0A%20%20%22files%22%3A%20%5B%0A%20%20%20%20%22index.html%22%2C%0A%20%20%20%20%22assets%2Fmain.js%22%2C%0A%20%20%20%20%22assets%2Fmain.css%22%0A%20%20%5D%2C%0A%20%20%22modules%22%3A%20%5B%22assets%2Fmain.js%22%5D%2C%0A%20%20%22timestamp%22%3A%201719000000%0A%7D%0A%60%60%60%0A%0AThe%20%60files%60%20array%20lists%20every%20file%20in%20the%20build%20output.%20The%20%60modules%60%20array%20lists%20files%20that%20are%20ES%20modules%20(%60%3Cscript%20type%3D%22module%22%3E%60)%2C%20detected%20by%20scanning%20HTML%20for%20module%20script%20tags.%20Files%20listed%20in%20%60modules%60%20are%20passed%20to%20%60swapScript%60%20with%20%60isModule%3A%20true%60.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Wire%20the%20other%20end%0A-%20%5BManifest%5D(.%2Fmanifest)%3A%20Manifest%20format%20reference%0A-%20%5BWorker%5D(.%2Fworker)%3A%20Deploy%20your%20own%20worker%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Worker%22%0Adescription%3A%20%22Deploy%20and%20configure%20the%20Cloudflare%20Worker%22%0A---%0A%0AThe%20Worker%20is%20a%20lightweight%20HTTP%20API%20that%20checks%20versions%20and%20serves%20manifest%20data.%20It&#039;s%20the%20only%20server-side%20component.%0A%0A%23%23%20Endpoints%0A%0A%23%23%23%20%60GET%20%2Fcheck%60%0A%0APrimary%20endpoint%20called%20by%20the%20client.%0A%0A%7C%20Param%20%20%20%20%20%7C%20Required%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-----------%7C----------%7C------------------------------%7C%0A%7C%20%60repo%60%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20GitHub%20%60owner%2Frepo%60%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60branch%60%20%20%7C%20no%20%20%20%20%20%20%20%7C%20CDN%20branch%20(default%20%60%22cdn%22%60)%20%7C%0A%7C%20%60current%60%20%7C%20yes%20%20%20%20%20%20%7C%20Client&#039;s%20current%20version%20%20%20%20%20%7C%0A%0AResponse%3A%0A%0A%60%60%60json%0A%7B%0A%20%20%22mode%22%3A%20%22version%22%2C%0A%20%20%22update%22%3A%20true%2C%0A%20%20%22latest%22%3A%20%221.0.1%22%2C%0A%20%20%22current%22%3A%20%221.0.0%22%2C%0A%20%20%22files%22%3A%20%5B%22index.html%22%2C%20%22assets%2Fmain.js%22%5D%2C%0A%20%20%22modules%22%3A%20%5B%22assets%2Fmain.js%22%5D%2C%0A%20%20%22branch%22%3A%20%22cdn%22%0A%7D%0A%60%60%60%0A%0AReturns%20%60%7B%20update%3A%20false%20%7D%60%20if%20the%20client%20is%20already%20on%20the%20latest%20version.%0A%0A%23%23%23%20%60GET%20%2Fmanifest%60%0A%0AReturns%20the%20raw%20manifest%20for%20debugging%20or%20custom%20integrations.%0A%0A%7C%20Param%20%20%20%20%7C%20Required%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C----------%7C----------%7C------------------------------%7C%0A%7C%20%60repo%60%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20GitHub%20%60owner%2Frepo%60%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60branch%60%20%7C%20no%20%20%20%20%20%20%20%7C%20CDN%20branch%20(default%20%60%22cdn%22%60)%20%7C%0A%0A%23%23%20Version%20comparison%0A%0A**Version%20mode**%20splits%20the%20version%20string%20on%20%60.%60%20and%20compares%20numerically.%20%60%221.10.0%22%20%3E%20%221.9.0%22%60.%20Non-numeric%20segments%20are%20treated%20as%20%600%60.%0A%0A**Commit%20mode**%20does%20an%20exact%20string%20comparison.%20Any%20difference%20means%20an%20update.%0A%0A%23%23%20Caching%0A%0AThe%20Worker%20caches%20the%20fetched%20manifest%20in%20KV%20under%20the%20key%20%60manifest%3A%3Cbranch%3E%3A%3Crepo%3E%60.%20The%20default%20TTL%20is%20300%20seconds.%20Set%20the%20%60UPDATO_CACHE_TTL%60%20environment%20variable%20to%20override.%0A%0AIf%20the%20cache%20is%20stale%20or%20missing%2C%20the%20Worker%20fetches%20the%20manifest%20from%20%60https%3A%2F%2Fraw.githubusercontent.com%2F%3Crepo%3E%2F%3Cbranch%3E%2Fmanifest.json%60.%0A%0A%23%23%20Rate%20limiting%0A%0ADefault%3A%2060%20requests%20per%20minute%20per%20IP.%20Configurable%20by%20editing%20%60RateLimitConfig%60%20in%20%60rate-limit.ts%60.%20Uses%20KV%20to%20track%20window%20state.%0A%0A%23%23%20Deployment%0A%0A%60%60%60bash%0Acd%20worker%0Anpm%20install%0Anpx%20wrangler%20deploy%0A%60%60%60%0A%0A%23%23%23%20KV%20namespace%0A%0A%60%60%60toml%0A%5B%5Bkv_namespaces%5D%5D%0Abinding%20%3D%20%22UPDATO_KV%22%0Aid%20%3D%20%22%3Cyour-namespace-id%3E%22%0A%60%60%60%0A%0A%23%23%20Self-hosting%0A%0AThe%20Worker%20handles%20CORS%2C%20caching%2C%20and%20error%20responses%20automatically.%20Deploy%20it%20under%20your%20own%20Cloudflare%20account%20to%20control%20the%20URL%20and%20rate%20limits.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BManifest%5D(.%2Fmanifest)%3A%20Format%20and%20validation%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20The%20client%20that%20talks%20to%20this%20worker%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -653,7 +705,7 @@
                         
                           <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
                             
-                              <span>GitHub Action</span>
+                              <span>Worker</span>
                             
                             
                           </li>
@@ -710,151 +762,101 @@
                   
                 </div>
                 
-                <p>The Updato Action publishes build artifacts to a CDN branch with a version manifest.</p>
-<h2 id="usage" class="docmd-heading"><a href="#usage" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Usage</h2>
-<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@v1
-  <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
-    mode<span class="hljs-punctuation">:</span> version
-    dist_dir<span class="hljs-punctuation">:</span> dist
-    build_script<span class="hljs-punctuation">:</span> <span class="hljs-keyword">npm</span> run build
-</code></pre>
-<h2 id="inputs" class="docmd-heading"><a href="#inputs" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Inputs</h2>
+                <p>The Worker is a lightweight HTTP API that checks versions and serves manifest data. It’s the only server-side component.</p>
+<h2 id="endpoints" class="docmd-heading"><a href="#endpoints" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Endpoints</h2>
+<h3 id="endpoints-get-check" class="docmd-heading"><a href="#endpoints-get-check" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a><code>GET /check</code></h3>
+<p>Primary endpoint called by the client.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th>Input</th>
+<th>Param</th>
 <th>Required</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>mode</code></td>
+<td><code>repo</code></td>
 <td>yes</td>
-<td><code>&quot;commit&quot;</code></td>
-<td><code>&quot;version&quot;</code> or <code>&quot;commit&quot;</code></td>
+<td>GitHub <code>owner/repo</code></td>
 </tr>
 <tr>
-<td><code>dist_dir</code></td>
+<td><code>branch</code></td>
+<td>no</td>
+<td>CDN branch (default <code>&quot;cdn&quot;</code>)</td>
+</tr>
+<tr>
+<td><code>current</code></td>
 <td>yes</td>
-<td><code>&quot;dist&quot;</code></td>
-<td>Build output directory relative to repo root</td>
-</tr>
-<tr>
-<td><code>build_script</code></td>
-<td>no</td>
-<td><code>&quot;&quot;</code></td>
-<td>Command to run before publishing (e.g. <code>npm run build</code>)</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td>no</td>
-<td>package.json <code>version</code></td>
-<td>Explicit version for <code>version</code> mode</td>
-</tr>
-<tr>
-<td><code>cdn_branch</code></td>
-<td>no</td>
-<td><code>&quot;cdn&quot;</code></td>
-<td>Target branch for CDN artifacts</td>
-</tr>
-<tr>
-<td><code>user_name</code></td>
-<td>no</td>
-<td><code>&quot;updato&quot;</code></td>
-<td>Git user name for the commit</td>
-</tr>
-<tr>
-<td><code>user_email</code></td>
-<td>no</td>
-<td><code>&quot;updato@users.noreply.github.com&quot;</code></td>
-<td>Git user email</td>
+<td>Client’s current version</td>
 </tr>
 </tbody>
 </table>
-</div><h3 id="inputs-mode-version" class="docmd-heading"><a href="#inputs-mode-version" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Mode: <code>version</code></h3>
-<p>Reads the version from <code>package.json</code> or the explicit <code>version</code> input. Versions are compared semantically: <code>1.2.0 &gt; 1.1.0</code>. Files are published under <code>versions/v1.2.0/</code>.</p>
-<h3 id="inputs-mode-commit" class="docmd-heading"><a href="#inputs-mode-commit" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Mode: <code>commit</code></h3>
-<p>Uses the current Git commit SHA as the version. Any SHA change triggers an update. Files are published under <code>versions/&lt;sha&gt;/</code>.</p>
-<h2 id="required-permissions" class="docmd-heading"><a href="#required-permissions" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Required permissions</h2>
-<p>The Action needs contents write access to push the CDN branch:</p>
-<pre class="hljs"><code>permissions<span class="hljs-punctuation">:</span>
-  contents<span class="hljs-punctuation">:</span> write
-</code></pre>
-<h2 id="full-workflow" class="docmd-heading"><a href="#full-workflow" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Full Workflow</h2>
-<pre class="hljs"><code>name<span class="hljs-punctuation">:</span> Deploy
-on<span class="hljs-punctuation">:</span>
-  push<span class="hljs-punctuation">:</span>
-    branches<span class="hljs-punctuation">:</span> [main]
-
-permissions<span class="hljs-punctuation">:</span>
-  contents<span class="hljs-punctuation">:</span> write
-
-jobs<span class="hljs-punctuation">:</span>
-  deploy<span class="hljs-punctuation">:</span>
-    runs<span class="hljs-punctuation">-</span>on<span class="hljs-punctuation">:</span> ubuntu<span class="hljs-punctuation">-</span>latest
-    steps<span class="hljs-punctuation">:</span>
-      <span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> actions<span class="hljs-punctuation">/</span>checkout@v4
-      <span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> actions<span class="hljs-punctuation">/</span>setup<span class="hljs-punctuation">-</span><span class="hljs-keyword">node</span>@v4
-        <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
-          <span class="hljs-keyword">node</span><span class="hljs-punctuation">-</span>version<span class="hljs-punctuation">:</span> <span class="hljs-number">20</span>
-      <span class="hljs-punctuation">-</span> run<span class="hljs-punctuation">:</span> <span class="hljs-keyword">npm</span> ci
-
-      <span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@v1
-        <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
-          mode<span class="hljs-punctuation">:</span> version
-          dist_dir<span class="hljs-punctuation">:</span> dist
-          build_script<span class="hljs-punctuation">:</span> <span class="hljs-keyword">npm</span> run build
-          cdn_branch<span class="hljs-punctuation">:</span> cdn
-</code></pre>
-<h2 id="what-gets-pushed" class="docmd-heading"><a href="#what-gets-pushed" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>What gets pushed</h2>
-<p>After the Action runs, the CDN branch looks like:</p>
-<pre class="hljs"><code>cdn<span class="hljs-punctuation">/</span>
-  manifest.<span class="hljs-attr">json</span>
-  latest<span class="hljs-punctuation">/</span>
-    index.<span class="hljs-attr">html</span>
-    assets<span class="hljs-punctuation">/</span>
-      main.<span class="hljs-attr">js</span>
-      main.<span class="hljs-attr">css</span>
-  versions<span class="hljs-punctuation">/</span>
-    v1.<span class="hljs-number">0.0</span><span class="hljs-punctuation">/</span>
-      index.<span class="hljs-attr">html</span>
-      assets<span class="hljs-punctuation">/</span>
-        main.<span class="hljs-attr">js</span>
-        main.<span class="hljs-attr">css</span>
-    v1.<span class="hljs-number">0.1</span><span class="hljs-punctuation">/</span>
-      index.<span class="hljs-attr">html</span>
-      assets<span class="hljs-punctuation">/</span>
-        main.<span class="hljs-attr">js</span>
-        main.<span class="hljs-attr">css</span>
-</code></pre>
-<h3 id="what-gets-pushed-manifestjson" class="docmd-heading"><a href="#what-gets-pushed-manifestjson" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>manifest.json</h3>
+</div><p>Response:</p>
 <pre class="hljs"><code>{
-  <span class="hljs-string">&quot;app&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my-app&quot;</span>,
   <span class="hljs-string">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;version&quot;</span>,
+  <span class="hljs-string">&quot;update&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>,
   <span class="hljs-string">&quot;latest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.1&quot;</span>,
-  <span class="hljs-string">&quot;files&quot;</span><span class="hljs-punctuation">:</span> [
-    <span class="hljs-string">&quot;index.html&quot;</span>,
-    <span class="hljs-string">&quot;assets/main.js&quot;</span>,
-    <span class="hljs-string">&quot;assets/main.css&quot;</span>
-  ],
+  <span class="hljs-string">&quot;current&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span>,
+  <span class="hljs-string">&quot;files&quot;</span><span class="hljs-punctuation">:</span> [<span class="hljs-string">&quot;index.html&quot;</span>, <span class="hljs-string">&quot;assets/main.js&quot;</span>],
   <span class="hljs-string">&quot;modules&quot;</span><span class="hljs-punctuation">:</span> [<span class="hljs-string">&quot;assets/main.js&quot;</span>],
-  <span class="hljs-string">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1719000000</span>
+  <span class="hljs-string">&quot;branch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cdn&quot;</span>
 }
 </code></pre>
-<p>The <code>files</code> array lists every file in the build output. The <code>modules</code> array lists files that are ES modules (<code>&lt;script type=&quot;module&quot;&gt;</code>), detected by scanning HTML for module script tags. Files listed in <code>modules</code> are passed to <code>swapScript</code> with <code>isModule: true</code>.</p>
+<p>Returns <code>{ update: false }</code> if the client is already on the latest version.</p>
+<h3 id="endpoints-get-manifest" class="docmd-heading"><a href="#endpoints-get-manifest" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a><code>GET /manifest</code></h3>
+<p>Returns the raw manifest for debugging or custom integrations.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>repo</code></td>
+<td>yes</td>
+<td>GitHub <code>owner/repo</code></td>
+</tr>
+<tr>
+<td><code>branch</code></td>
+<td>no</td>
+<td>CDN branch (default <code>&quot;cdn&quot;</code>)</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="version-comparison" class="docmd-heading"><a href="#version-comparison" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Version comparison</h2>
+<p><strong>Version mode</strong> splits the version string on <code>.</code> and compares numerically. <code>&quot;1.10.0&quot; &gt; &quot;1.9.0&quot;</code>. Non-numeric segments are treated as <code>0</code>.</p>
+<p><strong>Commit mode</strong> does an exact string comparison. Any difference means an update.</p>
+<h2 id="caching" class="docmd-heading"><a href="#caching" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Caching</h2>
+<p>The Worker caches the fetched manifest in KV under the key <code>manifest:&lt;branch&gt;:&lt;repo&gt;</code>. The default TTL is 300 seconds. Set the <code>UPDATO_CACHE_TTL</code> environment variable to override.</p>
+<p>If the cache is stale or missing, the Worker fetches the manifest from <code>https://raw.githubusercontent.com/&lt;repo&gt;/&lt;branch&gt;/manifest.json</code>.</p>
+<h2 id="rate-limiting" class="docmd-heading"><a href="#rate-limiting" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Rate limiting</h2>
+<p>Default: 60 requests per minute per IP. Configurable by editing <code>RateLimitConfig</code> in <code>rate-limit.ts</code>. Uses KV to track window state.</p>
+<h2 id="deployment" class="docmd-heading"><a href="#deployment" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Deployment</h2>
+<pre class="hljs"><code><span class="hljs-keyword">cd</span> worker
+<span class="hljs-keyword">npm</span> install
+npx wrangler deploy
+</code></pre>
+<h3 id="deployment-kv-namespace" class="docmd-heading"><a href="#deployment-kv-namespace" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>KV namespace</h3>
+<pre class="hljs"><code>[[kv_namespaces]]
+binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;UPDATO_KV&quot;</span>
+<span class="hljs-keyword">id</span> <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;&lt;your-namespace-id&gt;&quot;</span>
+</code></pre>
+<h2 id="self-hosting" class="docmd-heading"><a href="#self-hosting" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Self-hosting</h2>
+<p>The Worker handles CORS, caching, and error responses automatically. Deploy it under your own Cloudflare account to control the URL and rate limits.</p>
 <h2 id="next-steps" class="docmd-heading"><a href="#next-steps" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Next Steps</h2>
 <ul>
-<li><a href="../client-library/">Client Library</a>: Wire the other end</li>
-<li><a href="../manifest/">Manifest</a>: Manifest format reference</li>
-<li><a href="../worker/">Worker</a>: Deploy your own worker</li>
+<li><a href="../manifest/">Manifest</a>: Format and validation</li>
+<li><a href="../client-library/">Client Library</a>: The client that talks to this worker</li>
 </ul>
 
                 
                   <div class="page-navigation">
                     
-                      <a href="../../guide/client-library/" class="prev-page">
+                      <a href="../../guide/github-action/" class="prev-page">
                         
 <svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-arrow-left"
@@ -873,15 +875,15 @@ jobs<span class="hljs-punctuation">:</span>
 </svg>
 
                         <span><small>previous</small><strong>
-                            Client Library
+                            GitHub Action
                           </strong></span>
                       </a>
                     
                     
-                      <a href="../../guide/worker/" class="next-page">
+                      <a href="../../guide/hot-swap/" class="next-page">
                         <span><small>next</small>
                           <strong>
-                            Worker
+                            Hot-Swap
                           </strong></span>
                         
 <svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -929,35 +931,39 @@ jobs<span class="hljs-punctuation">:</span>
     <ul class="toc-list">
       
         <li class="toc-item toc-level-2">
-          <a href="#usage" class="toc-link">Usage</a>
-        </li>
-      
-        <li class="toc-item toc-level-2">
-          <a href="#inputs" class="toc-link">Inputs</a>
+          <a href="#endpoints" class="toc-link">Endpoints</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#inputs-mode-version" class="toc-link">Mode: version</a>
+          <a href="#endpoints-get-check" class="toc-link">GET /check</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#inputs-mode-commit" class="toc-link">Mode: commit</a>
+          <a href="#endpoints-get-manifest" class="toc-link">GET /manifest</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#required-permissions" class="toc-link">Required permissions</a>
+          <a href="#version-comparison" class="toc-link">Version comparison</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#full-workflow" class="toc-link">Full Workflow</a>
+          <a href="#caching" class="toc-link">Caching</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#what-gets-pushed" class="toc-link">What gets pushed</a>
+          <a href="#rate-limiting" class="toc-link">Rate limiting</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#deployment" class="toc-link">Deployment</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#what-gets-pushed-manifestjson" class="toc-link">manifest.json</a>
+          <a href="#deployment-kv-namespace" class="toc-link">KV namespace</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#self-hosting" class="toc-link">Self-hosting</a>
         </li>
       
         <li class="toc-item toc-level-2">
@@ -972,13 +978,13 @@ jobs<span class="hljs-punctuation">:</span>
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1780714552000">
+                <span class="git-last-updated" data-timestamp="1780716113000">
                   <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1780714552000"></span>
+                  <span class="git-time" data-timestamp="1780716113000"></span>
                   
                   <div class="git-commit-tooltip" role="tooltip">
                     <div class="git-tooltip-title">Recent commits</div>
@@ -991,10 +997,10 @@ jobs<span class="hljs-punctuation">:</span>
                             
                           </div>
                           <div class="git-commit-details">
-                            <div class="git-commit-message" title="Fix">Fix</div>
+                            <div class="git-commit-message" title="Some improvements and README">Some improvements and README</div>
                             <div class="git-commit-meta">
                               <span class="git-commit-author">NellowTCS</span>
-                              <span class="git-commit-date" data-timestamp="1780714552000"></span>
+                              <span class="git-commit-date" data-timestamp="1780716113000"></span>
                             </div>
                           </div>
                         </li>
@@ -1025,14 +1031,14 @@ jobs<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-main.js?v=mq1rhhjc"></script>
+      <script src="../../assets/js/docmd-main.js?v=mq1sf7kq"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mq1rhhjc"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1rhhjc" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mq1sf7kq"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1sf7kq" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mq1rhhjc" ></script>
-<script src="../../assets/js/init-mermaid.js?v=mq1rhhjc" type="module"></script>
-<script src="../../assets/js/docmd-git.js?v=mq1rhhjc" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mq1sf7kq" ></script>
+<script src="../../assets/js/init-mermaid.js?v=mq1sf7kq" type="module"></script>
+<script src="../../assets/js/docmd-git.js?v=mq1sf7kq" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

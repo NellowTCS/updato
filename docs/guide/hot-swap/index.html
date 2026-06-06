@@ -84,30 +84,30 @@
       window.DOCMD_DEFAULT_LOCALE = "";
     </script>
     <title>
-      Worker : Updato
+      Hot-Swap Internals : Updato
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1rhhjc">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1sf7kq">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1rhhjc" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1rhhjc" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1sf7kq" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1sf7kq" id="hljs-dark" disabled>
     
     
-<meta name="description" content="Deploy and configure the Cloudflare Worker">
-<link rel="canonical" href="https://nellowtcs.me/updato/docs/guide/worker/">
-<meta property="og:title" content="Worker - Updato">
-<meta property="og:description" content="Deploy and configure the Cloudflare Worker">
-<meta property="og:url" content="https://nellowtcs.me/updato/docs/guide/worker/">
+<meta name="description" content="How scripts, stylesheets, and images are replaced live">
+<link rel="canonical" href="https://nellowtcs.me/updato/docs/guide/hot-swap/">
+<meta property="og:title" content="Hot-Swap Internals - Updato">
+<meta property="og:description" content="How scripts, stylesheets, and images are replaced live">
+<meta property="og:url" content="https://nellowtcs.me/updato/docs/guide/hot-swap/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Worker - Updato">
-<meta name="twitter:description" content="Deploy and configure the Cloudflare Worker">
+<meta name="twitter:title" content="Hot-Swap Internals - Updato">
+<meta name="twitter:description" content="How scripts, stylesheets, and images are replaced live">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1rhhjc" >
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1rhhjc" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1rhhjc" >
+<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1sf7kq" >
 
     
     <script>/**
@@ -162,7 +162,7 @@
   <body
     class="sidebar-collapsible"
     data-default-collapsed="false"
-    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/guide/worker.md">
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/guide/hot-swap.md">
 
     <a href="#main-content" class="skip-link">skipToContent</a>
 
@@ -233,6 +233,58 @@
             Home
             </span>
           
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="https://nellowtcs.me/updato" class=" "
+          target=&quot;_blank&quot; rel=&quot;noopener&quot;>
+           
+<svg class="lucide-icon icon-external-link " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Live Demo
+            </span>
+          
+           
+<svg class="lucide-icon icon-external-link nav-external-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
           
         </a>
         
@@ -370,9 +422,9 @@
         
       </li>
     
-      <li class="active" >
+      <li class="" >
       
-        <a href="../../guide/worker/" class="active "
+        <a href="../../guide/worker/" class=" "
           >
           
           <span class="nav-item-title">
@@ -386,9 +438,9 @@
         
       </li>
     
-      <li class="" >
+      <li class="active" >
       
-        <a href="../../guide/hot-swap/" class=" "
+        <a href="../../guide/hot-swap/" class="active "
           >
           
           <span class="nav-item-title">
@@ -527,7 +579,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  Worker
+                  Hot-Swap Internals
                 </span>
               </div>
             </div>
@@ -621,7 +673,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Worker%22%0Adescription%3A%20%22Deploy%20and%20configure%20the%20Cloudflare%20Worker%22%0A---%0A%0AThe%20Worker%20is%20a%20lightweight%20HTTP%20API%20that%20checks%20versions%20and%20serves%20manifest%20data.%20It&#039;s%20the%20only%20server-side%20component.%0A%0A%23%23%20Endpoints%0A%0A%23%23%23%20%60GET%20%2Fcheck%60%0A%0APrimary%20endpoint%20called%20by%20the%20client.%0A%0A%7C%20Param%20%20%20%20%20%7C%20Required%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-----------%7C----------%7C------------------------------%7C%0A%7C%20%60repo%60%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20GitHub%20%60owner%2Frepo%60%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60branch%60%20%20%7C%20no%20%20%20%20%20%20%20%7C%20CDN%20branch%20(default%20%60%22cdn%22%60)%20%7C%0A%7C%20%60current%60%20%7C%20yes%20%20%20%20%20%20%7C%20Client&#039;s%20current%20version%20%20%20%20%20%7C%0A%0AResponse%3A%0A%0A%60%60%60json%0A%7B%0A%20%20%22mode%22%3A%20%22version%22%2C%0A%20%20%22update%22%3A%20true%2C%0A%20%20%22latest%22%3A%20%221.0.1%22%2C%0A%20%20%22current%22%3A%20%221.0.0%22%2C%0A%20%20%22files%22%3A%20%5B%22index.html%22%2C%20%22assets%2Fmain.js%22%5D%2C%0A%20%20%22modules%22%3A%20%5B%22assets%2Fmain.js%22%5D%2C%0A%20%20%22branch%22%3A%20%22cdn%22%0A%7D%0A%60%60%60%0A%0AReturns%20%60%7B%20update%3A%20false%20%7D%60%20if%20the%20client%20is%20already%20on%20the%20latest%20version.%0A%0A%23%23%23%20%60GET%20%2Fmanifest%60%0A%0AReturns%20the%20raw%20manifest%20for%20debugging%20or%20custom%20integrations.%0A%0A%7C%20Param%20%20%20%20%7C%20Required%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C----------%7C----------%7C------------------------------%7C%0A%7C%20%60repo%60%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20GitHub%20%60owner%2Frepo%60%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60branch%60%20%7C%20no%20%20%20%20%20%20%20%7C%20CDN%20branch%20(default%20%60%22cdn%22%60)%20%7C%0A%0A%23%23%20Version%20comparison%0A%0A**Version%20mode**%20splits%20the%20version%20string%20on%20%60.%60%20and%20compares%20numerically.%20%60%221.10.0%22%20%3E%20%221.9.0%22%60.%20Non-numeric%20segments%20are%20treated%20as%20%600%60.%0A%0A**Commit%20mode**%20does%20an%20exact%20string%20comparison.%20Any%20difference%20means%20an%20update.%0A%0A%23%23%20Caching%0A%0AThe%20Worker%20caches%20the%20fetched%20manifest%20in%20KV%20under%20the%20key%20%60manifest%3A%3Cbranch%3E%3A%3Crepo%3E%60.%20The%20default%20TTL%20is%20300%20seconds.%20Set%20the%20%60UPDATO_CACHE_TTL%60%20environment%20variable%20to%20override.%0A%0AIf%20the%20cache%20is%20stale%20or%20missing%2C%20the%20Worker%20fetches%20the%20manifest%20from%20%60https%3A%2F%2Fraw.githubusercontent.com%2F%3Crepo%3E%2F%3Cbranch%3E%2Fmanifest.json%60.%0A%0A%23%23%20Rate%20limiting%0A%0ADefault%3A%2060%20requests%20per%20minute%20per%20IP.%20Configurable%20by%20editing%20%60RateLimitConfig%60%20in%20%60rate-limit.ts%60.%20Uses%20KV%20to%20track%20window%20state.%0A%0A%23%23%20Deployment%0A%0A%60%60%60bash%0Acd%20worker%0Anpm%20install%0Anpx%20wrangler%20deploy%0A%60%60%60%0A%0A%23%23%23%20KV%20namespace%0A%0A%60%60%60toml%0A%5B%5Bkv_namespaces%5D%5D%0Abinding%20%3D%20%22UPDATO_KV%22%0Aid%20%3D%20%22%3Cyour-namespace-id%3E%22%0A%60%60%60%0A%0A%23%23%20Self-hosting%0A%0AThe%20Worker%20handles%20CORS%2C%20caching%2C%20and%20error%20responses%20automatically.%20Deploy%20it%20under%20your%20own%20Cloudflare%20account%20to%20control%20the%20URL%20and%20rate%20limits.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BManifest%5D(.%2Fmanifest)%3A%20Format%20and%20validation%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20The%20client%20that%20talks%20to%20this%20worker%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Hot-Swap%20Internals%22%0Adescription%3A%20%22How%20scripts%2C%20stylesheets%2C%20and%20images%20are%20replaced%20live%22%0A---%0A%0AThe%20%60hotSwap()%60%20function%20handles%20three%20asset%20types.%20Each%20uses%20a%20different%20strategy%20for%20in-place%20replacement.%0A%0A%23%23%20Scripts%0A%0ARegular%20scripts%20(%60%3Cscript%20src%3D%22...%22%3E%60)%20are%20replaced%20by%20creating%20a%20new%20%60%3Cscript%3E%60%20element%20with%20the%20same%20content%20but%20without%20a%20%60src%60%20attribute.%20The%20old%20element%20is%20swapped%20out.%0A%0AModule%20scripts%20(%60%3Cscript%20type%3D%22module%22%20src%3D%22...%22%3E%60)%20get%20%60type%3D%22module%22%60%20on%20the%20replacement.%20If%20the%20original%20had%20%60integrity%60%20or%20%60crossorigin%60%2C%20those%20are%20copied.%0A%0AEach%20replacement%20is%20tagged%20with%20a%20%60data-hot-file%60%20attribute%20set%20to%20the%20filename.%20On%20subsequent%20updates%20(same%20file%2C%20new%20content)%2C%20the%20library%20finds%20the%20tagged%20element%20and%20updates%20its%20%60textContent%60%20in%20place%20instead%20of%20creating%20a%20new%20element.%20This%20keeps%20the%20script%20active%20and%20avoids%20re-execution%20in%20some%20cases.%0A%0A%60%60%60typescript%0A%2F%2F%20First%20update%3A%20creates%20a%20new%20script%20element%0A%3Cscript%20data-hot-file%3D%22main.js%22%3E%2F*%20new%20code%20*%2F%3C%2Fscript%3E%0A%0A%2F%2F%20Second%20update%3A%20finds%20the%20tagged%20element%2C%20updates%20textContent%0A%60%60%60%0A%0A%23%23%20Stylesheets%0A%0ACSS%20hot-swap%20uses%20%60CSSStyleSheet.replaceSync%60%20with%20%60adoptedStyleSheets%60.%20This%20approach%20is%20synchronous%2C%20CSP-safe%20(no%20inline%20%60%3Cstyle%3E%60%20or%20%60data%3A%60%20URIs)%2C%20and%20avoids%20relative%20%60url()%60%20breakage.%0A%0AOn%20the%20first%20update%20for%20a%20given%20file%3A%0A%0A1.%20The%20original%20%60%3Clink%20rel%3D%22stylesheet%22%3E%60%20is%20disabled%20(%60link.disabled%20%3D%20true%60)%0A2.%20A%20new%20%60CSSStyleSheet%60%20is%20created%20and%20added%20to%20%60document.adoptedStyleSheets%60%0A3.%20The%20sheet%20is%20tracked%20in%20a%20%60Map%3Cstring%2C%20CSSStyleSheet%3E%60%20by%20filename%0A%0AOn%20subsequent%20updates%2C%20the%20same%20sheet%20is%20found%20in%20the%20map%20and%20%60replaceSync()%60%20is%20called%20with%20the%20new%20content.%20No%20DOM%20manipulation.%0A%0A%60%60%60typescript%0Aconst%20hotSheets%20%3D%20new%20Map%3Cstring%2C%20CSSStyleSheet%3E()%3B%0A%0Afunction%20swapStylesheet(file%2C%20content)%20%7B%0A%20%20let%20sheet%20%3D%20hotSheets.get(file)%3B%0A%20%20if%20(!sheet)%20%7B%0A%20%20%20%20const%20link%20%3D%20matchAttr(&#039;link%5Brel%3D%22stylesheet%22%5D&#039;%2C%20%22href%22%2C%20file)%3B%0A%20%20%20%20if%20(link)%20link.disabled%20%3D%20true%3B%0A%20%20%20%20sheet%20%3D%20new%20CSSStyleSheet()%3B%0A%20%20%20%20document.adoptedStyleSheets%20%3D%20%5B...document.adoptedStyleSheets%2C%20sheet%5D%3B%0A%20%20%20%20hotSheets.set(file%2C%20sheet)%3B%0A%20%20%7D%0A%20%20sheet.replaceSync(content)%3B%0A%7D%0A%60%60%60%0A%0A%23%23%20Images%0A%0AImages%20are%20replaced%20by%20converting%20the%20file%20content%20to%20a%20base64%20data%20URI%20and%20setting%20it%20on%20matching%20%60%3Cimg%3E%60%2C%20%60%3Csource%3E%60%2C%20and%20%60%3Clink%20rel%3D%22icon%22%3E%60%20elements.%0A%0AMatching%20uses%20%60querySelectorAll%60%20with%20a%20partial%20%60src%60%20%2F%20%60href%60%20match%20on%20the%20filename.%20Every%20matching%20element%20on%20the%20page%20gets%20the%20new%20data%20URI.%0A%0A%23%23%20Unknown%20types%0A%0AFiles%20with%20unrecognized%20extensions%20return%20%60%7B%20swapped%3A%20false%2C%20type%3A%20%22unknown%22%20%7D%60.%20The%20caller%20can%20handle%20them%20or%20fall%20through%20to%20a%20page%20reload.%0A%0A%23%23%20Fallback%0A%0AIf%20every%20file%20in%20an%20%60applyUpdate%60%20call%20returns%20%60swapped%3A%20false%60%2C%20the%20page%20reloads%20as%20a%20safety%20net.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Full%20API%20reference%0A-%20%5BManifest%5D(.%2Fmanifest)%3A%20How%20files%20and%20modules%20are%20declared%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -653,7 +705,7 @@
                         
                           <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
                             
-                              <span>Worker</span>
+                              <span>Hot-Swap</span>
                             
                             
                           </li>
@@ -710,101 +762,56 @@
                   
                 </div>
                 
-                <p>The Worker is a lightweight HTTP API that checks versions and serves manifest data. It’s the only server-side component.</p>
-<h2 id="endpoints" class="docmd-heading"><a href="#endpoints" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Endpoints</h2>
-<h3 id="endpoints-get-check" class="docmd-heading"><a href="#endpoints-get-check" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a><code>GET /check</code></h3>
-<p>Primary endpoint called by the client.</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>repo</code></td>
-<td>yes</td>
-<td>GitHub <code>owner/repo</code></td>
-</tr>
-<tr>
-<td><code>branch</code></td>
-<td>no</td>
-<td>CDN branch (default <code>&quot;cdn&quot;</code>)</td>
-</tr>
-<tr>
-<td><code>current</code></td>
-<td>yes</td>
-<td>Client’s current version</td>
-</tr>
-</tbody>
-</table>
-</div><p>Response:</p>
-<pre class="hljs"><code>{
-  <span class="hljs-string">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;version&quot;</span>,
-  <span class="hljs-string">&quot;update&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>,
-  <span class="hljs-string">&quot;latest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.1&quot;</span>,
-  <span class="hljs-string">&quot;current&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span>,
-  <span class="hljs-string">&quot;files&quot;</span><span class="hljs-punctuation">:</span> [<span class="hljs-string">&quot;index.html&quot;</span>, <span class="hljs-string">&quot;assets/main.js&quot;</span>],
-  <span class="hljs-string">&quot;modules&quot;</span><span class="hljs-punctuation">:</span> [<span class="hljs-string">&quot;assets/main.js&quot;</span>],
-  <span class="hljs-string">&quot;branch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cdn&quot;</span>
+                <p>The <code>hotSwap()</code> function handles three asset types. Each uses a different strategy for in-place replacement.</p>
+<h2 id="scripts" class="docmd-heading"><a href="#scripts" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Scripts</h2>
+<p>Regular scripts (<code>&lt;script src=&quot;...&quot;&gt;</code>) are replaced by creating a new <code>&lt;script&gt;</code> element with the same content but without a <code>src</code> attribute. The old element is swapped out.</p>
+<p>Module scripts (<code>&lt;script type=&quot;module&quot; src=&quot;...&quot;&gt;</code>) get <code>type=&quot;module&quot;</code> on the replacement. If the original had <code>integrity</code> or <code>crossorigin</code>, those are copied.</p>
+<p>Each replacement is tagged with a <code>data-hot-file</code> attribute set to the filename. On subsequent updates (same file, new content), the library finds the tagged element and updates its <code>textContent</code> in place instead of creating a new element. This keeps the script active and avoids re-execution in some cases.</p>
+<pre class="hljs"><code><span class="hljs-comment">// First update: creates a new script element</span>
+<span class="hljs-punctuation">&lt;</span>script data<span class="hljs-punctuation">-</span>hot<span class="hljs-punctuation">-</span>file<span class="hljs-punctuation">=</span><span class="hljs-string">&quot;main.js&quot;</span><span class="hljs-punctuation">&gt;/*</span> <span class="hljs-keyword">new</span> code <span class="hljs-punctuation">*/&lt;/</span>script<span class="hljs-punctuation">&gt;</span>
+
+<span class="hljs-comment">// Second update: finds the tagged element, updates textContent</span>
+</code></pre>
+<h2 id="stylesheets" class="docmd-heading"><a href="#stylesheets" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Stylesheets</h2>
+<p>CSS hot-swap uses <code>CSSStyleSheet.replaceSync</code> with <code>adoptedStyleSheets</code>. This approach is synchronous, CSP-safe (no inline <code>&lt;style&gt;</code> or <code>data:</code> URIs), and avoids relative <code>url()</code> breakage.</p>
+<p>On the first update for a given file:</p>
+<ol>
+<li>The original <code>&lt;link rel=&quot;stylesheet&quot;&gt;</code> is disabled (<code>link.disabled = true</code>)</li>
+<li>A new <code>CSSStyleSheet</code> is created and added to <code>document.adoptedStyleSheets</code></li>
+<li>The sheet is tracked in a <code>Map&lt;string, CSSStyleSheet&gt;</code> by filename</li>
+</ol>
+<p>On subsequent updates, the same sheet is found in the map and <code>replaceSync()</code> is called with the new content. No DOM manipulation.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> hotSheets <span class="hljs-punctuation">=</span> <span class="hljs-keyword">new</span> Map<span class="hljs-punctuation">&lt;</span>string, CSSStyleSheet<span class="hljs-punctuation">&gt;</span>();
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">swapStylesheet</span>(file, content) {
+  <span class="hljs-keyword">let</span> sheet <span class="hljs-punctuation">=</span> hotSheets.<span class="hljs-title function_">get</span>(file);
+  <span class="hljs-keyword">if</span> (<span class="hljs-punctuation">!</span>sheet) {
+    <span class="hljs-keyword">const</span> link <span class="hljs-punctuation">=</span> <span class="hljs-title function_">matchAttr</span>(<span class="hljs-string">&#039;link[rel=&quot;stylesheet&quot;]&#039;</span>, <span class="hljs-string">&quot;href&quot;</span>, file);
+    <span class="hljs-keyword">if</span> (link) link.<span class="hljs-attr">disabled</span> <span class="hljs-punctuation">=</span> <span class="hljs-keyword">true</span>;
+    sheet <span class="hljs-punctuation">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">CSSStyleSheet</span>();
+    document.<span class="hljs-attr">adoptedStyleSheets</span> <span class="hljs-punctuation">=</span> [...<span class="hljs-attr">document</span>.<span class="hljs-attr">adoptedStyleSheets</span>, sheet];
+    hotSheets.<span class="hljs-keyword">set</span>(file, sheet);
+  }
+  sheet.<span class="hljs-title function_">replaceSync</span>(content);
 }
 </code></pre>
-<p>Returns <code>{ update: false }</code> if the client is already on the latest version.</p>
-<h3 id="endpoints-get-manifest" class="docmd-heading"><a href="#endpoints-get-manifest" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a><code>GET /manifest</code></h3>
-<p>Returns the raw manifest for debugging or custom integrations.</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Param</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>repo</code></td>
-<td>yes</td>
-<td>GitHub <code>owner/repo</code></td>
-</tr>
-<tr>
-<td><code>branch</code></td>
-<td>no</td>
-<td>CDN branch (default <code>&quot;cdn&quot;</code>)</td>
-</tr>
-</tbody>
-</table>
-</div><h2 id="version-comparison" class="docmd-heading"><a href="#version-comparison" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Version comparison</h2>
-<p><strong>Version mode</strong> splits the version string on <code>.</code> and compares numerically. <code>&quot;1.10.0&quot; &gt; &quot;1.9.0&quot;</code>. Non-numeric segments are treated as <code>0</code>.</p>
-<p><strong>Commit mode</strong> does an exact string comparison. Any difference means an update.</p>
-<h2 id="caching" class="docmd-heading"><a href="#caching" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Caching</h2>
-<p>The Worker caches the fetched manifest in KV under the key <code>manifest:&lt;branch&gt;:&lt;repo&gt;</code>. The default TTL is 300 seconds. Set the <code>UPDATO_CACHE_TTL</code> environment variable to override.</p>
-<p>If the cache is stale or missing, the Worker fetches the manifest from <code>https://raw.githubusercontent.com/&lt;repo&gt;/&lt;branch&gt;/manifest.json</code>.</p>
-<h2 id="rate-limiting" class="docmd-heading"><a href="#rate-limiting" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Rate limiting</h2>
-<p>Default: 60 requests per minute per IP. Configurable by editing <code>RateLimitConfig</code> in <code>rate-limit.ts</code>. Uses KV to track window state.</p>
-<h2 id="deployment" class="docmd-heading"><a href="#deployment" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Deployment</h2>
-<pre class="hljs"><code><span class="hljs-keyword">cd</span> worker
-<span class="hljs-keyword">npm</span> install
-npx wrangler deploy
-</code></pre>
-<h3 id="deployment-kv-namespace" class="docmd-heading"><a href="#deployment-kv-namespace" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>KV namespace</h3>
-<pre class="hljs"><code>[[kv_namespaces]]
-binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;UPDATO_KV&quot;</span>
-<span class="hljs-keyword">id</span> <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;&lt;your-namespace-id&gt;&quot;</span>
-</code></pre>
-<h2 id="self-hosting" class="docmd-heading"><a href="#self-hosting" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Self-hosting</h2>
-<p>The Worker handles CORS, caching, and error responses automatically. Deploy it under your own Cloudflare account to control the URL and rate limits.</p>
+<h2 id="images" class="docmd-heading"><a href="#images" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Images</h2>
+<p>Images are replaced by converting the file content to a base64 data URI and setting it on matching <code>&lt;img&gt;</code>, <code>&lt;source&gt;</code>, and <code>&lt;link rel=&quot;icon&quot;&gt;</code> elements.</p>
+<p>Matching uses <code>querySelectorAll</code> with a partial <code>src</code> / <code>href</code> match on the filename. Every matching element on the page gets the new data URI.</p>
+<h2 id="unknown-types" class="docmd-heading"><a href="#unknown-types" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Unknown types</h2>
+<p>Files with unrecognized extensions return <code>{ swapped: false, type: &quot;unknown&quot; }</code>. The caller can handle them or fall through to a page reload.</p>
+<h2 id="fallback" class="docmd-heading"><a href="#fallback" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Fallback</h2>
+<p>If every file in an <code>applyUpdate</code> call returns <code>swapped: false</code>, the page reloads as a safety net.</p>
 <h2 id="next-steps" class="docmd-heading"><a href="#next-steps" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Next Steps</h2>
 <ul>
-<li><a href="../manifest/">Manifest</a>: Format and validation</li>
-<li><a href="../client-library/">Client Library</a>: The client that talks to this worker</li>
+<li><a href="../client-library/">Client Library</a>: Full API reference</li>
+<li><a href="../manifest/">Manifest</a>: How files and modules are declared</li>
 </ul>
 
                 
                   <div class="page-navigation">
                     
-                      <a href="../../guide/github-action/" class="prev-page">
+                      <a href="../../guide/worker/" class="prev-page">
                         
 <svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-arrow-left"
@@ -823,15 +830,15 @@ binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;
 </svg>
 
                         <span><small>previous</small><strong>
-                            GitHub Action
+                            Worker
                           </strong></span>
                       </a>
                     
                     
-                      <a href="../../guide/hot-swap/" class="next-page">
+                      <a href="../../guide/manifest/" class="next-page">
                         <span><small>next</small>
                           <strong>
-                            Hot-Swap
+                            Manifest
                           </strong></span>
                         
 <svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -879,39 +886,23 @@ binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;
     <ul class="toc-list">
       
         <li class="toc-item toc-level-2">
-          <a href="#endpoints" class="toc-link">Endpoints</a>
-        </li>
-      
-        <li class="toc-item toc-level-3">
-          <a href="#endpoints-get-check" class="toc-link">GET /check</a>
-        </li>
-      
-        <li class="toc-item toc-level-3">
-          <a href="#endpoints-get-manifest" class="toc-link">GET /manifest</a>
+          <a href="#scripts" class="toc-link">Scripts</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#version-comparison" class="toc-link">Version comparison</a>
+          <a href="#stylesheets" class="toc-link">Stylesheets</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#caching" class="toc-link">Caching</a>
+          <a href="#images" class="toc-link">Images</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#rate-limiting" class="toc-link">Rate limiting</a>
+          <a href="#unknown-types" class="toc-link">Unknown types</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#deployment" class="toc-link">Deployment</a>
-        </li>
-      
-        <li class="toc-item toc-level-3">
-          <a href="#deployment-kv-namespace" class="toc-link">KV namespace</a>
-        </li>
-      
-        <li class="toc-item toc-level-2">
-          <a href="#self-hosting" class="toc-link">Self-hosting</a>
+          <a href="#fallback" class="toc-link">Fallback</a>
         </li>
       
         <li class="toc-item toc-level-2">
@@ -926,13 +917,13 @@ binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1780714552000">
+                <span class="git-last-updated" data-timestamp="1780716113000">
                   <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1780714552000"></span>
+                  <span class="git-time" data-timestamp="1780716113000"></span>
                   
                   <div class="git-commit-tooltip" role="tooltip">
                     <div class="git-tooltip-title">Recent commits</div>
@@ -945,10 +936,10 @@ binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;
                             
                           </div>
                           <div class="git-commit-details">
-                            <div class="git-commit-message" title="Fix">Fix</div>
+                            <div class="git-commit-message" title="Some improvements and README">Some improvements and README</div>
                             <div class="git-commit-meta">
                               <span class="git-commit-author">NellowTCS</span>
-                              <span class="git-commit-date" data-timestamp="1780714552000"></span>
+                              <span class="git-commit-date" data-timestamp="1780716113000"></span>
                             </div>
                           </div>
                         </li>
@@ -979,14 +970,14 @@ binding <span class="hljs-punctuation">=</span> <span class="hljs-string">&quot;
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-main.js?v=mq1rhhjc"></script>
+      <script src="../../assets/js/docmd-main.js?v=mq1sf7kq"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mq1rhhjc"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1rhhjc" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mq1sf7kq"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1sf7kq" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mq1rhhjc" ></script>
-<script src="../../assets/js/init-mermaid.js?v=mq1rhhjc" type="module"></script>
-<script src="../../assets/js/docmd-git.js?v=mq1rhhjc" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mq1sf7kq" ></script>
+<script src="../../assets/js/init-mermaid.js?v=mq1sf7kq" type="module"></script>
+<script src="../../assets/js/docmd-git.js?v=mq1sf7kq" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

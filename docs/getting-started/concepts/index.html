@@ -84,30 +84,30 @@
       window.DOCMD_DEFAULT_LOCALE = "";
     </script>
     <title>
-      Download Metrics : Updato
+      Core Concepts : Updato
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1rhhjc">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1sf7kq">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1rhhjc" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1rhhjc" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1sf7kq" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1sf7kq" id="hljs-dark" disabled>
     
     
-<meta name="description" content="Track download performance with localStorage-backed telemetry">
-<link rel="canonical" href="https://nellowtcs.me/updato/docs/guide/metrics/">
-<meta property="og:title" content="Download Metrics - Updato">
-<meta property="og:description" content="Track download performance with localStorage-backed telemetry">
-<meta property="og:url" content="https://nellowtcs.me/updato/docs/guide/metrics/">
+<meta name="description" content="How Updato works: Action, Worker, and Client">
+<link rel="canonical" href="https://nellowtcs.me/updato/docs/getting-started/concepts/">
+<meta property="og:title" content="Core Concepts - Updato">
+<meta property="og:description" content="How Updato works: Action, Worker, and Client">
+<meta property="og:url" content="https://nellowtcs.me/updato/docs/getting-started/concepts/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Download Metrics - Updato">
-<meta name="twitter:description" content="Track download performance with localStorage-backed telemetry">
+<meta name="twitter:title" content="Core Concepts - Updato">
+<meta name="twitter:description" content="How Updato works: Action, Worker, and Client">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1rhhjc" >
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1rhhjc" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1rhhjc" >
+<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1sf7kq" >
 
     
     <script>/**
@@ -162,7 +162,7 @@
   <body
     class="sidebar-collapsible"
     data-default-collapsed="false"
-    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/guide/metrics.md">
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/getting-started/concepts.md">
 
     <a href="#main-content" class="skip-link">skipToContent</a>
 
@@ -240,7 +240,59 @@
         
       </li>
     
-      <li class="collapsible nav-group"  aria-expanded="false" >
+      <li class="" >
+      
+        <a href="https://nellowtcs.me/updato" class=" "
+          target=&quot;_blank&quot; rel=&quot;noopener&quot;>
+           
+<svg class="lucide-icon icon-external-link " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Live Demo
+            </span>
+          
+           
+<svg class="lucide-icon icon-external-link nav-external-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active-parent collapsible expanded nav-group"  aria-expanded="true" >
       
         <span class="nav-label nav-group">
           
@@ -287,9 +339,9 @@
         
       </li>
     
-      <li class="" >
+      <li class="active" >
       
-        <a href="../../getting-started/concepts/" class=" "
+        <a href="../../getting-started/concepts/" class="active "
           >
           
           <span class="nav-item-title">
@@ -307,7 +359,7 @@
         
       </li>
     
-      <li class="active-parent collapsible expanded nav-group"  aria-expanded="true" >
+      <li class="collapsible nav-group"  aria-expanded="false" >
       
         <span class="nav-label nav-group">
           
@@ -418,9 +470,9 @@
         
       </li>
     
-      <li class="active" >
+      <li class="" >
       
-        <a href="../../guide/metrics/" class="active "
+        <a href="../../guide/metrics/" class=" "
           >
           
           <span class="nav-item-title">
@@ -527,7 +579,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  Download Metrics
+                  Core Concepts
                 </span>
               </div>
             </div>
@@ -621,7 +673,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Download%20Metrics%22%0Adescription%3A%20%22Track%20download%20performance%20with%20localStorage-backed%20telemetry%22%0A---%0A%0AThe%20%60DownloadMetrics%60%20class%20records%20timing%20and%20size%20data%20for%20every%20file%20downloaded%20by%20%60downloadUpdate()%60.%20All%20data%20stays%20in%20%60localStorage%60%20and%20is%20never%20sent%20anywhere%20automatically.%0A%0A%23%23%20Usage%0A%0A%60%60%60typescript%0Aimport%20%7B%20DownloadMetrics%20%7D%20from%20%22updato%2Fmetrics%22%3B%0A%0Aconst%20metrics%20%3D%20new%20DownloadMetrics()%3B%0A%0Aconst%20updater%20%3D%20Updato.init(%7B%0A%20%20repo%3A%20%22my-org%2Fmy-app%22%2C%0A%20%20mode%3A%20%22version%22%2C%0A%20%20current%3A%20%221.0.0%22%2C%0A%20%20metrics%2C%0A%7D)%3B%0A%60%60%60%0A%0A%23%23%20Data%0A%0AEach%20entry%20recorded%3A%0A%0A%60%60%60typescript%0Ainterface%20MetricsEntry%20%7B%0A%20%20filename%3A%20string%3B%0A%20%20startTime%3A%20number%3B%0A%20%20endTime%3A%20number%3B%0A%20%20duration%3A%20number%3B%0A%20%20fileSize%3A%20number%3B%0A%20%20url%3A%20string%3B%0A%7D%0A%60%60%60%0A%0A%7C%20Field%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-------------%7C-----------------------------------------%7C%0A%7C%20%60filename%60%20%20%7C%20File%20path%20relative%20to%20version%20directory%20%7C%0A%7C%20%60startTime%60%20%7C%20%60performance.now()%60%20before%20fetch%20%20%20%20%20%20%20%20%7C%0A%7C%20%60endTime%60%20%20%20%7C%20%60performance.now()%60%20after%20fetch%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60duration%60%20%20%7C%20%60endTime%20-%20startTime%60%20in%20milliseconds%20%20%20%7C%0A%7C%20%60fileSize%60%20%20%7C%20Content%20length%20in%20bytes%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60url%60%20%20%20%20%20%20%20%7C%20Full%20download%20URL%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%0A%23%23%20Methods%0A%0A%7C%20Method%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-------------------%7C-------------------------------------------------%7C%0A%7C%20%60addEntry(entry)%60%20%7C%20Record%20one%20download%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60export()%60%20%20%20%20%20%20%20%20%7C%20Get%20all%20entries%20as%20an%20array%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60exportJson()%60%20%20%20%20%7C%20Get%20all%20entries%20formatted%20as%20JSON%20string%20%20%20%20%20%20%20%20%7C%0A%7C%20%60clear()%60%20%20%20%20%20%20%20%20%20%7C%20Remove%20all%20entries%20from%20memory%20and%20localStorage%20%7C%0A%0A%23%23%20Privacy%0A%0AMetrics%20are%20opt-in%20only.%20Pass%20a%20%60DownloadMetrics%60%20instance%20to%20the%20%60Updato%60%20config%20to%20enable%20recording.%20Without%20it%2C%20no%20data%20is%20collected.%20The%20data%20is%20never%20transmitted%20to%20any%20server%20by%20the%20library.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Full%20config%20reference%0A-%20%5BGitHub%20Action%5D(.%2Fgithub-action)%3A%20Set%20up%20the%20deployment%20pipeline%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Core%20Concepts%22%0Adescription%3A%20%22How%20Updato%20works%3A%20Action%2C%20Worker%2C%20and%20Client%22%0A---%0A%0AUpdato%20has%20three%20pieces%20that%20work%20together%3A%20a%20GitHub%20Action%2C%20a%20Cloudflare%20Worker%2C%20and%20a%20client%20library.%20Each%20has%20a%20single%20job.%0A%0A%23%23%20The%20Three%20Pieces%0A%0A%23%23%23%20GitHub%20Action%0A%0AThe%20Action%20runs%20in%20your%20CI%20pipeline.%20It%3A%0A%0A-%20Runs%20your%20build%20script%0A-%20Copies%20the%20output%20to%20a%20dedicated%20CDN%20branch%20(default%20%60cdn%60)%0A-%20Writes%20a%20%60manifest.json%60%20with%20the%20version%2C%20file%20list%2C%20and%20module%20flags%0A-%20Pushes%20the%20branch%0A%0AThe%20CDN%20branch%20holds%20every%20version%20under%20%60versions%2F%3Cversion%3E%2F%60%20and%20a%20%60latest%2F%60%20alias.%20The%20manifest%20is%20always%20at%20the%20root.%0A%0A%23%23%23%20Cloudflare%20Worker%0A%0AThe%20Worker%20is%20a%20lightweight%20HTTP%20API%20with%20two%20endpoints%3A%0A%0A-%20%60GET%20%2Fcheck%3Frepo%3Downer%2Fname%26branch%3Dcdn%26current%3D1.0.0%60%20--%20checks%20if%20a%20newer%20version%20exists%0A-%20%60GET%20%2Fmanifest%3Frepo%3Downer%2Fname%26branch%3Dcdn%60%20--%20returns%20the%20current%20manifest%0A%0AIt%20fetches%20and%20caches%20the%20manifest%20from%20GitHub&#039;s%20raw%20CDN%2C%20then%20compares%20versions.%20In%20version%20mode%20it%20uses%20semantic%20version%20comparison.%20In%20commit%20mode%20it%20uses%20exact%20SHA%20matching.%0A%0AThe%20Worker%20also%20rate-limits%20per%20IP%20(60%20requests%20per%20minute%20by%20default)%20and%20caches%20the%20manifest%20in%20KV.%0A%0A%23%23%23%20Client%20Library%0A%0AThe%20client%20runs%20in%20the%20browser.%20It%3A%0A%0A-%20Calls%20the%20Worker%20periodically%20to%20check%20for%20updates%0A-%20Downloads%20new%20files%20from%20GitHub&#039;s%20raw%20content%20CDN%0A-%20Caches%20them%20in%20%60localStorage%60%0A-%20Hot-swaps%20scripts%2C%20stylesheets%2C%20and%20images%20without%20a%20reload%0A%0AThe%20library%20is%20CSP-safe%2C%20uses%20no%20inline%20styles%2C%20and%20tracks%20download%20metrics%20if%20enabled.%0A%0A%23%23%20The%20Update%20Flow%0A%0A%60%60%60txt%0AGit%20Push%20triggers%20the%20GitHub%20Action%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20cdn%20branch%20(manifest.json%20%2B%20assets)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Cloudflare%20Worker%20(cached%20manifest)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%91%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Client%20checks%20%2Fcheck%20endpoint%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Downloads%20new%20files%20from%20raw.githubusercontent.com%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Hot-swaps%20in%20the%20DOM%0A%60%60%60%0A%0A1.%20You%20push%20to%20your%20repo.%20The%20Action%20builds%20and%20deploys%20to%20the%20%60cdn%60%20branch.%0A2.%20A%20client%20calls%20%60checkForUpdate()%60.%20The%20Worker%20reads%20the%20manifest%2C%20compares%20the%20client&#039;s%20current%20version%2C%20and%20returns%20%60%7B%20update%3A%20true%2C%20files%3A%20%5B...%5D%2C%20latest%3A%20%221.0.1%22%20%7D%60.%0A3.%20The%20client%20calls%20%60downloadUpdate()%60%2C%20which%20fetches%20each%20file%20from%20%60raw.githubusercontent.com%60%20and%20stores%20them%20in%20%60localStorage%60.%0A4.%20The%20client%20calls%20%60applyUpdate()%60%2C%20which%20reads%20the%20cached%20files%20and%20hot-swaps%20them%20into%20the%20page.%0A%0A%23%23%20Modes%0A%0A%23%23%23%20Version%20mode%0A%0ACompares%20versions%20semantically%3A%20%601.2.0%20%3E%201.1.0%60.%20Good%20for%20tagged%20releases%20and%20stable%20apps.%20The%20version%20is%20read%20from%20%60package.json%60%20or%20set%20explicitly%20in%20the%20Action%20config.%0A%0A%23%23%23%20Commit%20mode%0A%0ACompares%20Git%20SHA%20hashes%3A%20any%20difference%20means%20an%20update.%20Good%20for%20canary%20builds%20and%20staging%20environments.%0A%0A%23%23%20Storage%0A%0AThe%20client%20stores%20everything%20in%20%60localStorage%60%3A%0A%0A%7C%20Key%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Purpose%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-----------------------%7C-------------------------------%7C%0A%7C%20%60updato_current%60%20%20%20%20%20%20%7C%20Current%20version%20string%20%20%20%20%20%20%20%20%7C%0A%7C%20%60updato_cache_%3Cpath%3E%60%20%7C%20Cached%20file%20content%20per%20path%20%20%7C%0A%7C%20%60updato%3Ametrics%60%20%20%20%20%20%20%7C%20Download%20metrics%20(if%20enabled)%20%7C%0A%0AThe%20%60clearCache()%60%20method%20removes%20all%20cache%20keys%20and%20the%20current%20version.%20The%20%60DownloadMetrics.clear()%60%20method%20resets%20metrics%20separately.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BQuick%20Start%5D(.%2Fquickstart)%3A%20Get%20everything%20running%0A-%20%5BClient%20Library%5D(..%2Fguide%2Fclient-library)%3A%20Config%2C%20events%2C%20and%20API%0A-%20%5BGitHub%20Action%5D(..%2Fguide%2Fgithub-action)%3A%20Action%20inputs%20reference%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -629,7 +681,7 @@
                         
                           <li class="breadcrumb-item " >
                             
-                              <span>Guide</span>
+                              <span>Getting Started</span>
                             
                             
                               <span class="breadcrumb-separator">
@@ -653,7 +705,7 @@
                         
                           <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
                             
-                              <span>Download Metrics</span>
+                              <span>Core Concepts</span>
                             
                             
                           </li>
@@ -710,103 +762,94 @@
                   
                 </div>
                 
-                <p>The <code>DownloadMetrics</code> class records timing and size data for every file downloaded by <code>downloadUpdate()</code>. All data stays in <code>localStorage</code> and is never sent anywhere automatically.</p>
-<h2 id="usage" class="docmd-heading"><a href="#usage" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Usage</h2>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> { DownloadMetrics } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;updato/metrics&quot;</span>;
-
-<span class="hljs-keyword">const</span> metrics <span class="hljs-punctuation">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">DownloadMetrics</span>();
-
-<span class="hljs-keyword">const</span> updater <span class="hljs-punctuation">=</span> Updato.<span class="hljs-title function_">init</span>({
-  repo<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my-org/my-app&quot;</span>,
-  mode<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;version&quot;</span>,
-  current<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span>,
-  metrics,
-});
+                <p>Updato has three pieces that work together: a GitHub Action, a Cloudflare Worker, and a client library. Each has a single job.</p>
+<h2 id="the-three-pieces" class="docmd-heading"><a href="#the-three-pieces" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>The Three Pieces</h2>
+<h3 id="the-three-pieces-github-action" class="docmd-heading"><a href="#the-three-pieces-github-action" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>GitHub Action</h3>
+<p>The Action runs in your CI pipeline. It:</p>
+<ul>
+<li>Runs your build script</li>
+<li>Copies the output to a dedicated CDN branch (default <code>cdn</code>)</li>
+<li>Writes a <code>manifest.json</code> with the version, file list, and module flags</li>
+<li>Pushes the branch</li>
+</ul>
+<p>The CDN branch holds every version under <code>versions/&lt;version&gt;/</code> and a <code>latest/</code> alias. The manifest is always at the root.</p>
+<h3 id="the-three-pieces-cloudflare-worker" class="docmd-heading"><a href="#the-three-pieces-cloudflare-worker" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Cloudflare Worker</h3>
+<p>The Worker is a lightweight HTTP API with two endpoints:</p>
+<ul>
+<li><code>GET /check?repo=owner/name&amp;branch=cdn&amp;current=1.0.0</code> – checks if a newer version exists</li>
+<li><code>GET /manifest?repo=owner/name&amp;branch=cdn</code> – returns the current manifest</li>
+</ul>
+<p>It fetches and caches the manifest from GitHub’s raw CDN, then compares versions. In version mode it uses semantic version comparison. In commit mode it uses exact SHA matching.</p>
+<p>The Worker also rate-limits per IP (60 requests per minute by default) and caches the manifest in KV.</p>
+<h3 id="the-three-pieces-client-library" class="docmd-heading"><a href="#the-three-pieces-client-library" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Client Library</h3>
+<p>The client runs in the browser. It:</p>
+<ul>
+<li>Calls the Worker periodically to check for updates</li>
+<li>Downloads new files from GitHub’s raw content CDN</li>
+<li>Caches them in <code>localStorage</code></li>
+<li>Hot-swaps scripts, stylesheets, and images without a reload</li>
+</ul>
+<p>The library is CSP-safe, uses no inline styles, and tracks download metrics if enabled.</p>
+<h2 id="the-update-flow" class="docmd-heading"><a href="#the-update-flow" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>The Update Flow</h2>
+<pre class="hljs"><code>Git Push triggers the GitHub Action
+              ↓
+         cdn <span class="hljs-title function_">branch</span> (manifest.<span class="hljs-attr">json</span> <span class="hljs-punctuation">+</span> assets)
+              ↓
+         Cloudflare <span class="hljs-title function_">Worker</span> (cached manifest)
+              ↑ ↓
+         Client checks <span class="hljs-punctuation">/</span>check endpoint
+              ↓
+         Downloads <span class="hljs-keyword">new</span> files <span class="hljs-keyword">from</span> raw.<span class="hljs-attr">githubusercontent</span>.<span class="hljs-attr">com</span>
+              ↓
+         Hot<span class="hljs-punctuation">-</span>swaps <span class="hljs-keyword">in</span> the DOM
 </code></pre>
-<h2 id="data" class="docmd-heading"><a href="#data" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Data</h2>
-<p>Each entry recorded:</p>
-<pre class="hljs"><code><span class="hljs-keyword">interface</span> MetricsEntry {
-  filename<span class="hljs-punctuation">:</span> string;
-  startTime<span class="hljs-punctuation">:</span> number;
-  endTime<span class="hljs-punctuation">:</span> number;
-  duration<span class="hljs-punctuation">:</span> number;
-  fileSize<span class="hljs-punctuation">:</span> number;
-  url<span class="hljs-punctuation">:</span> string;
-}
-</code></pre>
+<ol>
+<li>You push to your repo. The Action builds and deploys to the <code>cdn</code> branch.</li>
+<li>A client calls <code>checkForUpdate()</code>. The Worker reads the manifest, compares the client’s current version, and returns <code>{ update: true, files: [...], latest: &quot;1.0.1&quot; }</code>.</li>
+<li>The client calls <code>downloadUpdate()</code>, which fetches each file from <code>raw.githubusercontent.com</code> and stores them in <code>localStorage</code>.</li>
+<li>The client calls <code>applyUpdate()</code>, which reads the cached files and hot-swaps them into the page.</li>
+</ol>
+<h2 id="modes" class="docmd-heading"><a href="#modes" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Modes</h2>
+<h3 id="modes-version-mode" class="docmd-heading"><a href="#modes-version-mode" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Version mode</h3>
+<p>Compares versions semantically: <code>1.2.0 &gt; 1.1.0</code>. Good for tagged releases and stable apps. The version is read from <code>package.json</code> or set explicitly in the Action config.</p>
+<h3 id="modes-commit-mode" class="docmd-heading"><a href="#modes-commit-mode" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Commit mode</h3>
+<p>Compares Git SHA hashes: any difference means an update. Good for canary builds and staging environments.</p>
+<h2 id="storage" class="docmd-heading"><a href="#storage" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Storage</h2>
+<p>The client stores everything in <code>localStorage</code>:</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>Key</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>filename</code></td>
-<td>File path relative to version directory</td>
+<td><code>updato_current</code></td>
+<td>Current version string</td>
 </tr>
 <tr>
-<td><code>startTime</code></td>
-<td><code>performance.now()</code> before fetch</td>
+<td><code>updato_cache_&lt;path&gt;</code></td>
+<td>Cached file content per path</td>
 </tr>
 <tr>
-<td><code>endTime</code></td>
-<td><code>performance.now()</code> after fetch</td>
-</tr>
-<tr>
-<td><code>duration</code></td>
-<td><code>endTime - startTime</code> in milliseconds</td>
-</tr>
-<tr>
-<td><code>fileSize</code></td>
-<td>Content length in bytes</td>
-</tr>
-<tr>
-<td><code>url</code></td>
-<td>Full download URL</td>
+<td><code>updato:metrics</code></td>
+<td>Download metrics (if enabled)</td>
 </tr>
 </tbody>
 </table>
-</div><h2 id="methods" class="docmd-heading"><a href="#methods" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Methods</h2>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>addEntry(entry)</code></td>
-<td>Record one download</td>
-</tr>
-<tr>
-<td><code>export()</code></td>
-<td>Get all entries as an array</td>
-</tr>
-<tr>
-<td><code>exportJson()</code></td>
-<td>Get all entries formatted as JSON string</td>
-</tr>
-<tr>
-<td><code>clear()</code></td>
-<td>Remove all entries from memory and localStorage</td>
-</tr>
-</tbody>
-</table>
-</div><h2 id="privacy" class="docmd-heading"><a href="#privacy" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Privacy</h2>
-<p>Metrics are opt-in only. Pass a <code>DownloadMetrics</code> instance to the <code>Updato</code> config to enable recording. Without it, no data is collected. The data is never transmitted to any server by the library.</p>
+</div><p>The <code>clearCache()</code> method removes all cache keys and the current version. The <code>DownloadMetrics.clear()</code> method resets metrics separately.</p>
 <h2 id="next-steps" class="docmd-heading"><a href="#next-steps" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Next Steps</h2>
 <ul>
-<li><a href="../client-library/">Client Library</a>: Full config reference</li>
-<li><a href="../github-action/">GitHub Action</a>: Set up the deployment pipeline</li>
+<li><a href="../quickstart/">Quick Start</a>: Get everything running</li>
+<li><a href="../../guide/client-library/">Client Library</a>: Config, events, and API</li>
+<li><a href="../../guide/github-action/">GitHub Action</a>: Action inputs reference</li>
 </ul>
 
                 
                   <div class="page-navigation">
                     
-                      <a href="../../guide/manifest/" class="prev-page">
+                      <a href="../../getting-started/quickstart/" class="prev-page">
                         
 <svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-arrow-left"
@@ -825,13 +868,34 @@
 </svg>
 
                         <span><small>previous</small><strong>
-                            Manifest
+                            Quick Start
                           </strong></span>
                       </a>
                     
                     
-                      <div class="next-page-placeholder">
-                      </div>
+                      <a href="../../guide/client-library/" class="next-page">
+                        <span><small>next</small>
+                          <strong>
+                            Client Library
+                          </strong></span>
+                        
+<svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg>
+
+                      </a>
                     
                   </div>
                 
@@ -860,19 +924,39 @@
     <ul class="toc-list">
       
         <li class="toc-item toc-level-2">
-          <a href="#usage" class="toc-link">Usage</a>
+          <a href="#the-three-pieces" class="toc-link">The Three Pieces</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#the-three-pieces-github-action" class="toc-link">GitHub Action</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#the-three-pieces-cloudflare-worker" class="toc-link">Cloudflare Worker</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#the-three-pieces-client-library" class="toc-link">Client Library</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#data" class="toc-link">Data</a>
+          <a href="#the-update-flow" class="toc-link">The Update Flow</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#methods" class="toc-link">Methods</a>
+          <a href="#modes" class="toc-link">Modes</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#modes-version-mode" class="toc-link">Version mode</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#modes-commit-mode" class="toc-link">Commit mode</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#privacy" class="toc-link">Privacy</a>
+          <a href="#storage" class="toc-link">Storage</a>
         </li>
       
         <li class="toc-item toc-level-2">
@@ -887,13 +971,13 @@
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1780714552000">
+                <span class="git-last-updated" data-timestamp="1780716113000">
                   <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1780714552000"></span>
+                  <span class="git-time" data-timestamp="1780716113000"></span>
                   
                   <div class="git-commit-tooltip" role="tooltip">
                     <div class="git-tooltip-title">Recent commits</div>
@@ -906,10 +990,10 @@
                             
                           </div>
                           <div class="git-commit-details">
-                            <div class="git-commit-message" title="Fix">Fix</div>
+                            <div class="git-commit-message" title="Some improvements and README">Some improvements and README</div>
                             <div class="git-commit-meta">
                               <span class="git-commit-author">NellowTCS</span>
-                              <span class="git-commit-date" data-timestamp="1780714552000"></span>
+                              <span class="git-commit-date" data-timestamp="1780716113000"></span>
                             </div>
                           </div>
                         </li>
@@ -940,14 +1024,14 @@
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-main.js?v=mq1rhhjc"></script>
+      <script src="../../assets/js/docmd-main.js?v=mq1sf7kq"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mq1rhhjc"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1rhhjc" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mq1sf7kq"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1sf7kq" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mq1rhhjc" ></script>
-<script src="../../assets/js/init-mermaid.js?v=mq1rhhjc" type="module"></script>
-<script src="../../assets/js/docmd-git.js?v=mq1rhhjc" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mq1sf7kq" ></script>
+<script src="../../assets/js/init-mermaid.js?v=mq1sf7kq" type="module"></script>
+<script src="../../assets/js/docmd-git.js?v=mq1sf7kq" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
