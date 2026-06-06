@@ -3,6 +3,10 @@
   "version": "1.0.1",
   "type": "module",
   "description": "Updato client library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NellowTCS/updato.git"
+  },
   "main": "dist/updato.cjs",
   "module": "dist/updato.mjs",
   "types": "dist/updato.d.mts",
