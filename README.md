@@ -2,7 +2,8 @@
 
 Push updates from GitHub, applied live in the browser with no server.
 
-**[Live Demo](https://nellowtcs.me/updato)** | **[Documentation](https://nellowtcs.me/updato/docs)**
+[![npm](https://img.shields.io/npm/v/%40nellowtcs%2Fupdato)](https://npmjs.com/package/@nellowtcs/updato)
+**[Live Demo](https://nellowtcs.me/updato)** | **[Documentation](https://nellowtcs.me/updato/docs)** | **[npm](https://npmjs.com/package/@nellowtcs/updato)**
 
 Updato is a decentralized update system for web apps. A GitHub Action publishes build artifacts to a CDN branch. A Cloudflare Worker tells clients when a new version exists. The client downloads and hot-swaps files without a page reload.
 
