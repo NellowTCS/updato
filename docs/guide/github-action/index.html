@@ -87,10 +87,10 @@
       GitHub Action : Updato
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq2s8qnp">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq2sdagk">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq2s8qnp" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq2s8qnp" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq2sdagk" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq2sdagk" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Action inputs, workflow setup, and deployment reference">
@@ -105,9 +105,9 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq2s8qnp" >
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq2s8qnp" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq2s8qnp" >
+<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq2sdagk" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq2sdagk" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq2sdagk" >
 
     
     <script>/**
@@ -673,7 +673,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22GitHub%20Action%22%0Adescription%3A%20%22Action%20inputs%2C%20workflow%20setup%2C%20and%20deployment%20reference%22%0A---%0A%0AThe%20Updato%20Action%20publishes%20build%20artifacts%20to%20a%20CDN%20branch%20with%20a%20version%20manifest.%0A%0A%23%23%20Usage%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%40v1%0A%20%20with%3A%0A%20%20%20%20mode%3A%20version%0A%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20build_script%3A%20npm%20run%20build%0A%60%60%60%0A%0A%23%23%20Inputs%0A%0A%7C%20Input%20%20%20%20%20%20%20%20%20%20%7C%20Required%20%7C%20Default%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C----------------%7C----------%7C-------------------------------------%7C---------------------------------------------------------%7C%0A%7C%20%60mode%60%20%20%20%20%20%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20%60%22commit%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%60%22version%22%60%20or%20%60%22commit%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60dist_dir%60%20%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20%60%22dist%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Build%20output%20directory%20relative%20to%20repo%20root%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60build_script%60%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Command%20to%20run%20before%20publishing%20(e.g.%20%60npm%20run%20build%60)%20%7C%0A%7C%20%60version%60%20%20%20%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20package.json%20%60version%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Explicit%20version%20for%20%60version%60%20mode%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60cdn_branch%60%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22cdn%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Target%20branch%20for%20CDN%20artifacts%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60github_token%60%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20GitHub%20token%20for%20pushing%20to%20CDN%20branch%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60user_name%60%20%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22updato%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Git%20user%20name%20for%20the%20commit%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60user_email%60%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22updato%40users.noreply.github.com%22%60%20%7C%20Git%20user%20email%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%0AThe%20Action%20needs%20a%20GitHub%20token%20with%20%60contents%3A%20write%60%20access.%20You%20can%20pass%20it%20explicitly%20or%20rely%20on%20the%20%60GITHUB_TOKEN%60%20environment%20variable%20(auto-available%20in%20most%20runners%20with%20%60permissions%3A%20contents%3A%20write%60).%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%40v1%0A%20%20with%3A%0A%20%20%20%20github_token%3A%20%24%7B%7B%20secrets.GITHUB_TOKEN%20%7D%7D%0A%60%60%60%0A%0A%23%23%23%20Mode%3A%20%60version%60%0A%0AReads%20the%20version%20from%20%60package.json%60%20or%20the%20explicit%20%60version%60%20input.%20Versions%20are%20compared%20semantically%3A%20%601.2.0%20%3E%201.1.0%60.%20Files%20are%20published%20under%20%60versions%2Fv1.2.0%2F%60.%0A%0A%23%23%23%20Mode%3A%20%60commit%60%0A%0AUses%20the%20current%20Git%20commit%20SHA%20as%20the%20version.%20Any%20SHA%20change%20triggers%20an%20update.%20Files%20are%20published%20under%20%60versions%2F%3Csha%3E%2F%60.%0A%0A%23%23%20Required%20permissions%0A%0AThe%20Action%20needs%20contents%20write%20access%20to%20push%20the%20CDN%20branch%3A%0A%0A%60%60%60yaml%0Apermissions%3A%0A%20%20contents%3A%20write%0A%60%60%60%0A%0A%23%23%20Full%20Workflow%0A%0A%60%60%60yaml%0Aname%3A%20Deploy%0Aon%3A%0A%20%20push%3A%0A%20%20%20%20branches%3A%20%5Bmain%5D%0A%0Apermissions%3A%0A%20%20contents%3A%20write%0A%0Ajobs%3A%0A%20%20deploy%3A%0A%20%20%20%20runs-on%3A%20ubuntu-latest%0A%20%20%20%20steps%3A%0A%20%20%20%20%20%20-%20uses%3A%20actions%2Fcheckout%40v4%0A%20%20%20%20%20%20-%20uses%3A%20actions%2Fsetup-node%40v4%0A%20%20%20%20%20%20%20%20with%3A%0A%20%20%20%20%20%20%20%20%20%20node-version%3A%2020%0A%20%20%20%20%20%20-%20run%3A%20npm%20ci%0A%0A%20%20%20%20%20%20-%20uses%3A%20NellowTCS%2Fupdato%40v1%0A%20%20%20%20%20%20%20%20with%3A%0A%20%20%20%20%20%20%20%20%20%20mode%3A%20version%0A%20%20%20%20%20%20%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20%20%20%20%20%20%20build_script%3A%20npm%20run%20build%0A%20%20%20%20%20%20%20%20%20%20cdn_branch%3A%20cdn%0A%20%20%20%20%20%20%20%20%20%20github_token%3A%20%24%7B%7B%20secrets.GITHUB_TOKEN%20%7D%7D%0A%60%60%60%0A%0A%23%23%20What%20gets%20pushed%0A%0AAfter%20the%20Action%20runs%2C%20the%20CDN%20branch%20looks%20like%3A%0A%0A%60%60%60txt%0Acdn%2F%0A%20%20manifest.json%0A%20%20latest%2F%0A%20%20%20%20index.html%0A%20%20%20%20assets%2F%0A%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20main.css%0A%20%20versions%2F%0A%20%20%20%20v1.0.0%2F%0A%20%20%20%20%20%20index.html%0A%20%20%20%20%20%20assets%2F%0A%20%20%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20%20%20main.css%0A%20%20%20%20v1.0.1%2F%0A%20%20%20%20%20%20index.html%0A%20%20%20%20%20%20assets%2F%0A%20%20%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20%20%20main.css%0A%60%60%60%0A%0A%23%23%23%20manifest.json%0A%0A%60%60%60json%0A%7B%0A%20%20%22app%22%3A%20%22my-app%22%2C%0A%20%20%22mode%22%3A%20%22version%22%2C%0A%20%20%22latest%22%3A%20%221.0.1%22%2C%0A%20%20%22files%22%3A%20%5B%0A%20%20%20%20%22index.html%22%2C%0A%20%20%20%20%22assets%2Fmain.js%22%2C%0A%20%20%20%20%22assets%2Fmain.css%22%0A%20%20%5D%2C%0A%20%20%22modules%22%3A%20%5B%22assets%2Fmain.js%22%5D%2C%0A%20%20%22timestamp%22%3A%201719000000%0A%7D%0A%60%60%60%0A%0AThe%20%60files%60%20array%20lists%20every%20file%20in%20the%20build%20output.%20The%20%60modules%60%20array%20lists%20files%20that%20are%20ES%20modules%20(%60%3Cscript%20type%3D%22module%22%3E%60)%2C%20detected%20by%20scanning%20HTML%20for%20module%20script%20tags.%20Files%20listed%20in%20%60modules%60%20are%20passed%20to%20%60swapScript%60%20with%20%60isModule%3A%20true%60.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Wire%20the%20other%20end%0A-%20%5BManifest%5D(.%2Fmanifest)%3A%20Manifest%20format%20reference%0A-%20%5BWorker%5D(.%2Fworker)%3A%20Deploy%20your%20own%20worker%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22GitHub%20Action%22%0Adescription%3A%20%22Action%20inputs%2C%20workflow%20setup%2C%20and%20deployment%20reference%22%0A---%0A%0AThe%20Updato%20Action%20publishes%20build%20artifacts%20to%20a%20CDN%20branch%20with%20a%20version%20manifest.%0A%0A%23%23%20Usage%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%401.0.3%0A%20%20with%3A%0A%20%20%20%20mode%3A%20version%0A%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20build_script%3A%20npm%20run%20build%0A%60%60%60%0A%0A%23%23%20Inputs%0A%0A%7C%20Input%20%20%20%20%20%20%20%20%20%20%7C%20Required%20%7C%20Default%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C----------------%7C----------%7C-------------------------------------%7C---------------------------------------------------------%7C%0A%7C%20%60mode%60%20%20%20%20%20%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20%60%22commit%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20%60%22version%22%60%20or%20%60%22commit%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60dist_dir%60%20%20%20%20%20%7C%20yes%20%20%20%20%20%20%7C%20%60%22dist%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Build%20output%20directory%20relative%20to%20repo%20root%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60build_script%60%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Command%20to%20run%20before%20publishing%20(e.g.%20%60npm%20run%20build%60)%20%7C%0A%7C%20%60version%60%20%20%20%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20package.json%20%60version%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Explicit%20version%20for%20%60version%60%20mode%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60cdn_branch%60%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22cdn%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Target%20branch%20for%20CDN%20artifacts%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60github_token%60%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20GitHub%20token%20for%20pushing%20to%20CDN%20branch%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60user_name%60%20%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22updato%22%60%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Git%20user%20name%20for%20the%20commit%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60user_email%60%20%20%20%7C%20no%20%20%20%20%20%20%20%7C%20%60%22updato%40users.noreply.github.com%22%60%20%7C%20Git%20user%20email%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%0AThe%20Action%20needs%20a%20GitHub%20token%20with%20%60contents%3A%20write%60%20access.%20You%20can%20pass%20it%20explicitly%20or%20rely%20on%20the%20%60GITHUB_TOKEN%60%20environment%20variable%20(auto-available%20in%20most%20runners%20with%20%60permissions%3A%20contents%3A%20write%60).%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%401.0.3%0A%20%20with%3A%0A%20%20%20%20github_token%3A%20%24%7B%7B%20secrets.GITHUB_TOKEN%20%7D%7D%0A%60%60%60%0A%0A%23%23%23%20Mode%3A%20%60version%60%0A%0AReads%20the%20version%20from%20%60package.json%60%20or%20the%20explicit%20%60version%60%20input.%20Versions%20are%20compared%20semantically%3A%20%601.2.0%20%3E%201.1.0%60.%20Files%20are%20published%20under%20%60versions%2Fv1.2.0%2F%60.%0A%0A%23%23%23%20Mode%3A%20%60commit%60%0A%0AUses%20the%20current%20Git%20commit%20SHA%20as%20the%20version.%20Any%20SHA%20change%20triggers%20an%20update.%20Files%20are%20published%20under%20%60versions%2F%3Csha%3E%2F%60.%0A%0A%23%23%20Required%20permissions%0A%0AThe%20Action%20needs%20contents%20write%20access%20to%20push%20the%20CDN%20branch%3A%0A%0A%60%60%60yaml%0Apermissions%3A%0A%20%20contents%3A%20write%0A%60%60%60%0A%0A%23%23%20Full%20Workflow%0A%0A%60%60%60yaml%0Aname%3A%20Deploy%0Aon%3A%0A%20%20push%3A%0A%20%20%20%20branches%3A%20%5Bmain%5D%0A%0Apermissions%3A%0A%20%20contents%3A%20write%0A%0Ajobs%3A%0A%20%20deploy%3A%0A%20%20%20%20runs-on%3A%20ubuntu-latest%0A%20%20%20%20steps%3A%0A%20%20%20%20%20%20-%20uses%3A%20actions%2Fcheckout%40v4%0A%20%20%20%20%20%20-%20uses%3A%20actions%2Fsetup-node%40v4%0A%20%20%20%20%20%20%20%20with%3A%0A%20%20%20%20%20%20%20%20%20%20node-version%3A%2020%0A%20%20%20%20%20%20-%20run%3A%20npm%20ci%0A%0A%20%20%20%20%20%20-%20uses%3A%20NellowTCS%2Fupdato%401.0.3%0A%20%20%20%20%20%20%20%20with%3A%0A%20%20%20%20%20%20%20%20%20%20mode%3A%20version%0A%20%20%20%20%20%20%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20%20%20%20%20%20%20build_script%3A%20npm%20run%20build%0A%20%20%20%20%20%20%20%20%20%20cdn_branch%3A%20cdn%0A%20%20%20%20%20%20%20%20%20%20github_token%3A%20%24%7B%7B%20secrets.GITHUB_TOKEN%20%7D%7D%0A%60%60%60%0A%0A%23%23%20What%20gets%20pushed%0A%0AAfter%20the%20Action%20runs%2C%20the%20CDN%20branch%20looks%20like%3A%0A%0A%60%60%60txt%0Acdn%2F%0A%20%20manifest.json%0A%20%20latest%2F%0A%20%20%20%20index.html%0A%20%20%20%20assets%2F%0A%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20main.css%0A%20%20versions%2F%0A%20%20%20%20v1.0.0%2F%0A%20%20%20%20%20%20index.html%0A%20%20%20%20%20%20assets%2F%0A%20%20%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20%20%20main.css%0A%20%20%20%20v1.0.1%2F%0A%20%20%20%20%20%20index.html%0A%20%20%20%20%20%20assets%2F%0A%20%20%20%20%20%20%20%20main.js%0A%20%20%20%20%20%20%20%20main.css%0A%60%60%60%0A%0A%23%23%23%20manifest.json%0A%0A%60%60%60json%0A%7B%0A%20%20%22app%22%3A%20%22my-app%22%2C%0A%20%20%22mode%22%3A%20%22version%22%2C%0A%20%20%22latest%22%3A%20%221.0.1%22%2C%0A%20%20%22files%22%3A%20%5B%0A%20%20%20%20%22index.html%22%2C%0A%20%20%20%20%22assets%2Fmain.js%22%2C%0A%20%20%20%20%22assets%2Fmain.css%22%0A%20%20%5D%2C%0A%20%20%22modules%22%3A%20%5B%22assets%2Fmain.js%22%5D%2C%0A%20%20%22timestamp%22%3A%201719000000%0A%7D%0A%60%60%60%0A%0AThe%20%60files%60%20array%20lists%20every%20file%20in%20the%20build%20output.%20The%20%60modules%60%20array%20lists%20files%20that%20are%20ES%20modules%20(%60%3Cscript%20type%3D%22module%22%3E%60)%2C%20detected%20by%20scanning%20HTML%20for%20module%20script%20tags.%20Files%20listed%20in%20%60modules%60%20are%20passed%20to%20%60swapScript%60%20with%20%60isModule%3A%20true%60.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Wire%20the%20other%20end%0A-%20%5BManifest%5D(.%2Fmanifest)%3A%20Manifest%20format%20reference%0A-%20%5BWorker%5D(.%2Fworker)%3A%20Deploy%20your%20own%20worker%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -764,7 +764,7 @@
                 
                 <p>The Updato Action publishes build artifacts to a CDN branch with a version manifest.</p>
 <h2 id="usage" class="docmd-heading"><a href="#usage" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Usage</h2>
-<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@v1
+<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@<span class="hljs-number">1.0</span>.<span class="hljs-number">3</span>
   <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
     mode<span class="hljs-punctuation">:</span> version
     dist_dir<span class="hljs-punctuation">:</span> dist
@@ -832,7 +832,7 @@
 </tbody>
 </table>
 </div><p>The Action needs a GitHub token with <code>contents: write</code> access. You can pass it explicitly or rely on the <code>GITHUB_TOKEN</code> environment variable (auto-available in most runners with <code>permissions: contents: write</code>).</p>
-<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@v1
+<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@<span class="hljs-number">1.0</span>.<span class="hljs-number">3</span>
   <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
     github_token<span class="hljs-punctuation">:</span> ${{ secrets.<span class="hljs-attr">GITHUB_TOKEN</span> }}
 </code></pre>
@@ -864,7 +864,7 @@ jobs<span class="hljs-punctuation">:</span>
           <span class="hljs-keyword">node</span><span class="hljs-punctuation">-</span>version<span class="hljs-punctuation">:</span> <span class="hljs-number">20</span>
       <span class="hljs-punctuation">-</span> run<span class="hljs-punctuation">:</span> <span class="hljs-keyword">npm</span> ci
 
-      <span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@v1
+      <span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@<span class="hljs-number">1.0</span>.<span class="hljs-number">3</span>
         <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
           mode<span class="hljs-punctuation">:</span> version
           dist_dir<span class="hljs-punctuation">:</span> dist
@@ -1036,13 +1036,13 @@ jobs<span class="hljs-punctuation">:</span>
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1780776288000">
+                <span class="git-last-updated" data-timestamp="1780776498000">
                   <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1780776288000"></span>
+                  <span class="git-time" data-timestamp="1780776498000"></span>
                   
                   <div class="git-commit-tooltip" role="tooltip">
                     <div class="git-tooltip-title">Recent commits</div>
@@ -1055,10 +1055,10 @@ jobs<span class="hljs-punctuation">:</span>
                             
                           </div>
                           <div class="git-commit-details">
-                            <div class="git-commit-message" title="1.0.3 - Bug Fixes">1.0.3 - Bug Fixes</div>
+                            <div class="git-commit-message" title="*ahem*">*ahem*</div>
                             <div class="git-commit-meta">
                               <span class="git-commit-author">NellowTCS</span>
-                              <span class="git-commit-date" data-timestamp="1780776288000"></span>
+                              <span class="git-commit-date" data-timestamp="1780776498000"></span>
                             </div>
                           </div>
                         </li>
@@ -1089,14 +1089,14 @@ jobs<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-main.js?v=mq2s8qnp"></script>
+      <script src="../../assets/js/docmd-main.js?v=mq2sdagk"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mq2s8qnp"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mq2s8qnp" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mq2sdagk"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mq2sdagk" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mq2s8qnp" ></script>
-<script src="../../assets/js/init-mermaid.js?v=mq2s8qnp" type="module"></script>
-<script src="../../assets/js/docmd-git.js?v=mq2s8qnp" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mq2sdagk" ></script>
+<script src="../../assets/js/init-mermaid.js?v=mq2sdagk" type="module"></script>
+<script src="../../assets/js/docmd-git.js?v=mq2sdagk" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

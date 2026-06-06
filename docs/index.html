@@ -87,10 +87,10 @@
       Updato
     </title>
     
-    <link rel="stylesheet" href="./assets/css/docmd-main.css?v=mq2s8qnp">
+    <link rel="stylesheet" href="./assets/css/docmd-main.css?v=mq2sdagk">
     
-    <link rel="stylesheet" href="./assets/css/docmd-highlight-light.css?v=mq2s8qnp" id="hljs-light" >
-    <link rel="stylesheet" href="./assets/css/docmd-highlight-dark.css?v=mq2s8qnp" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="./assets/css/docmd-highlight-light.css?v=mq2sdagk" id="hljs-light" >
+    <link rel="stylesheet" href="./assets/css/docmd-highlight-dark.css?v=mq2sdagk" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Push updates from GitHub, applied live in the browser with no server">
@@ -105,9 +105,9 @@
 
 
 
-<link rel="stylesheet" href="./assets/css/docmd-theme-sky.css?v=mq2s8qnp" >
-<link rel="stylesheet" href="./assets/css/docmd-git.css?v=mq2s8qnp" >
-<link rel="stylesheet" href="./assets/css/docmd-openapi.css?v=mq2s8qnp" >
+<link rel="stylesheet" href="./assets/css/docmd-theme-sky.css?v=mq2sdagk" >
+<link rel="stylesheet" href="./assets/css/docmd-git.css?v=mq2sdagk" >
+<link rel="stylesheet" href="./assets/css/docmd-openapi.css?v=mq2sdagk" >
 
     
     <script>/**
@@ -673,7 +673,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Updato%22%0Adescription%3A%20%22Push%20updates%20from%20GitHub%2C%20applied%20live%20in%20the%20browser%20with%20no%20server%22%0A---%0A%0A**Updato**%20is%20a%20decentralized%20update%20system%20for%20web%20apps.%20You%20push%20build%20artifacts%20to%20a%20CDN%20branch%20in%20your%20GitHub%20repo.%20A%20Cloudflare%20Worker%20tells%20clients%20when%20a%20new%20version%20exists.%20The%20client%20downloads%20and%20hot-swaps%20files%20without%20a%20page%20reload.%0A%0AThe%20whole%20pipeline%20has%20three%20pieces%3A%20a%20GitHub%20Action%20that%20deploys%20builds%2C%20a%20Worker%20that%20checks%20versions%2C%20and%20a%20client%20library%20that%20applies%20updates%20live.%0A%0A%23%23%20What%20it%20solves%0A%0AYou%20ship%20a%20static%20web%20app%20and%20need%20to%20update%20it%20without%20asking%20users%20to%20refresh.%20Normally%20that%20means%20a%20WebSocket%20server%2C%20a%20bunch%20of%20state%20management%2C%20and%20a%20deployment%20pipeline%20that%20knows%20about%20both.%0A%0AUpdato%20replaces%20that%20with%20a%20GitHub%20repo%2C%20a%20config%20file%2C%20and%20four%20lines%20of%20client%20code.%20The%20CDN%20branch%20is%20your%20deployment%20target.%20The%20Worker%20is%20the%20version%20authority.%20The%20client%20handles%20the%20rest.%0A%0A%23%23%20Features%0A%0A%3A%3A%3A%20card%20Decentralized%0ANo%20backend%20server.%20Updates%20come%20from%20your%20GitHub%20repo&#039;s%20raw%20content%20CDN.%20The%20Worker%20only%20answers%20version%20checks.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20Live%20Hot-Swap%0AScripts%2C%20stylesheets%2C%20and%20images%20swap%20in%20place%20using%20%60CSSStyleSheet.replaceSync%60%20and%20DOM%20replacement.%20No%20flash%2C%20no%20reload.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20Two%20Modes%0A**Version%20mode**%20uses%20semantic%20version%20comparison%20(%601.2.0%60%20%3E%20%601.1.0%60).%20**Commit%20mode**%20compares%20SHA%20hashes%20for%20canary-style%20rollouts.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20Optional%20Metrics%0ABuilt-in%20localStorage-backed%20download%20telemetry.%20File%20size%2C%20duration%2C%20and%20URL%20for%20each%20downloaded%20asset.%20Opt-in%2C%20never%20sent%20anywhere.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20CSP-Safe%0ACSS%20hot-swap%20uses%20%60CSSStyleSheet.replaceSync%60%20and%20%60adoptedStyleSheets%60%20.%20No%20inline%20%60%3Cstyle%3E%60%20tags%2C%20no%20%60data%3A%60%20URIs.%20Works%20with%20strict%20Content%20Security%20Policy.%0A%3A%3A%3A%0A%0A%23%23%20Quick%20Example%0A%0A**Client-side%3A**%0A%0A%60%60%60typescript%0Aimport%20%7B%20Updato%20%7D%20from%20%22%40nellowtcs%2Fupdato%22%3B%0A%0Aconst%20updater%20%3D%20Updato.init(%0A%20%20%7B%0A%20%20%20%20repo%3A%20%22my-org%2Fmy-app%22%2C%0A%20%20%20%20mode%3A%20%22version%22%2C%0A%20%20%20%20current%3A%20%221.0.0%22%2C%0A%20%20%7D%2C%0A%20%20%7B%0A%20%20%20%20onUpdate%3A%20(info)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60Version%20%24%7Binfo.latest%7D%20available%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A)%3B%0A%60%60%60%0A%0A**Deploy%20a%20new%20version%20(GitHub%20Action)%3A**%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%40v1%0A%20%20with%3A%0A%20%20%20%20mode%3A%20version%0A%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20build_script%3A%20npm%20run%20build%0A%60%60%60%0A%0APush%20or%20merge%20to%20your%20default%20branch.%20The%20Action%20builds%2C%20copies%20to%20a%20%60cdn%60%20branch%2C%20writes%20a%20manifest%2C%20and%20the%20Worker%20routes%20clients%20to%20the%20new%20assets.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BQuick%20Start%5D(.%2Fgetting-started%2Fquickstart)%3A%20Install%20and%20wire%20everything%20together%0A-%20%5BCore%20Concepts%5D(.%2Fgetting-started%2Fconcepts)%3A%20How%20the%20three%20pieces%20fit%0A-%20%5BClient%20Library%5D(.%2Fguide%2Fclient-library)%3A%20Full%20API%20reference%0A-%20%5BGitHub%20Action%5D(.%2Fguide%2Fgithub-action)%3A%20Action%20inputs%20and%20workflow%20setup%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Updato%22%0Adescription%3A%20%22Push%20updates%20from%20GitHub%2C%20applied%20live%20in%20the%20browser%20with%20no%20server%22%0A---%0A%0A**Updato**%20is%20a%20decentralized%20update%20system%20for%20web%20apps.%20You%20push%20build%20artifacts%20to%20a%20CDN%20branch%20in%20your%20GitHub%20repo.%20A%20Cloudflare%20Worker%20tells%20clients%20when%20a%20new%20version%20exists.%20The%20client%20downloads%20and%20hot-swaps%20files%20without%20a%20page%20reload.%0A%0AThe%20whole%20pipeline%20has%20three%20pieces%3A%20a%20GitHub%20Action%20that%20deploys%20builds%2C%20a%20Worker%20that%20checks%20versions%2C%20and%20a%20client%20library%20that%20applies%20updates%20live.%0A%0A%23%23%20What%20it%20solves%0A%0AYou%20ship%20a%20static%20web%20app%20and%20need%20to%20update%20it%20without%20asking%20users%20to%20refresh.%20Normally%20that%20means%20a%20WebSocket%20server%2C%20a%20bunch%20of%20state%20management%2C%20and%20a%20deployment%20pipeline%20that%20knows%20about%20both.%0A%0AUpdato%20replaces%20that%20with%20a%20GitHub%20repo%2C%20a%20config%20file%2C%20and%20four%20lines%20of%20client%20code.%20The%20CDN%20branch%20is%20your%20deployment%20target.%20The%20Worker%20is%20the%20version%20authority.%20The%20client%20handles%20the%20rest.%0A%0A%23%23%20Features%0A%0A%3A%3A%3A%20card%20Decentralized%0ANo%20backend%20server.%20Updates%20come%20from%20your%20GitHub%20repo&#039;s%20raw%20content%20CDN.%20The%20Worker%20only%20answers%20version%20checks.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20Live%20Hot-Swap%0AScripts%2C%20stylesheets%2C%20and%20images%20swap%20in%20place%20using%20%60CSSStyleSheet.replaceSync%60%20and%20DOM%20replacement.%20No%20flash%2C%20no%20reload.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20Two%20Modes%0A**Version%20mode**%20uses%20semantic%20version%20comparison%20(%601.2.0%60%20%3E%20%601.1.0%60).%20**Commit%20mode**%20compares%20SHA%20hashes%20for%20canary-style%20rollouts.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20Optional%20Metrics%0ABuilt-in%20localStorage-backed%20download%20telemetry.%20File%20size%2C%20duration%2C%20and%20URL%20for%20each%20downloaded%20asset.%20Opt-in%2C%20never%20sent%20anywhere.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20card%20CSP-Safe%0ACSS%20hot-swap%20uses%20%60CSSStyleSheet.replaceSync%60%20and%20%60adoptedStyleSheets%60%20.%20No%20inline%20%60%3Cstyle%3E%60%20tags%2C%20no%20%60data%3A%60%20URIs.%20Works%20with%20strict%20Content%20Security%20Policy.%0A%3A%3A%3A%0A%0A%23%23%20Quick%20Example%0A%0A**Client-side%3A**%0A%0A%60%60%60typescript%0Aimport%20%7B%20Updato%20%7D%20from%20%22%40nellowtcs%2Fupdato%22%3B%0A%0Aconst%20updater%20%3D%20Updato.init(%0A%20%20%7B%0A%20%20%20%20repo%3A%20%22my-org%2Fmy-app%22%2C%0A%20%20%20%20mode%3A%20%22version%22%2C%0A%20%20%20%20current%3A%20%221.0.0%22%2C%0A%20%20%7D%2C%0A%20%20%7B%0A%20%20%20%20onUpdate%3A%20(info)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60Version%20%24%7Binfo.latest%7D%20available%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A)%3B%0A%60%60%60%0A%0A**Deploy%20a%20new%20version%20(GitHub%20Action)%3A**%0A%0A%60%60%60yaml%0A-%20uses%3A%20NellowTCS%2Fupdato%401.0.3%0A%20%20with%3A%0A%20%20%20%20mode%3A%20version%0A%20%20%20%20dist_dir%3A%20dist%0A%20%20%20%20build_script%3A%20npm%20run%20build%0A%60%60%60%0A%0APush%20or%20merge%20to%20your%20default%20branch.%20The%20Action%20builds%2C%20copies%20to%20a%20%60cdn%60%20branch%2C%20writes%20a%20manifest%2C%20and%20the%20Worker%20routes%20clients%20to%20the%20new%20assets.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BQuick%20Start%5D(.%2Fgetting-started%2Fquickstart)%3A%20Install%20and%20wire%20everything%20together%0A-%20%5BCore%20Concepts%5D(.%2Fgetting-started%2Fconcepts)%3A%20How%20the%20three%20pieces%20fit%0A-%20%5BClient%20Library%5D(.%2Fguide%2Fclient-library)%3A%20Full%20API%20reference%0A-%20%5BGitHub%20Action%5D(.%2Fguide%2Fgithub-action)%3A%20Action%20inputs%20and%20workflow%20setup%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -777,7 +777,7 @@
 );
 </code></pre>
 <p><strong>Deploy a new version (GitHub Action):</strong></p>
-<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@v1
+<pre class="hljs"><code><span class="hljs-punctuation">-</span> uses<span class="hljs-punctuation">:</span> NellowTCS<span class="hljs-punctuation">/</span>updato@<span class="hljs-number">1.0</span>.<span class="hljs-number">3</span>
   <span class="hljs-keyword">with</span><span class="hljs-punctuation">:</span>
     mode<span class="hljs-punctuation">:</span> version
     dist_dir<span class="hljs-punctuation">:</span> dist
@@ -873,13 +873,13 @@
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1780776288000">
+                <span class="git-last-updated" data-timestamp="1780776498000">
                   <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1780776288000"></span>
+                  <span class="git-time" data-timestamp="1780776498000"></span>
                   
                   <div class="git-commit-tooltip" role="tooltip">
                     <div class="git-tooltip-title">Recent commits</div>
@@ -892,10 +892,10 @@
                             
                           </div>
                           <div class="git-commit-details">
-                            <div class="git-commit-message" title="1.0.3 - Bug Fixes">1.0.3 - Bug Fixes</div>
+                            <div class="git-commit-message" title="*ahem*">*ahem*</div>
                             <div class="git-commit-meta">
                               <span class="git-commit-author">NellowTCS</span>
-                              <span class="git-commit-date" data-timestamp="1780776288000"></span>
+                              <span class="git-commit-date" data-timestamp="1780776498000"></span>
                             </div>
                           </div>
                         </li>
@@ -926,14 +926,14 @@
         </div>
       </div>
       
-      <script src="./assets/js/docmd-main.js?v=mq2s8qnp"></script>
+      <script src="./assets/js/docmd-main.js?v=mq2sdagk"></script>
       
-      <script src="./assets/js/docmd-git.js?v=mq2s8qnp"></script>
-      <script src="./assets/js/docmd-image-lightbox.js?v=mq2s8qnp" ></script>
+      <script src="./assets/js/docmd-git.js?v=mq2sdagk"></script>
+      <script src="./assets/js/docmd-image-lightbox.js?v=mq2sdagk" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="./assets/js/docmd-search.js?v=mq2s8qnp" ></script>
-<script src="./assets/js/init-mermaid.js?v=mq2s8qnp" type="module"></script>
-<script src="./assets/js/docmd-git.js?v=mq2s8qnp" type="module"></script>
+<script src="./assets/js/docmd-search.js?v=mq2sdagk" ></script>
+<script src="./assets/js/init-mermaid.js?v=mq2sdagk" type="module"></script>
+<script src="./assets/js/docmd-git.js?v=mq2sdagk" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
