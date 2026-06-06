@@ -14,7 +14,7 @@ export default defineConfig([
       "node_modules/**",
       "src/__tests__/**",
       "src/__mocks__/**",
-      "jest.config.js",
+      "jest.config.cjs",
       "jest.setup.js",
     ],
   },
@@ -26,7 +26,7 @@ export default defineConfig([
       globals: globals.browser,
       parserOptions: {
         projectService: {
-          allowDefaultProject: ["*.mts", "*.mjs"],
+          allowDefaultProject: ["*.mts", "*.mjs", "tsdown.config.ts"],
         },
         tsconfigRootDir: __dirname,
       },
