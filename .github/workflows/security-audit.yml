@@ -28,24 +28,24 @@ jobs:
       - run: npm ci
 
       - name: Audit root
-        run: npm audit --audit-level=high || true
+        run: npm audit --audit-level=high
 
       - name: Audit Build
         working-directory: Build
-        run: npm audit --audit-level=high || true
+        run: npm audit --audit-level=high
 
       - name: Audit Worker
         working-directory: Worker
-        run: npm audit --audit-level=high || true
+        run: npm audit --audit-level=high
 
       - name: Audit Action
         working-directory: Action
-        run: npm audit --audit-level=high || true
+        run: npm audit --audit-level=high
 
       - name: Audit Demo
         working-directory: Demo
-        run: npm audit --audit-level=high || true
+        run: npm audit --audit-level=high
 
       - name: Audit Docs
         working-directory: Docs
-        run: npm audit --audit-level=high || true
+        run: npm audit --audit-level=high

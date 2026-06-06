@@ -5,8 +5,8 @@
   "description": "Updato GitHub Action",
   "main": "dist/index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/index.js",
-    "prebuild": "rm -rf dist",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=../dist/index.js",
+    "prebuild": "rm -rf ../dist",
     "test": "jest"
   },
   "dependencies": {
