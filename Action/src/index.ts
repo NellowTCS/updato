@@ -21,6 +21,7 @@ export interface Inputs {
   buildScript: string;
   version: string;
   cdnBranch: string;
+  githubToken: string;
   userName: string;
   userEmail: string;
 }
@@ -36,6 +37,7 @@ export function getInputs(): Inputs {
     buildScript: core.getInput("build_script"),
     version: core.getInput("version"),
     cdnBranch: core.getInput("cdn_branch"),
+    githubToken: core.getInput("github_token") || process.env.GITHUB_TOKEN || "",
     userName: core.getInput("user_name"),
     userEmail: core.getInput("user_email"),
   };
@@ -86,7 +88,7 @@ export async function getPackageVersion(): Promise<string> {
 export async function runBuild(buildScript: string): Promise<void> {
   core.startGroup("Running build script");
   try {
-    const exitCode = await exec.exec(buildScript, [], {
+    const exitCode = await exec.exec("bash", ["-c", buildScript], {
       ignoreReturnCode: true,
     });
     if (exitCode !== 0) {
@@ -145,8 +147,7 @@ export function copyDirectoryContents(src: string, dest: string): void {
   }
 }
 
-export function cloneUrl(): string {
-  const token = process.env.GITHUB_TOKEN || "";
+export function cloneUrl(token: string): string {
   return `https://x-access-token:${token}@github.com/${getRepoOwner()}/${getRepoName()}.git`;
 }
 
@@ -173,7 +174,7 @@ export async function deployToCdn(
         "--branch",
         inputs.cdnBranch,
         "--single-branch",
-        cloneUrl(),
+        cloneUrl(inputs.githubToken),
         worktree,
       ],
       { silent: true, ignoreReturnCode: true }
@@ -256,7 +257,7 @@ export async function deployToCdn(
       });
     }
 
-    await exec.exec("git", ["remote", "add", "origin", cloneUrl()], {
+    await exec.exec("git", ["remote", "add", "origin", cloneUrl(inputs.githubToken)], {
       cwd: worktree,
       silent: true,
       ignoreReturnCode: true,
@@ -277,9 +278,8 @@ export async function run(): Promise<void> {
   try {
     const inputs = getInputs();
 
-    const token = process.env.GITHUB_TOKEN;
-    if (!token) {
-      core.setFailed("GITHUB_TOKEN environment variable is required.");
+    if (!inputs.githubToken) {
+      core.setFailed("github_token input or GITHUB_TOKEN environment variable is required.");
       return;
     }
 
@@ -296,8 +296,8 @@ export async function run(): Promise<void> {
       await runBuild(inputs.buildScript);
     }
 
-    await exec.exec("git", ["config", "user.name", inputs.userName]);
-    await exec.exec("git", ["config", "user.email", inputs.userEmail]);
+    await exec.exec("git", ["config", "--global", "user.name", inputs.userName]);
+    await exec.exec("git", ["config", "--global", "user.email", inputs.userEmail]);
 
     await deployToCdn(inputs, version);
 

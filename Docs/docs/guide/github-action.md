@@ -24,8 +24,17 @@ The Updato Action publishes build artifacts to a CDN branch with a version manif
 | `build_script` | no       | `""`                                | Command to run before publishing (e.g. `npm run build`) |
 | `version`      | no       | package.json `version`              | Explicit version for `version` mode                     |
 | `cdn_branch`   | no       | `"cdn"`                             | Target branch for CDN artifacts                         |
+| `github_token` | no       | `""`                                | GitHub token for pushing to CDN branch                  |
 | `user_name`    | no       | `"updato"`                          | Git user name for the commit                            |
 | `user_email`   | no       | `"updato@users.noreply.github.com"` | Git user email                                          |
+
+The Action needs a GitHub token with `contents: write` access. You can pass it explicitly or rely on the `GITHUB_TOKEN` environment variable (auto-available in most runners with `permissions: contents: write`).
+
+```yaml
+- uses: NellowTCS/updato@v1
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+```
 
 ### Mode: `version`
 
@@ -71,6 +80,7 @@ jobs:
           dist_dir: dist
           build_script: npm run build
           cdn_branch: cdn
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## What gets pushed

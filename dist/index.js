@@ -24523,6 +24523,7 @@ function getInputs() {
     buildScript: getInput("build_script"),
     version: getInput("version"),
     cdnBranch: getInput("cdn_branch"),
+    githubToken: getInput("github_token") || process.env.GITHUB_TOKEN || "",
     userName: getInput("user_name"),
     userEmail: getInput("user_email")
   };
@@ -24566,7 +24567,7 @@ async function getPackageVersion() {
 async function runBuild(buildScript) {
   startGroup("Running build script");
   try {
-    const exitCode = await exec(buildScript, [], {
+    const exitCode = await exec("bash", ["-c", buildScript], {
       ignoreReturnCode: true
     });
     if (exitCode !== 0) {
@@ -24620,8 +24621,7 @@ function copyDirectoryContents(src, dest) {
     }
   }
 }
-function cloneUrl() {
-  const token = process.env.GITHUB_TOKEN || "";
+function cloneUrl(token) {
   return `https://x-access-token:${token}@github.com/${getRepoOwner()}/${getRepoName()}.git`;
 }
 async function deployToCdn(inputs, version) {
@@ -24642,7 +24642,7 @@ async function deployToCdn(inputs, version) {
         "--branch",
         inputs.cdnBranch,
         "--single-branch",
-        cloneUrl(),
+        cloneUrl(inputs.githubToken),
         worktree
       ],
       { silent: true, ignoreReturnCode: true }
@@ -24711,7 +24711,7 @@ Updato CDN artifacts
         silent: true
       });
     }
-    await exec("git", ["remote", "add", "origin", cloneUrl()], {
+    await exec("git", ["remote", "add", "origin", cloneUrl(inputs.githubToken)], {
       cwd: worktree,
       silent: true,
       ignoreReturnCode: true
@@ -24728,9 +24728,8 @@ Updato CDN artifacts
 async function run() {
   try {
     const inputs = getInputs();
-    const token = process.env.GITHUB_TOKEN;
-    if (!token) {
-      setFailed("GITHUB_TOKEN environment variable is required.");
+    if (!inputs.githubToken) {
+      setFailed("github_token input or GITHUB_TOKEN environment variable is required.");
       return;
     }
     const commitSha = await getCommitSha();
@@ -24743,8 +24742,8 @@ async function run() {
     if (inputs.buildScript) {
       await runBuild(inputs.buildScript);
     }
-    await exec("git", ["config", "user.name", inputs.userName]);
-    await exec("git", ["config", "user.email", inputs.userEmail]);
+    await exec("git", ["config", "--global", "user.name", inputs.userName]);
+    await exec("git", ["config", "--global", "user.email", inputs.userEmail]);
     await deployToCdn(inputs, version);
     setOutput("version", version);
     setOutput("commit", commitSha);

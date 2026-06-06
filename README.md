@@ -34,6 +34,7 @@ Git Push  →  GitHub Action  →  CDN branch (manifest.json + assets)
     mode: version
     dist_dir: dist
     build_script: npm run build
+    github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Requires `permissions: contents: write`. Pushes build output to a `cdn` branch with a manifest.

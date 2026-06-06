@@ -25,6 +25,10 @@ inputs:
     description: Target branch for cdn artifacts
     required: false
     default: "cdn"
+  github_token:
+    description: GitHub token for pushing to CDN branch
+    required: false
+    default: ""
   user_name:
     description: Git user name for commits
     required: false

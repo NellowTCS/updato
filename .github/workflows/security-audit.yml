@@ -42,10 +42,6 @@ jobs:
         working-directory: Action
         run: npm audit --audit-level=high
 
-      - name: Audit Demo
-        working-directory: Demo
-        run: npm audit --audit-level=high
-
       - name: Audit Docs
         working-directory: Docs
         run: npm audit --audit-level=high

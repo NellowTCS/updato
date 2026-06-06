@@ -35,6 +35,7 @@ describe("getInputs", () => {
         build_script: "",
         version: "",
         cdn_branch: "cdn",
+        github_token: "my-token",
         user_name: "Test User",
         user_email: "test@test.com",
       };
@@ -152,15 +153,14 @@ describe("findModuleScripts", () => {
 });
 
 describe("cloneUrl", () => {
-  it("uses GITHUB_TOKEN from env", () => {
-    process.env.GITHUB_TOKEN = "my-token";
-    const url = cloneUrl();
+  it("uses provided token", () => {
+    const url = cloneUrl("my-token");
     expect(url).toContain("x-access-token:my-token");
     expect(url).toContain("github.com/test-owner/test-repo.git");
   });
 
   it("works with empty token", () => {
-    const url = cloneUrl();
+    const url = cloneUrl("");
     expect(url).toContain("x-access-token:");
   });
 });

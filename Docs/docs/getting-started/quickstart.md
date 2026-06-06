@@ -60,6 +60,7 @@ jobs:
           dist_dir: dist
           build_script: npm run build
           cdn_branch: cdn
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 The Action:
