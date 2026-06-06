@@ -54,7 +54,7 @@ jobs:
           node-version: 20
       - run: npm ci
 
-      - uses: NellowTCS/updato@v1
+      - uses: NellowTCS/updato@1.0.3
         with:
           mode: version
           dist_dir: dist

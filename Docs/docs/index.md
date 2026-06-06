@@ -59,7 +59,7 @@ const updater = Updato.init(
 **Deploy a new version (GitHub Action):**
 
 ```yaml
-- uses: NellowTCS/updato@v1
+- uses: NellowTCS/updato@1.0.3
   with:
     mode: version
     dist_dir: dist

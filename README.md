@@ -29,7 +29,7 @@ Git Push  →  GitHub Action  →  CDN branch (manifest.json + assets)
 ### 1. Add the GitHub Action
 
 ```yaml
-- uses: NellowTCS/updato@v1
+- uses: NellowTCS/updato@1.0.3
   with:
     mode: version
     dist_dir: dist

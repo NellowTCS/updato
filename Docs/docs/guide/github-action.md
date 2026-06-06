@@ -8,7 +8,7 @@ The Updato Action publishes build artifacts to a CDN branch with a version manif
 ## Usage
 
 ```yaml
-- uses: NellowTCS/updato@v1
+- uses: NellowTCS/updato@1.0.3
   with:
     mode: version
     dist_dir: dist
@@ -31,7 +31,7 @@ The Updato Action publishes build artifacts to a CDN branch with a version manif
 The Action needs a GitHub token with `contents: write` access. You can pass it explicitly or rely on the `GITHUB_TOKEN` environment variable (auto-available in most runners with `permissions: contents: write`).
 
 ```yaml
-- uses: NellowTCS/updato@v1
+- uses: NellowTCS/updato@1.0.3
   with:
     github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -74,7 +74,7 @@ jobs:
           node-version: 20
       - run: npm ci
 
-      - uses: NellowTCS/updato@v1
+      - uses: NellowTCS/updato@1.0.3
         with:
           mode: version
           dist_dir: dist

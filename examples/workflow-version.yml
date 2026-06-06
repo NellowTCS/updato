@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Publish to cdn
-        uses: nellowtcs/updato@v1
+        uses: NellowTCS/updato@1.0.3
         with:
           mode: version
           dist_dir: dist
