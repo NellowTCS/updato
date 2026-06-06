@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "updato-release"
           git config user.email "updato@users.noreply.github.com"
-          git add Action/dist/
+          git add dist/
           if ! git diff --staged --quiet; then
             git commit -m "build: ${{ github.event.release.tag_name }}"
             git push origin main
