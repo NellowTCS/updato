@@ -1,0 +1,1058 @@
+<!--
+  ---------------------------------------------------------------
+  docmd : the zero-config documentation engine.
+  @website https://docmd.io
+  [docmd-source] - Please do not remove this header.
+  ---------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="docmd v0.5.x">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_DEFAULT_MODE || 'light';
+    var theme = localValue ? localValue : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+    <style>
+      html {
+        visibility: hidden;
+      }
+    </style>
+    
+    <script>
+      var root = "../../";
+      if (root && !root.endsWith('/')) root += '/';
+      if (root === '') root = './';
+      window.DOCMD_ROOT = root;
+
+      var siteRoot = "../../";
+      if (siteRoot && !siteRoot.endsWith('/')) siteRoot += '/';
+      if (siteRoot === '') siteRoot = './';
+      window.DOCMD_SITE_ROOT = siteRoot;
+
+      window.DOCMD_APPEARANCE = "system";
+      window.DOCMD_VERSION_ROOT = "/";
+      window.DOCMD_BASE = "/";
+      window.DOCMD_LOCALE = "";
+      window.DOCMD_DEFAULT_LOCALE = "";
+    </script>
+    <title>
+      Core Concepts : Updato
+    </title>
+    
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1rhhjc">
+    
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1rhhjc" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1rhhjc" id="hljs-dark" disabled>
+    
+    
+<meta name="description" content="How Updato works: Action, Worker, and Client">
+<link rel="canonical" href="https://nellowtcs.me/updato/docs/getting-started/concepts/">
+<meta property="og:title" content="Core Concepts - Updato">
+<meta property="og:description" content="How Updato works: Action, Worker, and Client">
+<meta property="og:url" content="https://nellowtcs.me/updato/docs/getting-started/concepts/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Core Concepts - Updato">
+<meta name="twitter:description" content="How Updato works: Action, Worker, and Client">
+
+
+
+<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1rhhjc" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1rhhjc" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1rhhjc" >
+
+    
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_DEFAULT_MODE || 'light';
+    var theme = localValue ? localValue : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+  </head>
+  <body
+    class="sidebar-collapsible"
+    data-default-collapsed="false"
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/getting-started/concepts.md">
+
+    <a href="#main-content" class="skip-link">skipToContent</a>
+
+    
+    
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          
+            <h1><a href="../../">
+                Updato
+              </a></h1>
+          
+          <span class="mobile-view sidebar-menu-button float-right">
+            
+<svg class="lucide-icon icon-menu " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-menu"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
+
+          </span>
+        </div>
+        <div class="sidebar-top-group">
+          
+          
+          
+          
+        </div>
+        
+
+<nav class="sidebar-nav" aria-label="mainNavigation">
+  <ul>
+    
+      <li class="" >
+      
+        <a href="../../" class=" "
+          >
+           
+<svg class="lucide-icon icon-home " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-house"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Home
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active-parent collapsible expanded nav-group"  aria-expanded="true" >
+      
+        <span class="nav-label nav-group">
+          
+          <span class="nav-item-title">
+            Getting Started
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../getting-started/quickstart/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Quick Start
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active" >
+      
+        <a href="../../getting-started/concepts/" class="active "
+          >
+          
+          <span class="nav-item-title">
+            Core Concepts
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+          
+          <span class="nav-item-title">
+            Guide
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../guide/client-library/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Client Library
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../guide/github-action/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            GitHub Action
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../guide/worker/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Worker
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../guide/hot-swap/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Hot-Swap
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../guide/manifest/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Manifest
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../guide/metrics/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Download Metrics
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="https://github.com/NellowTCS/updato" class=" "
+          target=&quot;_blank&quot; rel=&quot;noopener&quot;>
+           
+<svg class="lucide-icon icon-github " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-github"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+  <path d="M9 18c-4.51 2-5-2-7-2" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            GitHub
+            </span>
+          
+           
+<svg class="lucide-icon icon-external-link nav-external-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-external-link"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+</svg>
+
+          
+        </a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+        <div class="sidebar-bottom-group mt-auto">
+          
+          
+          
+          
+        </div>
+      </aside>
+      
+      <div class="main-content-wrapper">
+        
+        
+          <header class="page-header">
+            <div class="header-left">
+              
+                <button id="sidebar-toggle-button" class="sidebar-toggle-button"
+                  aria-label="toggleSidebar">
+                  
+<svg class="lucide-icon icon-chevron-left " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15 18-6-6 6-6" />
+</svg>
+
+                </button>
+              
+              <div class="header-titles-wrapper">
+                <span class="header-title">
+                  Core Concepts
+                </span>
+              </div>
+            </div>
+            <div class="header-right">
+              
+                
+
+
+<div class="docmd-options-menu">
+    
+    <button class="docmd-search-trigger" aria-label="search">
+        
+<svg class="lucide-icon icon-search " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-search"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" />
+</svg>
+
+        <span class="search-label">search</span>
+        <span class="search-keys"><kbd class="docmd-kbd">⌘</kbd><kbd class="docmd-kbd">K</kbd></span>
+    </button>
+    
+
+    
+
+    
+
+    
+    <button class="theme-toggle-button" aria-label="toggleTheme">
+        
+<svg class="lucide-icon icon-sun icon-sun" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-sun"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+ 
+<svg class="lucide-icon icon-moon icon-moon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-moon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+</svg>
+
+    </button>
+    
+
+    
+</div>
+
+              
+            </div>
+          </header>
+        
+        <div class="content-theme-cover">
+          <main class="content-area" id="main-content">
+            <div class="content-layout">
+              <div class="main-content">
+                <div class="docmd-breadcrumbs-row">
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Core%20Concepts%22%0Adescription%3A%20%22How%20Updato%20works%3A%20Action%2C%20Worker%2C%20and%20Client%22%0A---%0A%0AUpdato%20has%20three%20pieces%20that%20work%20together%3A%20a%20GitHub%20Action%2C%20a%20Cloudflare%20Worker%2C%20and%20a%20client%20library.%20Each%20has%20a%20single%20job.%0A%0A%23%23%20The%20Three%20Pieces%0A%0A%23%23%23%20GitHub%20Action%0A%0AThe%20Action%20runs%20in%20your%20CI%20pipeline.%20It%3A%0A%0A-%20Runs%20your%20build%20script%0A-%20Copies%20the%20output%20to%20a%20dedicated%20CDN%20branch%20(default%20%60cdn%60)%0A-%20Writes%20a%20%60manifest.json%60%20with%20the%20version%2C%20file%20list%2C%20and%20module%20flags%0A-%20Pushes%20the%20branch%0A%0AThe%20CDN%20branch%20holds%20every%20version%20under%20%60versions%2F%3Cversion%3E%2F%60%20and%20a%20%60latest%2F%60%20alias.%20The%20manifest%20is%20always%20at%20the%20root.%0A%0A%23%23%23%20Cloudflare%20Worker%0A%0AThe%20Worker%20is%20a%20lightweight%20HTTP%20API%20with%20two%20endpoints%3A%0A%0A-%20%60GET%20%2Fcheck%3Frepo%3Downer%2Fname%26branch%3Dcdn%26current%3D1.0.0%60%20--%20checks%20if%20a%20newer%20version%20exists%0A-%20%60GET%20%2Fmanifest%3Frepo%3Downer%2Fname%26branch%3Dcdn%60%20--%20returns%20the%20current%20manifest%0A%0AIt%20fetches%20and%20caches%20the%20manifest%20from%20GitHub&#039;s%20raw%20CDN%2C%20then%20compares%20versions.%20In%20version%20mode%20it%20uses%20semantic%20version%20comparison.%20In%20commit%20mode%20it%20uses%20exact%20SHA%20matching.%0A%0AThe%20Worker%20also%20rate-limits%20per%20IP%20(60%20requests%20per%20minute%20by%20default)%20and%20caches%20the%20manifest%20in%20KV.%0A%0A%23%23%23%20Client%20Library%0A%0AThe%20client%20runs%20in%20the%20browser.%20It%3A%0A%0A-%20Calls%20the%20Worker%20periodically%20to%20check%20for%20updates%0A-%20Downloads%20new%20files%20from%20GitHub&#039;s%20raw%20content%20CDN%0A-%20Caches%20them%20in%20%60localStorage%60%0A-%20Hot-swaps%20scripts%2C%20stylesheets%2C%20and%20images%20without%20a%20reload%0A%0AThe%20library%20is%20CSP-safe%2C%20uses%20no%20inline%20styles%2C%20and%20tracks%20download%20metrics%20if%20enabled.%0A%0A%23%23%20The%20Update%20Flow%0A%0A%60%60%60txt%0AGit%20Push%20triggers%20the%20GitHub%20Action%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20cdn%20branch%20(manifest.json%20%2B%20assets)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Cloudflare%20Worker%20(cached%20manifest)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%91%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Client%20checks%20%2Fcheck%20endpoint%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Downloads%20new%20files%20from%20raw.githubusercontent.com%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%86%93%0A%20%20%20%20%20%20%20%20%20Hot-swaps%20in%20the%20DOM%0A%60%60%60%0A%0A1.%20You%20push%20to%20your%20repo.%20The%20Action%20builds%20and%20deploys%20to%20the%20%60cdn%60%20branch.%0A2.%20A%20client%20calls%20%60checkForUpdate()%60.%20The%20Worker%20reads%20the%20manifest%2C%20compares%20the%20client&#039;s%20current%20version%2C%20and%20returns%20%60%7B%20update%3A%20true%2C%20files%3A%20%5B...%5D%2C%20latest%3A%20%221.0.1%22%20%7D%60.%0A3.%20The%20client%20calls%20%60downloadUpdate()%60%2C%20which%20fetches%20each%20file%20from%20%60raw.githubusercontent.com%60%20and%20stores%20them%20in%20%60localStorage%60.%0A4.%20The%20client%20calls%20%60applyUpdate()%60%2C%20which%20reads%20the%20cached%20files%20and%20hot-swaps%20them%20into%20the%20page.%0A%0A%23%23%20Modes%0A%0A%23%23%23%20Version%20mode%0A%0ACompares%20versions%20semantically%3A%20%601.2.0%20%3E%201.1.0%60.%20Good%20for%20tagged%20releases%20and%20stable%20apps.%20The%20version%20is%20read%20from%20%60package.json%60%20or%20set%20explicitly%20in%20the%20Action%20config.%0A%0A%23%23%23%20Commit%20mode%0A%0ACompares%20Git%20SHA%20hashes%3A%20any%20difference%20means%20an%20update.%20Good%20for%20canary%20builds%20and%20staging%20environments.%0A%0A%23%23%20Storage%0A%0AThe%20client%20stores%20everything%20in%20%60localStorage%60%3A%0A%0A%7C%20Key%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Purpose%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-----------------------%7C-------------------------------%7C%0A%7C%20%60updato_current%60%20%20%20%20%20%20%7C%20Current%20version%20string%20%20%20%20%20%20%20%20%7C%0A%7C%20%60updato_cache_%3Cpath%3E%60%20%7C%20Cached%20file%20content%20per%20path%20%20%7C%0A%7C%20%60updato%3Ametrics%60%20%20%20%20%20%20%7C%20Download%20metrics%20(if%20enabled)%20%7C%0A%0AThe%20%60clearCache()%60%20method%20removes%20all%20cache%20keys%20and%20the%20current%20version.%20The%20%60DownloadMetrics.clear()%60%20method%20resets%20metrics%20separately.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BQuick%20Start%5D(.%2Fquickstart)%3A%20Get%20everything%20running%0A-%20%5BClient%20Library%5D(..%2Fguide%2Fclient-library)%3A%20Config%2C%20events%2C%20and%20API%0A-%20%5BGitHub%20Action%5D(..%2Fguide%2Fgithub-action)%3A%20Action%20inputs%20reference%0A" style="display: none;"></div>
+                  
+                    <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
+                      <ol>
+                        
+                        
+                          <li class="breadcrumb-item " >
+                            
+                              <span>Getting Started</span>
+                            
+                            
+                              <span class="breadcrumb-separator">
+<svg class="lucide-icon icon-chevron-right " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+                            
+                          </li>
+                        
+                          <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
+                            
+                              <span>Core Concepts</span>
+                            
+                            
+                          </li>
+                        
+                      </ol>
+                    </nav>
+                  
+
+                  
+                    <div class="docmd-copy-widgets">
+                      
+                        <button class="docmd-copy-btn docmd-copy-raw-btn" data-copied="copiedToClipboard" title="copyMarkdown" aria-label="copyMarkdown">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-copy " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-copy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+</svg>
+</span>
+                        </button>
+                      
+                      
+                        <button class="docmd-copy-btn docmd-copy-context-btn" data-copied="copiedToClipboard" title="copyContext">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-message-square " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-message-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</svg>
+</span>
+                          <span class="docmd-btn-text">copyContext</span>
+                        </button>
+                      
+                    </div>
+                  
+                </div>
+                
+                <p>Updato has three pieces that work together: a GitHub Action, a Cloudflare Worker, and a client library. Each has a single job.</p>
+<h2 id="the-three-pieces" class="docmd-heading"><a href="#the-three-pieces" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>The Three Pieces</h2>
+<h3 id="the-three-pieces-github-action" class="docmd-heading"><a href="#the-three-pieces-github-action" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>GitHub Action</h3>
+<p>The Action runs in your CI pipeline. It:</p>
+<ul>
+<li>Runs your build script</li>
+<li>Copies the output to a dedicated CDN branch (default <code>cdn</code>)</li>
+<li>Writes a <code>manifest.json</code> with the version, file list, and module flags</li>
+<li>Pushes the branch</li>
+</ul>
+<p>The CDN branch holds every version under <code>versions/&lt;version&gt;/</code> and a <code>latest/</code> alias. The manifest is always at the root.</p>
+<h3 id="the-three-pieces-cloudflare-worker" class="docmd-heading"><a href="#the-three-pieces-cloudflare-worker" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Cloudflare Worker</h3>
+<p>The Worker is a lightweight HTTP API with two endpoints:</p>
+<ul>
+<li><code>GET /check?repo=owner/name&amp;branch=cdn&amp;current=1.0.0</code> – checks if a newer version exists</li>
+<li><code>GET /manifest?repo=owner/name&amp;branch=cdn</code> – returns the current manifest</li>
+</ul>
+<p>It fetches and caches the manifest from GitHub’s raw CDN, then compares versions. In version mode it uses semantic version comparison. In commit mode it uses exact SHA matching.</p>
+<p>The Worker also rate-limits per IP (60 requests per minute by default) and caches the manifest in KV.</p>
+<h3 id="the-three-pieces-client-library" class="docmd-heading"><a href="#the-three-pieces-client-library" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Client Library</h3>
+<p>The client runs in the browser. It:</p>
+<ul>
+<li>Calls the Worker periodically to check for updates</li>
+<li>Downloads new files from GitHub’s raw content CDN</li>
+<li>Caches them in <code>localStorage</code></li>
+<li>Hot-swaps scripts, stylesheets, and images without a reload</li>
+</ul>
+<p>The library is CSP-safe, uses no inline styles, and tracks download metrics if enabled.</p>
+<h2 id="the-update-flow" class="docmd-heading"><a href="#the-update-flow" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>The Update Flow</h2>
+<pre class="hljs"><code>Git Push triggers the GitHub Action
+              ↓
+         cdn <span class="hljs-title function_">branch</span> (manifest.<span class="hljs-attr">json</span> <span class="hljs-punctuation">+</span> assets)
+              ↓
+         Cloudflare <span class="hljs-title function_">Worker</span> (cached manifest)
+              ↑ ↓
+         Client checks <span class="hljs-punctuation">/</span>check endpoint
+              ↓
+         Downloads <span class="hljs-keyword">new</span> files <span class="hljs-keyword">from</span> raw.<span class="hljs-attr">githubusercontent</span>.<span class="hljs-attr">com</span>
+              ↓
+         Hot<span class="hljs-punctuation">-</span>swaps <span class="hljs-keyword">in</span> the DOM
+</code></pre>
+<ol>
+<li>You push to your repo. The Action builds and deploys to the <code>cdn</code> branch.</li>
+<li>A client calls <code>checkForUpdate()</code>. The Worker reads the manifest, compares the client’s current version, and returns <code>{ update: true, files: [...], latest: &quot;1.0.1&quot; }</code>.</li>
+<li>The client calls <code>downloadUpdate()</code>, which fetches each file from <code>raw.githubusercontent.com</code> and stores them in <code>localStorage</code>.</li>
+<li>The client calls <code>applyUpdate()</code>, which reads the cached files and hot-swaps them into the page.</li>
+</ol>
+<h2 id="modes" class="docmd-heading"><a href="#modes" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Modes</h2>
+<h3 id="modes-version-mode" class="docmd-heading"><a href="#modes-version-mode" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Version mode</h3>
+<p>Compares versions semantically: <code>1.2.0 &gt; 1.1.0</code>. Good for tagged releases and stable apps. The version is read from <code>package.json</code> or set explicitly in the Action config.</p>
+<h3 id="modes-commit-mode" class="docmd-heading"><a href="#modes-commit-mode" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Commit mode</h3>
+<p>Compares Git SHA hashes: any difference means an update. Good for canary builds and staging environments.</p>
+<h2 id="storage" class="docmd-heading"><a href="#storage" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Storage</h2>
+<p>The client stores everything in <code>localStorage</code>:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>updato_current</code></td>
+<td>Current version string</td>
+</tr>
+<tr>
+<td><code>updato_cache_&lt;path&gt;</code></td>
+<td>Cached file content per path</td>
+</tr>
+<tr>
+<td><code>updato:metrics</code></td>
+<td>Download metrics (if enabled)</td>
+</tr>
+</tbody>
+</table>
+</div><p>The <code>clearCache()</code> method removes all cache keys and the current version. The <code>DownloadMetrics.clear()</code> method resets metrics separately.</p>
+<h2 id="next-steps" class="docmd-heading"><a href="#next-steps" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Next Steps</h2>
+<ul>
+<li><a href="../quickstart/">Quick Start</a>: Get everything running</li>
+<li><a href="../../guide/client-library/">Client Library</a>: Config, events, and API</li>
+<li><a href="../../guide/github-action/">GitHub Action</a>: Action inputs reference</li>
+</ul>
+
+                
+                  <div class="page-navigation">
+                    
+                      <a href="../../getting-started/quickstart/" class="prev-page">
+                        
+<svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>
+
+                        <span><small>previous</small><strong>
+                            Quick Start
+                          </strong></span>
+                      </a>
+                    
+                    
+                      <a href="../../guide/client-library/" class="next-page">
+                        <span><small>next</small>
+                          <strong>
+                            Client Library
+                          </strong></span>
+                        
+<svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg>
+
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="toc-sidebar">
+                
+
+
+  <div class="toc-container">
+    <h2 class="toc-title">onThisPage<span class="mobile-view toc-menu-button float-right">
+<svg class="lucide-icon icon-chevron-down " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg>
+</span></h2>
+    <ul class="toc-list">
+      
+        <li class="toc-item toc-level-2">
+          <a href="#the-three-pieces" class="toc-link">The Three Pieces</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#the-three-pieces-github-action" class="toc-link">GitHub Action</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#the-three-pieces-cloudflare-worker" class="toc-link">Cloudflare Worker</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#the-three-pieces-client-library" class="toc-link">Client Library</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#the-update-flow" class="toc-link">The Update Flow</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#modes" class="toc-link">Modes</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#modes-version-mode" class="toc-link">Version mode</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#modes-commit-mode" class="toc-link">Commit mode</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#storage" class="toc-link">Storage</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#next-steps" class="toc-link">Next Steps</a>
+        </li>
+      
+    </ul>
+  </div>
+
+              </div>
+            </div>
+            <div class="page-footer-actions">
+              
+              
+                <span class="git-last-updated" data-timestamp="1780714552000">
+                  <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span class="git-label">Last updated:</span>
+                  <span class="git-time" data-timestamp="1780714552000"></span>
+                  
+                  <div class="git-commit-tooltip" role="tooltip">
+                    <div class="git-tooltip-title">Recent commits</div>
+                    <ul class="git-commit-list">
+                      
+                        <li class="git-commit-item">
+                          <div class="git-commit-avatar" title="NellowTCS">
+                            
+                              <img src="https://www.gravatar.com/avatar/baecf29c7bedbb00a8d5bd5984799c55?d=mp&amp;s=64" alt="NellowTCS">
+                            
+                          </div>
+                          <div class="git-commit-details">
+                            <div class="git-commit-message" title="Fix">Fix</div>
+                            <div class="git-commit-meta">
+                              <span class="git-commit-author">NellowTCS</span>
+                              <span class="git-commit-date" data-timestamp="1780714552000"></span>
+                            </div>
+                          </div>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                  
+                </span>
+              
+              <span class="git-spacer"></span>
+              
+            </div>
+          </main>
+          
+
+
+<footer class="page-footer">
+  <div class="footer-content">
+    <div class="user-footer">Built with docmd.</div>
+    
+      <div class="branding-footer">
+        builtWith <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path><path d="m18 15-2-2"></path><path d="m15 18-2-2"></path></svg> <a href="https://docmd.io" target="_blank" rel="noopener">docmd.</a>
+      </div>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+      
+      <script src="../../assets/js/docmd-main.js?v=mq1rhhjc"></script>
+      
+      <script src="../../assets/js/docmd-git.js?v=mq1rhhjc"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1rhhjc" ></script>
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
+<script src="../../assets/js/docmd-search.js?v=mq1rhhjc" ></script>
+<script src="../../assets/js/init-mermaid.js?v=mq1rhhjc" type="module"></script>
+<script src="../../assets/js/docmd-git.js?v=mq1rhhjc" type="module"></script>
+
+  <!-- Search Modal (Injected by @docmd/plugin-search) -->
+  <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
+       data-search-placeholder="Search documentation..."
+       data-search-no-results="No results found."
+       data-search-error="Failed to load search index."
+       data-search-initial="Type to start searching..."
+       data-search-navigate="to navigate"
+       data-search-escape="to close">
+      <div class="docmd-search-box">
+          <div class="docmd-search-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+              <input type="text" id="docmd-search-input" placeholder="Search documentation..." autocomplete="off" spellcheck="false">
+              <button onclick="window.closeDocmdSearch()" class="docmd-search-close" aria-label="Close search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+              </button>
+          </div>
+          <div id="docmd-search-results" class="docmd-search-results"></div>
+          <div class="docmd-search-footer">
+              <span><kbd class="docmd-kbd">↑</kbd> <kbd class="docmd-kbd">↓</kbd> to navigate</span>
+              <span><kbd class="docmd-kbd">ESC</kbd> to close</span>
+          </div>
+      </div>
+  </div>
+
+    <script>
+      (function() {
+        var searchDebounceTimer;
+
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a');
+          if (!link || !window.gtag) return;
+          
+          var url = link.href;
+          var hostname = window.location.hostname;
+          var isExternal = link.hostname && link.hostname !== hostname;
+          var isDownload = link.hasAttribute('download') || url.match(/\.(pdf|zip|tar|gz|exe|pkg)$/i);
+          
+          if (isExternal) {
+            gtag('event', 'click_external', { 'url': url, 'link_text': link.innerText.trim() });
+          } else if (isDownload) {
+            gtag('event', 'download', { 'file_name': url.split('/').pop(), 'url': url });
+          }
+
+          // TOC tracking
+          if (link.classList.contains('toc-link')) {
+            gtag('event', 'toc_click', { 'target_id': link.getAttribute('href'), 'title': link.innerText.trim() });
+          }
+
+          // Permalink tracking
+          if (link.classList.contains('heading-anchor')) {
+            gtag('event', 'permalink_click', { 'url': url });
+          }
+        });
+
+        
+        // Search Keyword Tracking
+        document.addEventListener('input', function(e) {
+          if (e.target.id === 'docmd-search-input' && window.gtag) {
+            var query = e.target.value.trim();
+            if (query.length < 3) return;
+            
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(function() {
+              gtag('event', 'search', { 'search_term': query });
+            }, 1000);
+          }
+        });
+        
+      })();
+    </script>
+
+<script>window.__git_config={"repo":null,"branch":"main","editLink":false,"lastUpdated":true,"commitHistory":true,"maxCommits":5,"dateFormat":"relative"};window.__git_i18n={"lastUpdated":"Last updated","recentCommits":"Recent commits","viewCommitHistory":"View commit history","editOnGitHub":"Edit on GitHub","editOnGitLab":"Edit on GitLab","editOnBitbucket":"Edit on Bitbucket","editThisPage":"Edit this page","justNow":"just now","minutesAgo":"{n}m ago","hoursAgo":"{n}h ago","daysAgo":"{n}d ago"}</script>
+      
+  </body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "title": "Updato",
+  "description": "",
+  "pages": [
+    {
+      "title": "Core Concepts",
+      "url": "https://nellowtcs.me/updato/docs/getting-started/concepts/",
+      "description": "How Updato works: Action, Worker, and Client",
+      "priority": "medium"
+    },
+    {
+      "title": "Quick Start",
+      "url": "https://nellowtcs.me/updato/docs/getting-started/quickstart/",
+      "description": "Set up Updato end to end in about 10 minutes",
+      "priority": "medium"
+    },
+    {
+      "title": "Client Library",
+      "url": "https://nellowtcs.me/updato/docs/guide/client-library/",
+      "description": "Updato class, config, events, and API reference",
+      "priority": "medium"
+    },
+    {
+      "title": "GitHub Action",
+      "url": "https://nellowtcs.me/updato/docs/guide/github-action/",
+      "description": "Action inputs, workflow setup, and deployment reference",
+      "priority": "medium"
+    },
+    {
+      "title": "Hot-Swap Internals",
+      "url": "https://nellowtcs.me/updato/docs/guide/hot-swap/",
+      "description": "How scripts, stylesheets, and images are replaced live",
+      "priority": "medium"
+    },
+    {
+      "title": "Manifest",
+      "url": "https://nellowtcs.me/updato/docs/guide/manifest/",
+      "description": "Manifest format, validation, and lifecycle",
+      "priority": "medium"
+    },
+    {
+      "title": "Download Metrics",
+      "url": "https://nellowtcs.me/updato/docs/guide/metrics/",
+      "description": "Track download performance with localStorage-backed telemetry",
+      "priority": "medium"
+    },
+    {
+      "title": "Worker",
+      "url": "https://nellowtcs.me/updato/docs/guide/worker/",
+      "description": "Deploy and configure the Cloudflare Worker",
+      "priority": "medium"
+    },
+    {
+      "title": "Updato",
+      "url": "https://nellowtcs.me/updato/docs/",
+      "description": "Push updates from GitHub, applied live in the browser with no server",
+      "priority": "high"
+    }
+  ]
+}
