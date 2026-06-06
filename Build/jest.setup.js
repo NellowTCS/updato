@@ -2,6 +2,30 @@ const { TextEncoder, TextDecoder } = require("util");
 globalThis.TextEncoder = TextEncoder;
 globalThis.TextDecoder = TextDecoder;
 
+// jsdom doesn't provide CSSStyleSheet/adoptedStyleSheets
+const adoptedSheets = [];
+Object.defineProperty(document, "adoptedStyleSheets", {
+  get() {
+    return adoptedSheets;
+  },
+  set(val) {
+    adoptedSheets.length = 0;
+    adoptedSheets.push(...val);
+  },
+  configurable: true,
+});
+
+class MockCSSStyleSheet {
+  constructor() {
+    this.cssRules = [];
+  }
+  replaceSync(css) {
+    this.cssRules = [{ cssText: css }];
+  }
+}
+
+globalThis.CSSStyleSheet = MockCSSStyleSheet;
+
 // jsdom doesn't provide the Fetch API globals; mock minimally
 class MockResponse {
   constructor(body, init) {

@@ -7,9 +7,19 @@ export interface NotificationOptions {
   dismissable?: boolean;
   buttonText?: string;
   heading?: string;
+  onApply?: (response: CheckResponse) => void;
 }
 
-const defaults: Required<NotificationOptions> = {
+interface InternalOptions {
+  container: HTMLElement;
+  position: "top" | "bottom";
+  dismissable: boolean;
+  buttonText: string;
+  heading: string;
+  onApply?: (response: CheckResponse) => void;
+}
+
+const defaults: InternalOptions = {
   container:
     typeof document !== "undefined"
       ? document.body
@@ -42,7 +52,7 @@ function styles(position: "top" | "bottom"): string {
 
 export class UpdateNotification {
   private updater: Updato;
-  private opts: Required<NotificationOptions>;
+  private opts: InternalOptions;
   private el: HTMLDivElement | null = null;
   private messageEl: HTMLSpanElement | null = null;
   private buttonEl: HTMLButtonElement | null = null;
@@ -126,7 +136,10 @@ export class UpdateNotification {
     if (ok) {
       this.messageEl.textContent = "Applying...";
       this.buttonEl.textContent = "Applying...";
-      this.updater.applyUpdate(this.response.files);
+      this.updater.applyUpdate(this.response.files, this.response.modules);
+      this.opts.onApply?.(this.response);
+      this.buttonEl.disabled = true;
+      setTimeout(() => this.hide(), 1500);
     } else {
       this.buttonEl.disabled = false;
       this.buttonEl.textContent = this.opts.buttonText;

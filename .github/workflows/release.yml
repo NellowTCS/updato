@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build Action
+        working-directory: Action
+        run: npm run build
+
+      - name: Build Client
+        working-directory: Build
+        run: npm run build
+
+      - name: Run tests
+        run: |
+          cd Action && npx jest --silent
+          cd ../Worker && npx jest --silent
+          cd ../Build && npx jest --silent
+
+      - name: Commit dist to main
+        run: |
+          git config user.name "updato-release"
+          git config user.email "updato@users.noreply.github.com"
+          git add Action/dist/
+          if ! git diff --staged --quiet; then
+            git commit -m "build: ${{ github.event.release.tag_name }}"
+            git push origin main
+          fi
+
+      - name: Update release tag to include dist
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          MAJOR=$(echo "$TAG" | sed 's/\.[0-9]*\.[0-9]*$//')
+          git tag -f "$TAG"
+          git tag -f "$MAJOR"
+          git push origin -f "$TAG" "$MAJOR"

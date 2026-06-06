@@ -49,17 +49,26 @@ function matchAttr(
   return null;
 }
 
+const HOT_FILE_ATTR = "data-hot-file";
+
 function swapScript(
   file: string,
   content: string,
   isModule?: boolean,
 ): HotSwapResult {
-  const sel = isModule ? "script[type=module][src]" : "script[src]";
-  const attr = "src";
   const name = basename(file);
+  const prev = document.querySelector(
+    `script[${HOT_FILE_ATTR}="${name}"]`,
+  ) as HTMLScriptElement | null;
+  if (prev) {
+    prev.textContent = content;
+    return { swapped: true, type: "script", file };
+  }
+
+  const sel = isModule ? "script[type=module][src]" : "script[src]";
   let el: Element | null = null;
   for (const candidate of document.querySelectorAll(sel)) {
-    const val = candidate.getAttribute(attr);
+    const val = candidate.getAttribute("src");
     if (val && basename(val) === name) {
       el = candidate;
       break;
@@ -70,6 +79,7 @@ function swapScript(
   const old = el as HTMLScriptElement;
   const news = document.createElement("script");
   news.textContent = content;
+  news.setAttribute(HOT_FILE_ATTR, name);
   if (isModule) news.type = "module";
   if (old.integrity) news.integrity = old.integrity;
   if (old.crossOrigin) news.crossOrigin = old.crossOrigin;
@@ -77,16 +87,23 @@ function swapScript(
   return { swapped: true, type: "script", file };
 }
 
-function swapStylesheet(file: string, content: string): HotSwapResult {
-  const el = matchAttr('link[rel="stylesheet"]', "href", file);
-  if (!el) return { swapped: false, type: "stylesheet", file };
+const hotSheets = new Map<string, CSSStyleSheet>();
 
-  const old = el as HTMLLinkElement;
-  const news = document.createElement("link");
-  news.rel = "stylesheet";
-  news.type = "text/css";
-  news.href = "data:text/css," + encodeURIComponent(content);
-  old.parentNode?.replaceChild(news, old);
+function swapStylesheet(file: string, content: string): HotSwapResult {
+  let sheet = hotSheets.get(file);
+  if (!sheet) {
+    const link = matchAttr(
+      'link[rel="stylesheet"]',
+      "href",
+      file,
+    ) as HTMLLinkElement | null;
+    if (link) link.disabled = true;
+    sheet = new CSSStyleSheet();
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+    hotSheets.set(file, sheet);
+  }
+
+  sheet.replaceSync(content);
   return { swapped: true, type: "stylesheet", file };
 }
 

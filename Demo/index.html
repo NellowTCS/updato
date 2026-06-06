@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Updato Demo</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>Updato Demo</h1>
+      <span class="badge" id="version-badge">v1</span>
+    </div>
+    <div class="header-right">
+      <span class="status" id="updato-status">idle</span>
+      <button id="publish-btn" class="btn-primary">Publish new version</button>
+      <button id="reset-btn" class="btn-secondary">Reset</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card" id="clock-card">
+      <h2>Clock</h2>
+      <div id="clock-container">
+        <div class="clock-display" id="clock-display">--:--:--</div>
+        <div class="clock-format" id="clock-format">12h</div>
+      </div>
+    </section>
+
+    <section class="card" id="counter-card">
+      <h2>Counter</h2>
+      <div id="counter-container">
+        <div class="counter-value" id="counter-value">0</div>
+        <div class="counter-actions">
+          <button id="counter-dec" class="btn-counter">−</button>
+          <button id="counter-inc" class="btn-counter">+</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="theme-card">
+      <h2>Theme</h2>
+      <div id="theme-container">
+        <div class="theme-preview" id="theme-preview">
+          <span class="swatch" style="background:var(--accent)"></span>
+          <span class="swatch" style="background:var(--accent-light)"></span>
+          <span class="swatch" style="background:var(--accent-dark)"></span>
+        </div>
+        <div class="theme-label" id="theme-label">Ocean</div>
+      </div>
+    </section>
+
+    <section class="card" id="log-card">
+      <h2>Update Log</h2>
+      <div id="log-container">
+        <div class="log-empty" id="log-empty">No updates yet.</div>
+        <table class="log-table" id="log-table">
+          <thead><tr><th>Version</th><th>Files</th><th>Status</th></tr></thead>
+          <tbody id="log-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Open the console to see updato logs. Metrics are stored in localStorage.</p>
+  </footer>
+
+  <script type="module" src="./src/clock.js"></script>
+  <script type="module" src="./src/counter.js"></script>
+  <script type="module" src="./src/patches.js"></script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
