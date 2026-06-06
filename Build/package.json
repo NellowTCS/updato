@@ -1,7 +1,6 @@
 {
   "name": "updato",
   "version": "1.0.0",
-  "private": true,
   "description": "Updato client library",
   "main": "dist/updato.js",
   "module": "dist/updato.mjs",

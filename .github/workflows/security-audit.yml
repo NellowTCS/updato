@@ -1,0 +1,51 @@
+name: Security Audit
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "package-lock.json"
+      - "**/package.json"
+  pull_request:
+    branches: [main]
+    paths:
+      - "package-lock.json"
+      - "**/package.json"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Audit root
+        run: npm audit --audit-level=high || true
+
+      - name: Audit Build
+        working-directory: Build
+        run: npm audit --audit-level=high || true
+
+      - name: Audit Worker
+        working-directory: Worker
+        run: npm audit --audit-level=high || true
+
+      - name: Audit Action
+        working-directory: Action
+        run: npm audit --audit-level=high || true
+
+      - name: Audit Demo
+        working-directory: Demo
+        run: npm audit --audit-level=high || true
+
+      - name: Audit Docs
+        working-directory: Docs
+        run: npm audit --audit-level=high || true
