@@ -184,7 +184,7 @@ npm install updato
 Add to your app's entry point:
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {
@@ -213,7 +213,7 @@ async function handleUpdate(info) {
 If you want the built-in banner UI instead of building your own:
 
 ```typescript
-import { UpdateNotification } from "updato/update-ui";
+import { UpdateNotification } from "@nellowtcs/updato/update-ui";
 // in onUpdate:
 new UpdateNotification(updater).show(info);
 ```
@@ -270,7 +270,7 @@ npm install updato
 Creates an instance and starts initialization. Returns the instance immediately; initialization runs asynchronously.
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {
@@ -378,7 +378,7 @@ Read-only property. Returns the `DownloadMetrics` instance if one was passed in 
 A built-in banner that handles the update flow without custom UI code.
 
 ```typescript
-import { UpdateNotification } from "updato/update-ui";
+import { UpdateNotification } from "@nellowtcs/updato/update-ui";
 
 const notification = new UpdateNotification(updater, {
   heading: "Update available",
@@ -415,8 +415,8 @@ notification.show(info);
 ## Full Example
 
 ```typescript
-import { Updato } from "updato";
-import { UpdateNotification } from "updato/update-ui";
+import { Updato } from "@nellowtcs/updato";
+import { UpdateNotification } from "@nellowtcs/updato/update-ui";
 
 const updater = Updato.init(
   {
@@ -748,7 +748,7 @@ The `DownloadMetrics` class records timing and size data for every file download
 ## Usage
 
 ```typescript
-import { DownloadMetrics } from "updato/metrics";
+import { DownloadMetrics } from "@nellowtcs/updato/metrics";
 
 const metrics = new DownloadMetrics();
 
@@ -939,7 +939,7 @@ CSS hot-swap uses `CSSStyleSheet.replaceSync` and `adoptedStyleSheets` . No inli
 **Client-side:**
 
 ```typescript
-import { Updato } from "updato";
+import { Updato } from "@nellowtcs/updato";
 
 const updater = Updato.init(
   {

@@ -87,10 +87,10 @@
       Download Metrics : Updato
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1sf7kq">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mq1u3iyh">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1sf7kq" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1sf7kq" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mq1u3iyh" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mq1u3iyh" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Track download performance with localStorage-backed telemetry">
@@ -105,9 +105,9 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1sf7kq" >
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1sf7kq" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1sf7kq" >
+<link rel="stylesheet" href="../../assets/css/docmd-theme-sky.css?v=mq1u3iyh" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mq1u3iyh" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mq1u3iyh" >
 
     
     <script>/**
@@ -673,7 +673,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Download%20Metrics%22%0Adescription%3A%20%22Track%20download%20performance%20with%20localStorage-backed%20telemetry%22%0A---%0A%0AThe%20%60DownloadMetrics%60%20class%20records%20timing%20and%20size%20data%20for%20every%20file%20downloaded%20by%20%60downloadUpdate()%60.%20All%20data%20stays%20in%20%60localStorage%60%20and%20is%20never%20sent%20anywhere%20automatically.%0A%0A%23%23%20Usage%0A%0A%60%60%60typescript%0Aimport%20%7B%20DownloadMetrics%20%7D%20from%20%22updato%2Fmetrics%22%3B%0A%0Aconst%20metrics%20%3D%20new%20DownloadMetrics()%3B%0A%0Aconst%20updater%20%3D%20Updato.init(%7B%0A%20%20repo%3A%20%22my-org%2Fmy-app%22%2C%0A%20%20mode%3A%20%22version%22%2C%0A%20%20current%3A%20%221.0.0%22%2C%0A%20%20metrics%2C%0A%7D)%3B%0A%60%60%60%0A%0A%23%23%20Data%0A%0AEach%20entry%20recorded%3A%0A%0A%60%60%60typescript%0Ainterface%20MetricsEntry%20%7B%0A%20%20filename%3A%20string%3B%0A%20%20startTime%3A%20number%3B%0A%20%20endTime%3A%20number%3B%0A%20%20duration%3A%20number%3B%0A%20%20fileSize%3A%20number%3B%0A%20%20url%3A%20string%3B%0A%7D%0A%60%60%60%0A%0A%7C%20Field%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-------------%7C-----------------------------------------%7C%0A%7C%20%60filename%60%20%20%7C%20File%20path%20relative%20to%20version%20directory%20%7C%0A%7C%20%60startTime%60%20%7C%20%60performance.now()%60%20before%20fetch%20%20%20%20%20%20%20%20%7C%0A%7C%20%60endTime%60%20%20%20%7C%20%60performance.now()%60%20after%20fetch%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60duration%60%20%20%7C%20%60endTime%20-%20startTime%60%20in%20milliseconds%20%20%20%7C%0A%7C%20%60fileSize%60%20%20%7C%20Content%20length%20in%20bytes%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60url%60%20%20%20%20%20%20%20%7C%20Full%20download%20URL%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%0A%23%23%20Methods%0A%0A%7C%20Method%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-------------------%7C-------------------------------------------------%7C%0A%7C%20%60addEntry(entry)%60%20%7C%20Record%20one%20download%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60export()%60%20%20%20%20%20%20%20%20%7C%20Get%20all%20entries%20as%20an%20array%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60exportJson()%60%20%20%20%20%7C%20Get%20all%20entries%20formatted%20as%20JSON%20string%20%20%20%20%20%20%20%20%7C%0A%7C%20%60clear()%60%20%20%20%20%20%20%20%20%20%7C%20Remove%20all%20entries%20from%20memory%20and%20localStorage%20%7C%0A%0A%23%23%20Privacy%0A%0AMetrics%20are%20opt-in%20only.%20Pass%20a%20%60DownloadMetrics%60%20instance%20to%20the%20%60Updato%60%20config%20to%20enable%20recording.%20Without%20it%2C%20no%20data%20is%20collected.%20The%20data%20is%20never%20transmitted%20to%20any%20server%20by%20the%20library.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Full%20config%20reference%0A-%20%5BGitHub%20Action%5D(.%2Fgithub-action)%3A%20Set%20up%20the%20deployment%20pipeline%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Download%20Metrics%22%0Adescription%3A%20%22Track%20download%20performance%20with%20localStorage-backed%20telemetry%22%0A---%0A%0AThe%20%60DownloadMetrics%60%20class%20records%20timing%20and%20size%20data%20for%20every%20file%20downloaded%20by%20%60downloadUpdate()%60.%20All%20data%20stays%20in%20%60localStorage%60%20and%20is%20never%20sent%20anywhere%20automatically.%0A%0A%23%23%20Usage%0A%0A%60%60%60typescript%0Aimport%20%7B%20DownloadMetrics%20%7D%20from%20%22%40nellowtcs%2Fupdato%2Fmetrics%22%3B%0A%0Aconst%20metrics%20%3D%20new%20DownloadMetrics()%3B%0A%0Aconst%20updater%20%3D%20Updato.init(%7B%0A%20%20repo%3A%20%22my-org%2Fmy-app%22%2C%0A%20%20mode%3A%20%22version%22%2C%0A%20%20current%3A%20%221.0.0%22%2C%0A%20%20metrics%2C%0A%7D)%3B%0A%60%60%60%0A%0A%23%23%20Data%0A%0AEach%20entry%20recorded%3A%0A%0A%60%60%60typescript%0Ainterface%20MetricsEntry%20%7B%0A%20%20filename%3A%20string%3B%0A%20%20startTime%3A%20number%3B%0A%20%20endTime%3A%20number%3B%0A%20%20duration%3A%20number%3B%0A%20%20fileSize%3A%20number%3B%0A%20%20url%3A%20string%3B%0A%7D%0A%60%60%60%0A%0A%7C%20Field%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-------------%7C-----------------------------------------%7C%0A%7C%20%60filename%60%20%20%7C%20File%20path%20relative%20to%20version%20directory%20%7C%0A%7C%20%60startTime%60%20%7C%20%60performance.now()%60%20before%20fetch%20%20%20%20%20%20%20%20%7C%0A%7C%20%60endTime%60%20%20%20%7C%20%60performance.now()%60%20after%20fetch%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60duration%60%20%20%7C%20%60endTime%20-%20startTime%60%20in%20milliseconds%20%20%20%7C%0A%7C%20%60fileSize%60%20%20%7C%20Content%20length%20in%20bytes%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60url%60%20%20%20%20%20%20%20%7C%20Full%20download%20URL%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%0A%23%23%20Methods%0A%0A%7C%20Method%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Description%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C-------------------%7C-------------------------------------------------%7C%0A%7C%20%60addEntry(entry)%60%20%7C%20Record%20one%20download%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60export()%60%20%20%20%20%20%20%20%20%7C%20Get%20all%20entries%20as%20an%20array%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%0A%7C%20%60exportJson()%60%20%20%20%20%7C%20Get%20all%20entries%20formatted%20as%20JSON%20string%20%20%20%20%20%20%20%20%7C%0A%7C%20%60clear()%60%20%20%20%20%20%20%20%20%20%7C%20Remove%20all%20entries%20from%20memory%20and%20localStorage%20%7C%0A%0A%23%23%20Privacy%0A%0AMetrics%20are%20opt-in%20only.%20Pass%20a%20%60DownloadMetrics%60%20instance%20to%20the%20%60Updato%60%20config%20to%20enable%20recording.%20Without%20it%2C%20no%20data%20is%20collected.%20The%20data%20is%20never%20transmitted%20to%20any%20server%20by%20the%20library.%0A%0A%23%23%20Next%20Steps%0A%0A-%20%5BClient%20Library%5D(.%2Fclient-library)%3A%20Full%20config%20reference%0A-%20%5BGitHub%20Action%5D(.%2Fgithub-action)%3A%20Set%20up%20the%20deployment%20pipeline%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -764,7 +764,7 @@
                 
                 <p>The <code>DownloadMetrics</code> class records timing and size data for every file downloaded by <code>downloadUpdate()</code>. All data stays in <code>localStorage</code> and is never sent anywhere automatically.</p>
 <h2 id="usage" class="docmd-heading"><a href="#usage" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Usage</h2>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> { DownloadMetrics } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;updato/metrics&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { DownloadMetrics } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@nellowtcs/updato/metrics&quot;</span>;
 
 <span class="hljs-keyword">const</span> metrics <span class="hljs-punctuation">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">DownloadMetrics</span>();
 
@@ -939,13 +939,13 @@
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1780716113000">
+                <span class="git-last-updated" data-timestamp="1780718929000">
                   <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1780716113000"></span>
+                  <span class="git-time" data-timestamp="1780718929000"></span>
                   
                   <div class="git-commit-tooltip" role="tooltip">
                     <div class="git-tooltip-title">Recent commits</div>
@@ -958,10 +958,10 @@
                             
                           </div>
                           <div class="git-commit-details">
-                            <div class="git-commit-message" title="Some improvements and README">Some improvements and README</div>
+                            <div class="git-commit-message" title="Fixes">Fixes</div>
                             <div class="git-commit-meta">
                               <span class="git-commit-author">NellowTCS</span>
-                              <span class="git-commit-date" data-timestamp="1780716113000"></span>
+                              <span class="git-commit-date" data-timestamp="1780718929000"></span>
                             </div>
                           </div>
                         </li>
@@ -992,14 +992,14 @@
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-main.js?v=mq1sf7kq"></script>
+      <script src="../../assets/js/docmd-main.js?v=mq1u3iyh"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mq1sf7kq"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1sf7kq" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mq1u3iyh"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mq1u3iyh" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mq1sf7kq" ></script>
-<script src="../../assets/js/init-mermaid.js?v=mq1sf7kq" type="module"></script>
-<script src="../../assets/js/docmd-git.js?v=mq1sf7kq" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mq1u3iyh" ></script>
+<script src="../../assets/js/init-mermaid.js?v=mq1u3iyh" type="module"></script>
+<script src="../../assets/js/docmd-git.js?v=mq1u3iyh" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
