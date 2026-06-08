@@ -7,6 +7,8 @@ Push updates from GitHub, applied live in the browser with no server.
 
 Updato is a decentralized update system for web apps. A GitHub Action publishes build artifacts to a CDN branch. A Cloudflare Worker tells clients when a new version exists. The client downloads and hot-swaps files without a page reload.
 
+[Try the live demo](https://nellowtcs.me/updato) to see Updato in action. Each version changes the app's theme colors, clock format, and counter step size. Press **Publish new version** to trigger an update notification, then **Apply** to hot-swap the new CSS and scripts without reloading the page.
+
 ## How it works
 
 ```txt
