@@ -16,7 +16,7 @@
     "@cloudflare/workers-types": "^5.20260705.1",
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "globals": "^17.7.0",
     "jest": "^30.4.2",
     "jiti": "^2.7.0",
