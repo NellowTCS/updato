@@ -60,7 +60,7 @@
     "ts-jest": "^29.4.11",
     "tsdown": "^0.22.5",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.1",
+    "typescript-eslint": "^8.64.0",
     "unrun": "^0.3.1"
   }
 }
