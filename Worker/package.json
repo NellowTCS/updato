@@ -24,6 +24,6 @@
     "ts-jest": "^29.4.11",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.64.0",
-    "wrangler": "^4.110.0"
+    "wrangler": "^4.112.0"
   }
 }
