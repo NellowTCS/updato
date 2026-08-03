@@ -1,6 +1,5 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
+/** @type {import('@swc/jest').Config} */
 module.exports = {
-  preset: "ts-jest",
   testEnvironment: "node",
   roots: ["<rootDir>/src"],
   testMatch: ["**/__tests__/**/*.test.ts"],
@@ -10,6 +9,23 @@ module.exports = {
     "^@actions/exec$": "<rootDir>/src/__mocks__/@actions/exec.ts",
   },
   transform: {
-    "^.+\\.ts$": ["ts-jest", { tsconfig: "tsconfig.test.json" }],
+    "^.+\\.ts$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+          },
+          transform: {
+            hidden: {
+              jest: true,
+            },
+          },
+        },
+        module: {
+          type: "commonjs",
+        },
+      },
+    ],
   },
 };

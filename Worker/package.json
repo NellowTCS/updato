@@ -15,14 +15,15 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260719.1",
     "@eslint/js": "^10.0.1",
+    "@swc/core": "^1.15.47",
+    "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
     "eslint": "^10.7.0",
     "globals": "^17.7.0",
     "jest": "^30.4.2",
     "jiti": "^2.7.0",
     "prettier": "^3.9.5",
-    "ts-jest": "^29.4.11",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "typescript-eslint": "^8.64.0",
     "wrangler": "^4.112.0"
   }

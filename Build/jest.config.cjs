@@ -1,11 +1,27 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
+/** @type {import('@swc/jest').Config} */
 module.exports = {
-  preset: "ts-jest",
   testEnvironment: "jsdom",
   roots: ["<rootDir>/src"],
   testMatch: ["**/__tests__/**/*.test.ts"],
   transform: {
-    "^.+\\.ts$": ["ts-jest", { tsconfig: "tsconfig.test.json" }],
+    "^.+\\.ts$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+          },
+          transform: {
+            hidden: {
+              jest: true,
+            },
+          },
+        },
+        module: {
+          type: "commonjs",
+        },
+      },
+    ],
   },
   setupFiles: ["<rootDir>/jest.setup.js"],
 };
