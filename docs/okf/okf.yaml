@@ -1,0 +1,88 @@
+okf_version: 0.8.17
+bundle:
+  name: updato
+  title: Updato
+  description: ""
+  url: "https://nellowtcs.me/updato/docs"
+  generated_by: "@docmd/plugin-okf"
+  generated_at: "2026-08-03T18:05:15.035Z"
+  default_type: concept
+stats:
+  concepts: 9
+  by_type:
+    concept: 9
+  locales: 
+  versions: 
+concepts:
+  - id: getting-started-concepts
+    type: concept
+    title: "Core Concepts"
+    path: /getting-started/concepts/
+    file: concepts/getting-started-concepts.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: getting-started-quickstart
+    type: concept
+    title: "Quick Start"
+    path: /getting-started/quickstart/
+    file: concepts/getting-started-quickstart.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: guide-client-library
+    type: concept
+    title: "Client Library"
+    path: /guide/client-library/
+    file: concepts/guide-client-library.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: guide-github-action
+    type: concept
+    title: "GitHub Action"
+    path: /guide/github-action/
+    file: concepts/guide-github-action.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: guide-hot-swap
+    type: concept
+    title: "Hot-Swap Internals"
+    path: /guide/hot-swap/
+    file: concepts/guide-hot-swap.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: guide-manifest
+    type: concept
+    title: Manifest
+    path: /guide/manifest/
+    file: concepts/guide-manifest.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: guide-metrics
+    type: concept
+    title: "Download Metrics"
+    path: /guide/metrics/
+    file: concepts/guide-metrics.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: guide-worker
+    type: concept
+    title: Worker
+    path: /guide/worker/
+    file: concepts/guide-worker.md
+    locale: ""
+    version: ""
+    tags: 
+  - id: root
+    type: concept
+    title: Updato
+    path: /
+    file: concepts/root.md
+    locale: ""
+    version: ""
+    tags: 
