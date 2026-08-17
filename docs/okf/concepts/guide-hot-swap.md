@@ -4,10 +4,10 @@ title: "Hot-Swap Internals"
 description: "How scripts, stylesheets, and images are replaced live"
 source: "https://nellowtcs.me/updato/docs/guide/hot-swap/"
 path: /guide/hot-swap/
-updated: 2026-08-14
+updated: 2026-08-17
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-14T06:39:14.803Z"
+  generated_at: "2026-08-17T02:19:32.331Z"
 ---
 ---
 title: "Hot-Swap Internals"

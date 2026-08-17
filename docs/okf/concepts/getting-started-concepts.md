@@ -4,10 +4,10 @@ title: "Core Concepts"
 description: "How Updato works: Action, Worker, and Client"
 source: "https://nellowtcs.me/updato/docs/getting-started/concepts/"
 path: /getting-started/concepts/
-updated: 2026-08-14
+updated: 2026-08-17
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-14T06:39:14.800Z"
+  generated_at: "2026-08-17T02:19:32.329Z"
 ---
 ---
 title: "Core Concepts"

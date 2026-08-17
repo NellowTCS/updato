@@ -4,10 +4,10 @@ title: "GitHub Action"
 description: "Action inputs, workflow setup, and deployment reference"
 source: "https://nellowtcs.me/updato/docs/guide/github-action/"
 path: /guide/github-action/
-updated: 2026-08-14
+updated: 2026-08-17
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-14T06:39:14.802Z"
+  generated_at: "2026-08-17T02:19:32.331Z"
 ---
 ---
 title: "GitHub Action"
@@ -82,7 +82,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: npm ci
 
       - uses: NellowTCS/updato@1.0.3
