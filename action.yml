@@ -38,5 +38,5 @@ inputs:
     required: false
     default: "updato@users.noreply.github.com"
 runs:
-  using: node20
+  using: node22
   main: dist/index.js
