@@ -59,7 +59,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "jiti": "^2.7.0",
     "prettier": "^3.9.6",
-    "tsdown": "^0.22.12",
+    "tsdown": "^0.22.14",
     "typescript": "^7.0.2",
     "typescript-eslint": "^8.64.0",
     "unrun": "^0.3.1"
