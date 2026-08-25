@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@docmd/core": "^0.8.17",
-    "@docmd/plugin-git": "^0.8.17"
+    "@docmd/plugin-git": "^0.9.3"
   }
 }
