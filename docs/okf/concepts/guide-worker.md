@@ -4,10 +4,10 @@ title: Worker
 description: "Deploy and configure the Cloudflare Worker"
 source: "https://nellowtcs.me/updato/docs/guide/worker/"
 path: /guide/worker/
-updated: 2026-08-17
+updated: 2026-08-25
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-17T02:19:59.211Z"
+  generated_at: "2026-08-25T14:51:45.722Z"
 ---
 ---
 title: "Worker"
