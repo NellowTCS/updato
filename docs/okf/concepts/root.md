@@ -7,7 +7,7 @@ path: /
 updated: 2026-08-25
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-25T16:37:52.608Z"
+  generated_at: "2026-08-25T16:47:28.660Z"
 ---
 ---
 title: "Updato"
