@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260719.1",
+    "@cloudflare/workers-types": "^5.20260822.1",
     "@eslint/js": "^10.0.1",
     "@swc/core": "^1.16.1",
     "@swc/jest": "^0.2.39",
