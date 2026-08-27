@@ -4,10 +4,10 @@ title: "Quick Start"
 description: "Set up Updato end to end in about 10 minutes"
 source: "https://nellowtcs.me/updato/docs/getting-started/quickstart/"
 path: /getting-started/quickstart/
-updated: 2026-08-25
+updated: 2026-08-27
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-25T16:47:28.656Z"
+  generated_at: "2026-08-27T15:55:52.035Z"
 ---
 ---
 title: "Quick Start"
