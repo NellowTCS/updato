@@ -4,10 +4,10 @@ title: "GitHub Action"
 description: "Action inputs, workflow setup, and deployment reference"
 source: "https://nellowtcs.me/updato/docs/guide/github-action/"
 path: /guide/github-action/
-updated: 2026-08-27
+updated: 2026-09-01
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-08-27T15:55:52.037Z"
+  generated_at: "2026-09-01T14:58:59.089Z"
 ---
 ---
 title: "GitHub Action"
