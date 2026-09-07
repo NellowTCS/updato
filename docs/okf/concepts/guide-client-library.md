@@ -4,10 +4,10 @@ title: "Client Library"
 description: "Updato class, config, events, and API reference"
 source: "https://nellowtcs.me/updato/docs/guide/client-library/"
 path: /guide/client-library/
-updated: 2026-09-04
+updated: 2026-09-07
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-09-04T15:28:58.568Z"
+  generated_at: "2026-09-07T17:40:36.198Z"
 ---
 ---
 title: "Client Library"
