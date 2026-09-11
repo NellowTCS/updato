@@ -4,10 +4,10 @@ title: Manifest
 description: "Manifest format, validation, and lifecycle"
 source: "https://nellowtcs.me/updato/docs/guide/manifest/"
 path: /guide/manifest/
-updated: 2026-09-07
+updated: 2026-09-11
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-09-07T17:43:43.381Z"
+  generated_at: "2026-09-11T07:40:05.545Z"
 ---
 ---
 title: "Manifest"
