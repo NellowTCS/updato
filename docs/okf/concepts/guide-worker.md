@@ -7,7 +7,7 @@ path: /guide/worker/
 updated: 2026-09-21
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-09-21T15:30:19.254Z"
+  generated_at: "2026-09-21T15:30:34.799Z"
 ---
 ---
 title: "Worker"
