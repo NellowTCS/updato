@@ -7,7 +7,7 @@ path: /guide/manifest/
 updated: 2026-09-21
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-09-21T15:30:34.798Z"
+  generated_at: "2026-09-21T15:30:42.127Z"
 ---
 ---
 title: "Manifest"
