@@ -7,7 +7,7 @@ path: /guide/github-action/
 updated: 2026-09-28
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-09-28T23:34:26.595Z"
+  generated_at: "2026-09-28T23:35:11.592Z"
 ---
 ---
 title: "GitHub Action"
