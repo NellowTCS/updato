@@ -4,10 +4,10 @@ title: Updato
 description: "Push updates from GitHub, applied live in the browser with no server"
 source: "https://nellowtcs.me/updato/docs/"
 path: /
-updated: 2026-09-28
+updated: 2026-10-09
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-09-28T23:37:51.948Z"
+  generated_at: "2026-10-09T11:14:34.041Z"
 ---
 ---
 title: "Updato"
