@@ -1,11 +1,11 @@
-okf_version: 0.8.17
+okf_version: 0.9.7
 bundle:
   name: updato
   title: Updato
   description: ""
   url: "https://nellowtcs.me/updato/docs"
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-10-09T11:16:22.675Z"
+  generated_at: "2026-10-09T11:19:00.216Z"
   default_type: concept
 stats:
   concepts: 9
@@ -17,6 +17,7 @@ concepts:
   - id: getting-started-concepts
     type: concept
     title: "Core Concepts"
+    description: "How Updato works: Action, Worker, and Client"
     path: /getting-started/concepts/
     file: concepts/getting-started-concepts.md
     locale: ""
@@ -25,6 +26,7 @@ concepts:
   - id: getting-started-quickstart
     type: concept
     title: "Quick Start"
+    description: "Set up Updato end to end in about 10 minutes"
     path: /getting-started/quickstart/
     file: concepts/getting-started-quickstart.md
     locale: ""
@@ -33,6 +35,7 @@ concepts:
   - id: guide-client-library
     type: concept
     title: "Client Library"
+    description: "Updato class, config, events, and API reference"
     path: /guide/client-library/
     file: concepts/guide-client-library.md
     locale: ""
@@ -41,6 +44,7 @@ concepts:
   - id: guide-github-action
     type: concept
     title: "GitHub Action"
+    description: "Action inputs, workflow setup, and deployment reference"
     path: /guide/github-action/
     file: concepts/guide-github-action.md
     locale: ""
@@ -49,6 +53,7 @@ concepts:
   - id: guide-hot-swap
     type: concept
     title: "Hot-Swap Internals"
+    description: "How scripts, stylesheets, and images are replaced live"
     path: /guide/hot-swap/
     file: concepts/guide-hot-swap.md
     locale: ""
@@ -57,6 +62,7 @@ concepts:
   - id: guide-manifest
     type: concept
     title: Manifest
+    description: "Manifest format, validation, and lifecycle"
     path: /guide/manifest/
     file: concepts/guide-manifest.md
     locale: ""
@@ -65,6 +71,7 @@ concepts:
   - id: guide-metrics
     type: concept
     title: "Download Metrics"
+    description: "Track download performance with localStorage-backed telemetry"
     path: /guide/metrics/
     file: concepts/guide-metrics.md
     locale: ""
@@ -73,6 +80,7 @@ concepts:
   - id: guide-worker
     type: concept
     title: Worker
+    description: "Deploy and configure the Cloudflare Worker"
     path: /guide/worker/
     file: concepts/guide-worker.md
     locale: ""
@@ -81,6 +89,7 @@ concepts:
   - id: root
     type: concept
     title: Updato
+    description: "Push updates from GitHub, applied live in the browser with no server"
     path: /
     file: concepts/root.md
     locale: ""
