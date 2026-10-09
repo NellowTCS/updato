@@ -7,7 +7,7 @@ path: /guide/hot-swap/
 updated: 2026-10-09
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-10-09T11:19:00.213Z"
+  generated_at: "2026-10-09T11:32:01.863Z"
 ---
 ---
 title: "Hot-Swap Internals"
