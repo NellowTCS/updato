@@ -4,10 +4,10 @@ title: "Download Metrics"
 description: "Track download performance with localStorage-backed telemetry"
 source: "https://nellowtcs.me/updato/docs/guide/metrics/"
 path: /guide/metrics/
-updated: 2026-10-18
+updated: 2026-10-26
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-10-18T20:09:21.633Z"
+  generated_at: "2026-10-26T18:18:48.777Z"
 ---
 ---
 title: "Download Metrics"
