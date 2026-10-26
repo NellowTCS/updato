@@ -7,7 +7,7 @@ path: /guide/metrics/
 updated: 2026-10-26
 okf:
   generated_by: "@docmd/plugin-okf"
-  generated_at: "2026-10-26T18:37:33.928Z"
+  generated_at: "2026-10-26T18:38:55.849Z"
 ---
 ---
 title: "Download Metrics"
